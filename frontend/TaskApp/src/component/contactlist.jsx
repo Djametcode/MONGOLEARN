@@ -1,39 +1,55 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const ContactMap = ({ data }) => {
+const DeleteButton = ({ id, data, setContact }) => {
+  const deleteContact = async () => {
+    await axios.delete(`http://localhost:3000/api/v3/user/${id}`);
+    const index = await data.filter((item) => item._id !== id);
+
+    setContact(index);
+  };
+  return (
+    <button
+      onClick={deleteContact}
+      className=" bg-slate-300/50 p-2 rounded-lg absolute bottom-2 left-2"
+    >
+      Hapus Kontak
+    </button>
+  );
+};
+const ContactMap = ({ data, setContact }) => {
   const result = data.map((item) => (
-    <li className=" bg-slate-50 p-4 rounded-lg h-60">
+    <li
+      key={item._id}
+      className=" bg-slate-50 p-4 rounded-lg h-60 relative z-0"
+    >
       <p>Nama : {item.username}</p>
       <p>Alamat: {item.address}</p>
+      <DeleteButton id={item._id} data={data} setContact={setContact} />
     </li>
   ));
   return <ul className=" flex flex-col gap-3 text-lg">{result}</ul>;
 };
 
 const List = () => {
-  const url = "http://localhost:3000/api/v3/user";
-
-  //state
   const [contact, setContact] = useState([]);
-
+  const getAllData = async () => {
+    const url = "http://localhost:3000/api/v3/user";
+    try {
+      const response = await axios.get(url);
+      const item = response.data;
+      const { data } = item;
+      setContact(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
-    const getAllData = async () => {
-      try {
-        const response = await axios.get(url);
-        const item = response.data;
-        const { data } = item;
-        console.log(data);
-        setContact(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getAllData();
   }, []);
   return (
     <div>
-      <ContactMap data={contact} />
+      <ContactMap data={contact} setContact={setContact} />
     </div>
   );
 };

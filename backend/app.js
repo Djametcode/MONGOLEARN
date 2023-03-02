@@ -2,6 +2,7 @@ import {} from "dotenv/config";
 import express from "express";
 import { connectDB } from "./db/connect.js";
 import cors from "cors";
+import ServerlessHttp from "serverless-http";
 
 const app = express();
 const port = process.env.PORT || 3000;
