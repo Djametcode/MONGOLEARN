@@ -18,7 +18,10 @@ const Input = () => {
       await setUsername(usernameref.current.value);
       await setAddress(addressRef.current.value);
 
-      await axios.post("http://localhost:3000/api/v3/user", data);
+      await axios.post(
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/user",
+        data
+      );
     } catch (error) {
       console.log(error);
     }

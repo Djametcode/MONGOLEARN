@@ -3,7 +3,9 @@ import axios from "axios";
 
 const DeleteButton = ({ id, data, setContact }) => {
   const deleteContact = async () => {
-    await axios.delete(`http://localhost:3000/api/v3/user/${id}`);
+    await axios.delete(
+      `https://grumpy-worm-stockings.cyclic.app/api/v3/user/${id}`
+    );
     const index = await data.filter((item) => item._id !== id);
 
     setContact(index);
@@ -34,7 +36,7 @@ const ContactMap = ({ data, setContact }) => {
 const List = () => {
   const [contact, setContact] = useState([]);
   const getAllData = async () => {
-    const url = "http://localhost:3000/api/v3/user";
+    const url = "https://grumpy-worm-stockings.cyclic.app/api/v3/user";
     try {
       const response = await axios.get(url);
       const item = response.data;
