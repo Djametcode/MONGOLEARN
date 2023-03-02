@@ -1,12 +1,15 @@
 import {} from "dotenv/config";
 import express from "express";
 import { connectDB } from "./db/connect.js";
+import cors from "cors";
+
 const app = express();
 const port = process.env.PORT || 3000;
 
 //router import
 import { router } from "./routes/routes.js";
 
+app.use(cors());
 app.use(express.json());
 app.use("/api/v3/user", router);
 
