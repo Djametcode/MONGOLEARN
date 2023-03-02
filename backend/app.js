@@ -14,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/v3/user", router);
 
+ServerlessHttp(app);
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
