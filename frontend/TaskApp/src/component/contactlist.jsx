@@ -13,7 +13,7 @@ const UpdateMenu = ({ id }) => {
   const data = {
     username: nama,
     address: alamat,
-    secretmsg: secretmsg,
+    secret: secretmsg,
   };
   const updatedata = async () => {
     try {

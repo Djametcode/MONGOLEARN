@@ -13,7 +13,7 @@ const Input = () => {
   const data = {
     username: username,
     address: address,
-    secretmsg: secretmsg,
+    secret: secretmsg,
   };
   console.log(data);
   const handleSubmit = async () => {
