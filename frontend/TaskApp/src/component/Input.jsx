@@ -29,7 +29,7 @@ const Input = () => {
   const handleChange = () => {
     setUsername(usernameref.current.value);
     setAddress(addressRef.current.value);
-    setSecret(addressRef.current.value);
+    setSecret(secretMsgRef.current.value);
   };
   return (
     <div>
