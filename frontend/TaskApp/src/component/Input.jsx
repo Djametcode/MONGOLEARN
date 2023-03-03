@@ -18,10 +18,7 @@ const Input = () => {
   console.log(data);
   const handleSubmit = async () => {
     try {
-      await setUsername(usernameref.current.value);
-      await setAddress(addressRef.current.value);
-      await setSecret(secretMsgRef.current.value);
-      await await axios.post(
+      await axios.post(
         "https://grumpy-worm-stockings.cyclic.app/api/v3/user",
         data
       );
@@ -41,16 +38,16 @@ const Input = () => {
         className=" bg-slate-600/50 h-full p-7 m-2 rounded-xl flex flex-col gap-2 font-quick"
       >
         <input
-          className=" p-2 focus:outline-none rounded-lg"
+          className=" p-2 focus:outline-none rounded-lg focus:bg-slate-600 focus:text-white/20"
           type="text"
-          placeholder="Username"
+          placeholder="Nama"
           ref={usernameref}
           onChange={handleChange}
         />
         <input
-          className=" p-2 focus:outline-none rounded-lg"
+          className=" p-2 focus:outline-none rounded-lg focus:bg-slate-600 focus:text-white/20"
           type="text"
-          placeholder="Address"
+          placeholder="Alamat"
           ref={addressRef}
           onChange={handleChange}
         />
@@ -67,9 +64,9 @@ const Input = () => {
         <div className=" flex justify-center">
           <input
             onClick={handleSubmit}
-            className=" bg-slate-300 p-2 rounded-lg w-32"
+            className=" bg-slate-300 p-2 rounded-lg"
             type="submit"
-            value="Tambah Kontak"
+            value="Kirim Pesan Rahasia"
           />
         </div>
       </form>

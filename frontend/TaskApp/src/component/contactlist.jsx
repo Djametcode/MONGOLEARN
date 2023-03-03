@@ -1,6 +1,85 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
+const UpdateMenu = ({ id }) => {
+  const [nama, setnama] = useState("");
+  const [alamat, setalamat] = useState("");
+  const [secretmsg, setSecret] = useState("");
+
+  const namaref = useRef();
+  const alamatref = useRef();
+  const secretref = useRef();
+
+  const data = {
+    username: nama,
+    address: alamat,
+    secretmsg: secretmsg,
+  };
+  const updatedata = async () => {
+    try {
+      await axios.post(
+        `https://grumpy-worm-stockings.cyclic.app/api/v3/user/${id}`,
+        data
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleChange = () => {
+    setnama(namaref.current.value);
+    setalamat(alamatref.current.value);
+    setSecret(secretref.current.value);
+  };
+  return (
+    <div className=" p-3 shadow-lg">
+      <form className=" pt-3 rounded-lg p-2 flex flex-col gap-1" action="/">
+        <input
+          className=" bg-slate-100 w-full p-1 rounded-lg focus:outline-none"
+          type="text"
+          placeholder="Nama.."
+          onChange={handleChange}
+        />
+        <input
+          className=" bg-slate-100 w-full p-1 rounded-lg focus:outline-none"
+          type="text"
+          placeholder="Alamat..."
+          onChange={handleChange}
+        />
+        <input
+          className=" bg-slate-100 w-full p-1 rounded-lg focus:outline-none"
+          type="text"
+          placeholder="Secret Message terbaru.. !"
+          onChange={handleChange}
+        />
+        <div className=" flex justify-center">
+          <input
+            onClick={updatedata}
+            type="submit"
+            value="update"
+            className=" bg-slate-100 text-slate-400 p-1 rounded-lg"
+          />
+        </div>
+      </form>
+    </div>
+  );
+};
+
+const UpdateButton = ({ click }) => {
+  return (
+    <>
+      <div>
+        <button
+          onClick={click}
+          className=" text-sm bg-slate-300/50 p-2 rounded-lg"
+        >
+          Update Kontak
+        </button>
+      </div>
+    </>
+  );
+};
+
 const DeleteButton = ({ id, data, setContact }) => {
   const deleteContact = async () => {
     await axios.delete(
@@ -13,7 +92,7 @@ const DeleteButton = ({ id, data, setContact }) => {
   return (
     <button
       onClick={deleteContact}
-      className=" bg-slate-300/50 p-2 rounded-lg absolute bottom-2 left-2"
+      className=" bg-slate-300/50 p-2 rounded-lg text-sm"
     >
       Hapus Kontak
     </button>
@@ -23,8 +102,10 @@ const DeleteButton = ({ id, data, setContact }) => {
 const SecretMessage = ({ data }) => {
   console.log(data);
   return (
-    <div className=" bg-slate-400/60 rounded-lg">
-      <p className=" p-2 pb-44 mb-11 mt-2">{data}</p>
+    <div className=" bg-slate-400/30 rounded-lg text-sm">
+      <p className=" p-2 pb-44 mt-2">
+        <q>{data}</q>
+      </p>
     </div>
   );
 };
@@ -38,7 +119,7 @@ const ToggleSecretMessage = ({ data }) => {
     }
   };
   return (
-    <div className=" text-center">
+    <div className=" text-center p-3">
       <input
         className=" hidden"
         ref={checkRef}
@@ -46,7 +127,7 @@ const ToggleSecretMessage = ({ data }) => {
         id="secretmsg"
       />
       <label
-        className=" bg-slate-400/40 text-sm underline p-2 text-black/50 rounded-lg"
+        className=" text-sm underline p-2 text-black/50 rounded-lg"
         onClick={toggleSecretMsg}
         htmlFor="secretmsg"
       >
@@ -58,19 +139,30 @@ const ToggleSecretMessage = ({ data }) => {
 };
 
 const ContactMap = ({ data, setContact }) => {
+  const [updateMenu, setUpdate] = useState(false);
+  const toggleMenu = () => {
+    setUpdate(true);
+  };
   const result = data.map((item) => (
-    <li
+    <div
       key={item._id}
-      className=" bg-slate-50 p-4 rounded-lg h-full relative z-0 pb-16"
+      className=" bg-slate-50 p-5 rounded-lg h-full relative z-0 text-base"
     >
-      <p>Nama : {item.username}</p>
-      <p>Alamat: {item.address}</p>
-      <p>Tanggal di buat: {item.date}</p>
-      <ToggleSecretMessage data={item.secretMessage} />
-      <DeleteButton id={item._id} data={data} setContact={setContact} />
-    </li>
+      <div className=" bg-slate-200/50 p-1 rounded-lg relative z-20">
+        <p>Nama : {item.username}</p>
+        <p>Alamat: {item.address}</p>
+        <p>Tanggal di buat: {item.date}</p>
+      </div>
+
+      <ToggleSecretMessage data={item.secretmsg} />
+      <div className=" flex justify-around gap-3">
+        <DeleteButton id={item._id} data={data} setContact={setContact} />
+        <UpdateButton click={toggleMenu} />
+      </div>
+      {updateMenu && <UpdateMenu id={item._id} />}
+    </div>
   ));
-  return <ul className=" flex flex-col gap-3 text-lg">{result}</ul>;
+  return <div className=" flex flex-col gap-3 text-lg">{result}</div>;
 };
 
 const List = () => {
@@ -103,7 +195,7 @@ const ContactList = () => {
         className=" text-center p-3
       "
       >
-        Contact List From database
+        Secret Message List From database
       </h1>
       <div>
         <List />
