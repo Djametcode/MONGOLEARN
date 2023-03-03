@@ -2,7 +2,6 @@ import {} from "dotenv/config";
 import express from "express";
 import { connectDB } from "./db/connect.js";
 import cors from "cors";
-import ServerlessHttp from "serverless-http";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,7 +13,6 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/v3/user", router);
 
-ServerlessHttp(app);
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
