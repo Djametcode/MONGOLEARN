@@ -27,6 +27,7 @@ const ContactMap = ({ data, setContact }) => {
     >
       <p>Nama : {item.username}</p>
       <p>Alamat: {item.address}</p>
+      <p>Tanggal di buat: {item.date}</p>
       <DeleteButton id={item._id} data={data} setContact={setContact} />
     </li>
   ));
