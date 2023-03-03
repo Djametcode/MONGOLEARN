@@ -17,10 +17,11 @@ const UpdateMenu = ({ id }) => {
   };
   const updatedata = async () => {
     try {
-      await axios.post(
+      await axios.patch(
         `https://grumpy-worm-stockings.cyclic.app/api/v3/user/${id}`,
         data
       );
+      console.log(id);
     } catch (error) {
       console.log(error);
     }
@@ -38,12 +39,14 @@ const UpdateMenu = ({ id }) => {
           className=" bg-slate-100 w-full p-1 rounded-lg focus:outline-none"
           type="text"
           placeholder="Nama.."
+          ref={namaref}
           onChange={handleChange}
         />
         <input
           className=" bg-slate-100 w-full p-1 rounded-lg focus:outline-none"
           type="text"
           placeholder="Alamat..."
+          ref={alamatref}
           onChange={handleChange}
         />
         <input
@@ -51,6 +54,7 @@ const UpdateMenu = ({ id }) => {
           type="text"
           placeholder="Secret Message terbaru.. !"
           onChange={handleChange}
+          ref={secretref}
         />
         <div className=" flex justify-center">
           <input

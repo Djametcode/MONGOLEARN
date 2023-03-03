@@ -39,8 +39,8 @@ const deleteDAtaById = async (req, res) => {
 const UpdateData = async (req, res) => {
   try {
     const { Id } = req.params;
-    const { username, address } = req.body;
-    if (!username || !address) {
+    const { username, address, secretmsg } = req.body;
+    if (!username || !address || !secretmsg) {
       return res.status(501).json({ msg: "Tolong isi username dan address" });
     }
     const data = await model.findOneAndUpdate({ _id: Id }, req.body, {
