@@ -137,12 +137,13 @@ const ToggleSecretMessage = ({ data }) => {
       >
         Klik untuk tampilkan Pesan Rahasia
       </label>
-      {secret && <SecretMessage data={data} />}
+      {secret && <SecretMessage text={data} />}
     </div>
   );
 };
 
 const ContactMap = ({ data, setContact }) => {
+  console.log(data);
   const [updateMenu, setUpdate] = useState(false);
   const toggleMenu = () => {
     setUpdate(true);
@@ -155,10 +156,10 @@ const ContactMap = ({ data, setContact }) => {
       <div className=" bg-slate-200/50 p-1 rounded-lg relative z-20">
         <p>Nama : {item.username}</p>
         <p>Alamat: {item.address}</p>
-        <p>Tanggal di buat: {item.date}</p>
+        <p>Tanggal di buat: {item.secret}</p>
       </div>
 
-      <ToggleSecretMessage data={item.secretmsg} />
+      <ToggleSecretMessage data={item.secret} />
       <div className=" flex justify-around gap-3">
         <DeleteButton id={item._id} data={data} setContact={setContact} />
         <UpdateButton click={toggleMenu} />

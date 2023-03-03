@@ -14,7 +14,7 @@ const Schema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
-  secretmsg: {
+  secret: {
     type: String,
     default: "Gak ada secret message",
   },
