@@ -12,7 +12,11 @@ const Schema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    default: Date.now,
+    default: new Date().getHours() + ":" + new Date().getMinutes,
+  },
+  secretMessage: {
+    type: String,
+    default: "Gak ada secret message",
   },
 });
 
