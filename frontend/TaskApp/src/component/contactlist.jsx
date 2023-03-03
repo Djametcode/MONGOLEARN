@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 const DeleteButton = ({ id, data, setContact }) => {
@@ -19,16 +19,54 @@ const DeleteButton = ({ id, data, setContact }) => {
     </button>
   );
 };
+
+const SecretMessage = ({ data }) => {
+  console.log(data);
+  return (
+    <div className=" bg-slate-400/60 rounded-lg">
+      <p className=" p-2 pb-44 mb-11 mt-2">{data}</p>
+    </div>
+  );
+};
+
+const ToggleSecretMessage = ({ data }) => {
+  const [secret, toggleItem] = useState(false);
+  const checkRef = useRef();
+  const toggleSecretMsg = () => {
+    if (checkRef.current.checked === false) {
+      toggleItem(true);
+    }
+  };
+  return (
+    <div className=" text-center">
+      <input
+        className=" hidden"
+        ref={checkRef}
+        type="checkbox"
+        id="secretmsg"
+      />
+      <label
+        className=" bg-slate-400/40 text-sm underline p-2 text-black/50 rounded-lg"
+        onClick={toggleSecretMsg}
+        htmlFor="secretmsg"
+      >
+        Klik untuk tampilkan Pesan Rahasia
+      </label>
+      {secret && <SecretMessage data={data} />}
+    </div>
+  );
+};
+
 const ContactMap = ({ data, setContact }) => {
   const result = data.map((item) => (
     <li
       key={item._id}
-      className=" bg-slate-50 p-4 rounded-lg h-60 relative z-0"
+      className=" bg-slate-50 p-4 rounded-lg h-full relative z-0 pb-16"
     >
       <p>Nama : {item.username}</p>
       <p>Alamat: {item.address}</p>
       <p>Tanggal di buat: {item.date}</p>
-      <input type="checkbox" />
+      <ToggleSecretMessage data={item.secretMessage} />
       <DeleteButton id={item._id} data={data} setContact={setContact} />
     </li>
   ));

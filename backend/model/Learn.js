@@ -12,9 +12,9 @@ const Schema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    default: new Date().getHours() + ":" + new Date().getMinutes,
+    default: Date.now(),
   },
-  secretMessage: {
+  secretmsg: {
     type: String,
     default: "Gak ada secret message",
   },
