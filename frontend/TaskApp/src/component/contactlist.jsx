@@ -103,12 +103,11 @@ const DeleteButton = ({ id, data, setContact }) => {
   );
 };
 
-const SecretMessage = ({ data }) => {
-  console.log(data);
+const SecretMessage = ({ text }) => {
   return (
     <div className=" bg-slate-400/30 rounded-lg text-sm">
       <p className=" p-2 pb-44 mt-2">
-        <q>{data}</q>
+        <q>{text}</q>
       </p>
     </div>
   );
@@ -156,7 +155,7 @@ const ContactMap = ({ data, setContact }) => {
       <div className=" bg-slate-200/50 p-1 rounded-lg relative z-20">
         <p>Nama : {item.username}</p>
         <p>Alamat: {item.address}</p>
-        <p>Tanggal di buat: {item.secret}</p>
+        <p>Tanggal di buat: {item.date}</p>
       </div>
 
       <ToggleSecretMessage data={item.secret} />
