@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const Schema = new mongoose.Schema({
   username: {
@@ -18,7 +18,11 @@ const Schema = new mongoose.Schema({
     type: String,
     default: "Gak ada secret message",
   },
+  createdBy: {
+    type: mongoose.Types.ObjectId,
+    ref: "Learn",
+    required: [true, "Please Provide User"],
+  },
 });
 
-const model = mongoose.model("Schemas", Schema);
-export { model };
+module.exports = mongoose.model("Scemas", Schema);

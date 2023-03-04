@@ -1,19 +1,20 @@
-import { model } from "../model/Learn.js";
+const DataScheme = require("../model/Learn");
 
 const addData = async (req, res) => {
-  const data = await model.create(req.body);
+  req.body.createdBy = req.user.userId;
+  const data = await DataScheme.create(req.body);
   return res.status(200).json({ data });
 };
 
 const getAllData = async (req, res) => {
-  const data = await model.find({});
+  const data = await DataScheme.find({});
   return res.status(200).json({ data });
 };
 
 const getDataById = async (req, res) => {
   try {
     const { Id } = req.params;
-    const data = await model.findOne({ _id: Id });
+    const data = await DataScheme.findOne({ _id: Id });
     if (!data) {
       return res.status(404).send(`Data dengan id ${Id} tidak di temukan`);
     }
@@ -26,7 +27,7 @@ const getDataById = async (req, res) => {
 const deleteDAtaById = async (req, res) => {
   try {
     const { Id } = req.params;
-    const data = await model.findOneAndDelete({ _id: Id });
+    const data = await DataScheme.findOneAndDelete({ _id: Id });
     if (!data) {
       return res.status(404).json({ msg: `Tidak ada data dengan id ${Id}` });
     }
@@ -43,7 +44,7 @@ const UpdateData = async (req, res) => {
     if (!username || !address || !secret) {
       return res.status(501).json({ msg: "Tolong isi username dan address" });
     }
-    const data = await model.findOneAndUpdate({ _id: Id }, req.body, {
+    const data = await DataScheme.findOneAndUpdate({ _id: Id }, req.body, {
       new: true,
       runValidators: true,
     });
@@ -60,4 +61,10 @@ const UpdateData = async (req, res) => {
   }
 };
 
-export { addData, getAllData, getDataById, deleteDAtaById, UpdateData };
+module.exports = {
+  addData,
+  getAllData,
+  getDataById,
+  UpdateData,
+  deleteDAtaById,
+};

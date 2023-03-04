@@ -1,17 +1,21 @@
-import {} from "dotenv/config";
-import express from "express";
-import { connectDB } from "./db/connect.js";
-import cors from "cors";
+require("dotenv").config();
+const express = require("express");
+const connectDB = require("./db/connect");
+const cors = require("cors");
+const auth = require("./middleware/authentication");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 //router import
-import { router } from "./routes/routes.js";
+const dataRouter = require("./routes/routes");
+const authRouter = require("./routes/userroutes");
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/v3/user", router);
+
+app.use("/api/v3/user", dataRouter);
+app.use("/api/v3/auth", authRouter);
 
 const start = async () => {
   try {
