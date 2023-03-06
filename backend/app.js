@@ -14,7 +14,7 @@ const authRouter = require("./routes/userroutes");
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/v3/user", dataRouter);
+app.use("/api/v3/user", auth, dataRouter);
 app.use("/api/v3/auth", authRouter);
 
 const start = async () => {

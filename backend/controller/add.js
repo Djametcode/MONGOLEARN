@@ -1,7 +1,7 @@
 const DataScheme = require("../model/Learn");
 
 const addData = async (req, res) => {
-  req.body.createdBy = req.user.userId;
+  req.body.createdBy = req.UserModel.userId;
   const data = await DataScheme.create(req.body);
   return res.status(200).json({ data });
 };

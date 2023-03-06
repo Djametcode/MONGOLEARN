@@ -40,4 +40,4 @@ UserSchema.methods.comparePass = async function (userPass) {
   return isMatch;
 };
 
-module.exports = mongoose.model("Learn", UserSchema);
+module.exports = mongoose.model("UserModel", UserSchema);

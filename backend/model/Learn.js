@@ -20,9 +20,9 @@ const Schema = new mongoose.Schema({
   },
   createdBy: {
     type: mongoose.Types.ObjectId,
-    ref: "Learn",
-    required: [true, "Please Provide User"],
+    ref: "UserModel",
+    required: [true],
   },
 });
 
-module.exports = mongoose.model("Scemas", Schema);
+module.exports = mongoose.model("Schemas", Schema);
