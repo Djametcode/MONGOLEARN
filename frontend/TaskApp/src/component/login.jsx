@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 import { useRef, useState } from "react";
 
@@ -16,17 +17,21 @@ const Login = () => {
     setEmail(emailref.current.value);
   };
 
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
+  //   const config = {
+  //     headers: { Authorization: `Bearer ${token}` },
+  //   };
   const data = {
     username: username,
     email: email,
     password: password,
   };
+  console.log(data);
   const handleSubmit = async () => {
     try {
-      await axios.post();
+      await axios.post(
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/register",
+        data
+      );
     } catch (error) {
       console.log(error);
     }
@@ -41,18 +46,21 @@ const Login = () => {
           className=" p-2 focus:outline-none"
           type="text"
           placeholder="Username"
+          ref={usernameref}
           onChange={handleChange}
         />
         <input
           className=" p-2 focus:outline-none"
           type="text"
           placeholder="Email"
+          ref={emailref}
           onChange={handleChange}
         />
         <input
           className=" p-2 focus:outline-none"
           type="text"
           placeholder="Password"
+          ref={passref}
           onChange={handleChange}
         />
         <div className=" flex justify-center">
