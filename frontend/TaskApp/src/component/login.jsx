@@ -29,10 +29,20 @@ const Login = () => {
   console.log(data);
   const handleSubmit = async () => {
     try {
-      await axios.post(
-        "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/register",
+      const item = await axios.post(
+        "http://localhost:3000/api/v3/auth/register",
         data
       );
+      const datas = item.data;
+
+      const { user, token } = datas;
+      console.log(token);
+      localStorage.setItem("token", token);
+      event.preventDefault();
+
+      setEmail("");
+      setUsername("");
+      setPassword("");
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +51,7 @@ const Login = () => {
     <div className=" flex flex-col justify-center">
       <form
         className=" bg-slate-400 flex flex-col p-3 gap-1 font-quick justify-center h-96"
-        action="/"
+        action="#"
       >
         <input
           className=" p-2 focus:outline-none"
@@ -65,13 +75,12 @@ const Login = () => {
           onChange={handleChange}
         />
         <div className=" flex justify-center">
-          <Link
+          <button
             className=" p-2 focus:outline-none bg-white/20"
             onClick={handleSubmit}
-            to="/login"
           >
             Buat Akun
-          </Link>
+          </button>
         </div>
       </form>
     </div>
