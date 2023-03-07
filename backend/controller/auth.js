@@ -5,7 +5,11 @@ const register = async (req, res) => {
   try {
     const user = await UserModel.create({ ...req.body });
     const token = await user.createJWT();
-    res.status(200).json({ user: { name: user.username }, token });
+    res.status(200).json({
+      user: { name: user.username },
+      token,
+      msg: "Registrasi berhasil",
+    });
   } catch (error) {
     console.log(error);
   }

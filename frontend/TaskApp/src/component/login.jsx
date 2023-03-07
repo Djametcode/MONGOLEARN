@@ -12,6 +12,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
+  const [msg, togglemsg] = useState(false);
+  const [txt, settxt] = useState("");
+
   const handleChange = () => {
     setUsername(usernameref.current.value);
     setPassword(passref.current.value);
@@ -34,12 +37,11 @@ const Login = () => {
         data
       );
       const datas = item.data;
-
-      const { user, token } = datas;
-      console.log(token);
+      const { user, token, msg } = datas;
+      settxt(msg);
+      togglemsg(true);
       localStorage.setItem("token", token);
       event.preventDefault();
-
       setUsername("");
       setEmail("");
       setPassword("");
@@ -75,6 +77,7 @@ const Login = () => {
           onChange={handleChange}
         />
         <div className=" flex justify-center">
+          {msg && <p>{txt} cok</p>}
           <button
             className=" p-2 focus:outline-none bg-white/20"
             onClick={handleSubmit}
