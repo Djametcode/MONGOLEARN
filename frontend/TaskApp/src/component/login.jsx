@@ -81,12 +81,13 @@ const Login = () => {
         />
         <div className=" flex justify-center">
           {msg && <p>{txt} cok</p>}
-          <button
+          <Link
             className=" p-2 focus:outline-none bg-white/20"
             onClick={handleSubmit}
+            to="/login"
           >
             Buat Akun
-          </button>
+          </Link>
         </div>
       </form>
     </div>

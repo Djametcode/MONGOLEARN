@@ -16,12 +16,22 @@ const Input = () => {
     secret: secretmsg,
   };
   console.log(data);
+
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  };
   const handleSubmit = async () => {
     try {
       await axios.post(
         "https://grumpy-worm-stockings.cyclic.app/api/v3/user",
-        data
+        data,
+        config
       );
+
+      event.preventDefault();
     } catch (error) {
       console.log(error);
     }

@@ -85,9 +85,16 @@ const UpdateButton = ({ click }) => {
 };
 
 const DeleteButton = ({ id, data, setContact }) => {
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  };
   const deleteContact = async () => {
     await axios.delete(
-      `https://grumpy-worm-stockings.cyclic.app/api/v3/user/${id}`
+      `https://grumpy-worm-stockings.cyclic.app/api/v3/user/${id}`,
+      config
     );
     const index = await data.filter((item) => item._id !== id);
 
