@@ -44,7 +44,7 @@ const Input = () => {
   return (
     <div>
       <form
-        action="/"
+        action="#"
         className=" bg-slate-600/50 h-full p-7 m-2 rounded-xl flex flex-col gap-2 font-quick"
       >
         <input
