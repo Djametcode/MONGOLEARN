@@ -30,7 +30,7 @@ const Login = () => {
   const handleSubmit = async () => {
     try {
       const item = await axios.post(
-        "http://localhost:3000/api/v3/auth/register",
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/register",
         data
       );
       const datas = item.data;
