@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Input = () => {
   const [username, setUsername] = useState("");
@@ -72,12 +73,9 @@ const Input = () => {
         </div>
 
         <div className=" flex justify-center">
-          <input
-            onClick={handleSubmit}
-            className=" bg-slate-300 p-2 rounded-lg"
-            type="submit"
-            value="Kirim Pesan Rahasia"
-          />
+          <Link onClick={handleSubmit} className=" bg-slate-300 p-2 rounded-lg">
+            Kirim pesan
+          </Link>
         </div>
       </form>
     </div>
