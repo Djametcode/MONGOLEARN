@@ -1,4 +1,5 @@
 const UserModel = require("../model/users");
+const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
   try {
@@ -28,11 +29,15 @@ const login = async (req, res) => {
     if (!isPassCorrect) {
       res.status(501).json({ msg: "Password Salah" });
     }
-    const token = user.createJWT();
-    res.status(200).json({ user: { name: user.username }, token });
+    res.status(200).json({ user: { name: user.username } });
   } catch (error) {
     console.log(error);
   }
 };
 
-module.exports = { login, register };
+const getAlluser = async (req, res) => {
+  const user = await UserModel.find({});
+  res.status(200).json({ list: { user } });
+};
+
+module.exports = { login, register, getAlluser };
