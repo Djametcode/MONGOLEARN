@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const usernameref = useRef();
@@ -64,12 +65,13 @@ const Login = () => {
           onChange={handleChange}
         />
         <div className=" flex justify-center">
-          <input
+          <Link
             className=" p-2 focus:outline-none bg-white/20"
-            type="submit"
-            value="Registrasi"
             onClick={handleSubmit}
-          />
+            to="/login"
+          >
+            Buat Akun
+          </Link>
         </div>
       </form>
     </div>
