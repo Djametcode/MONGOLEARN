@@ -38,13 +38,16 @@ const Login = () => {
       );
       const datas = item.data;
       const { user, token, msg } = datas;
+
       settxt(msg);
       togglemsg(true);
       localStorage.setItem("token", token);
-      event.preventDefault();
+
       setUsername("");
       setEmail("");
       setPassword("");
+
+      event.preventDefault();
     } catch (error) {
       console.log(error);
     }
