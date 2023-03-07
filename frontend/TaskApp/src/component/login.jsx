@@ -39,6 +39,10 @@ const Login = () => {
       console.log(token);
       localStorage.setItem("token", token);
       event.preventDefault();
+
+      setUsername("");
+      setEmail("");
+      setPassword("");
     } catch (error) {
       console.log(error);
     }
