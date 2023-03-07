@@ -171,10 +171,16 @@ const ContactMap = ({ data, setContact }) => {
 
 const List = () => {
   const [contact, setContact] = useState([]);
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  };
   const getAllData = async () => {
     const url = "https://grumpy-worm-stockings.cyclic.app/api/v3/user";
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(url, config);
       const item = response.data;
       const { data } = item;
       setContact(data);
