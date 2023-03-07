@@ -162,6 +162,7 @@ const ContactMap = ({ data, setContact }) => {
       <div className=" bg-slate-200/50 p-1 rounded-lg relative z-20">
         <p>Nama : {item.username}</p>
         <p>Alamat: {item.address}</p>
+        <p>Di buat oleh user: {item.createdBy}</p>
         <p>Tanggal di buat: {item.date}</p>
       </div>
 
