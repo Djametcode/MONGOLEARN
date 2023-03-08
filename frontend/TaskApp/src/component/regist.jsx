@@ -58,21 +58,21 @@ const Register = () => {
         action="#"
       >
         <input
-          className=" p-2 focus:outline-none"
+          className=" rounded-lg p-3 focus:outline-none"
           type="text"
           placeholder="Username"
           ref={usernameref}
           onChange={handleChange}
         />
         <input
-          className=" p-2 focus:outline-none"
+          className=" rounded-lg p-3 focus:outline-none"
           type="text"
           placeholder="Email"
           ref={emailref}
           onChange={handleChange}
         />
         <input
-          className=" p-2 focus:outline-none"
+          className=" rounded-lg p-3 focus:outline-none"
           type="text"
           placeholder="Password"
           ref={passref}
@@ -85,7 +85,7 @@ const Register = () => {
         </div>
         <div className=" flex justify-center">
           <button
-            className=" p-2 focus:outline-none bg-white/20"
+            className=" rounded-lg p-2 focus:outline-none bg-white/20"
             onClick={handleSubmit}
           >
             Buat Akun

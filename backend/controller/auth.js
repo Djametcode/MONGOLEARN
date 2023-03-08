@@ -45,4 +45,17 @@ const getAlluser = async (req, res) => {
   res.status(200).json({ list: { user } });
 };
 
-module.exports = { login, register, getAlluser };
+const deleteUser = async (req, res) => {
+  try {
+    const { Id: userId } = req.params;
+    const user = await UserModel.findOneAndDelete({ _id: userId });
+    if (!user) {
+      res.status(404).json({ msg: "User tidak di temukan" });
+    }
+    res.status(200).json({ user, msg: "Berhasil menghapus User" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { login, register, getAlluser, deleteUser };

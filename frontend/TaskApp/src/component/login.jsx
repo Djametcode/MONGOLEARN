@@ -45,18 +45,18 @@ const Login = () => {
   return (
     <div className=" flex flex-col justify-center">
       <form
-        className=" bg-slate-400 flex flex-col p-3 gap-1 font-quick justify-center"
+        className=" bg-slate-400 flex flex-col p-3 gap-1 font-quick justify-center h-52"
         action="#"
       >
         <input
-          className=" p-2 focus:outline-none"
+          className=" rounded-lg p-3 focus:outline-none"
           type="text"
           placeholder="Email"
           ref={emailref}
           onChange={handleChange}
         />
         <input
-          className=" p-2 focus:outline-none"
+          className=" rounded-lg p-3 focus:outline-none"
           type="text"
           placeholder="Password"
           ref={passref}
@@ -67,7 +67,7 @@ const Login = () => {
         </div>
         <div className=" flex justify-center">
           <Link
-            className=" p-2 focus:outline-none bg-white/20"
+            className=" rounded-lg p-2 focus:outline-none bg-white/20"
             onClick={handleSubmit}
             to="/landing"
           >
