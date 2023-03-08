@@ -1,7 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import axios from "axios";
 import { ItemContext } from "../App";
-import { useNavigate } from "react-router-dom";
 
 const UpdateMenu = ({ id }) => {
   const { getAllData } = useContext(ItemContext);
@@ -80,21 +79,6 @@ const UpdateMenu = ({ id }) => {
   );
 };
 
-const UpdateButton = ({ click }) => {
-  return (
-    <>
-      <div>
-        <button
-          onClick={click}
-          className=" text-sm bg-slate-300/50 p-2 rounded-lg"
-        >
-          Update Kontak
-        </button>
-      </div>
-    </>
-  );
-};
-
 const DeleteButton = ({ id, data, setContact }) => {
   const token = localStorage.getItem("token");
   const config = {
@@ -116,7 +100,7 @@ const DeleteButton = ({ id, data, setContact }) => {
       onClick={deleteContact}
       className=" bg-slate-300/50 p-2 rounded-lg text-sm"
     >
-      Hapus Kontak
+      Hapus
     </button>
   );
 };
@@ -160,10 +144,14 @@ const ToggleSecretMessage = ({ data }) => {
 };
 
 const ContactMap = ({ data, setContact }) => {
-  console.log(data);
+  const checkRef = useRef();
   const [updateMenu, setUpdate] = useState(false);
   const toggleMenu = () => {
-    setUpdate(true);
+    if (checkRef.current.checked === false) {
+      setUpdate(true);
+    } else {
+      setUpdate(false);
+    }
   };
   const result = data.map((item) => (
     <div
@@ -180,7 +168,19 @@ const ContactMap = ({ data, setContact }) => {
       <ToggleSecretMessage data={item.secret} />
       <div className=" flex justify-around gap-3">
         <DeleteButton id={item._id} data={data} setContact={setContact} />
-        <UpdateButton click={toggleMenu} />
+        <input
+          className=" hidden"
+          ref={checkRef}
+          type="checkbox"
+          id="updatemenu"
+        />
+        <label
+          className=" text-sm bg-slate-300/50 p-2 rounded-lg"
+          onClick={toggleMenu}
+          htmlFor="updatemenu"
+        >
+          Update
+        </label>
       </div>
       {updateMenu && <UpdateMenu id={item._id} />}
     </div>
