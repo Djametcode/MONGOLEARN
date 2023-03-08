@@ -4,7 +4,7 @@ import { ItemContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
 const UpdateMenu = ({ id }) => {
-  const navigate = useNavigate();
+  const { getAllData } = useContext(ItemContext);
   const [nama, setnama] = useState("");
   const [alamat, setalamat] = useState("");
   const [secretmsg, setSecret] = useState("");
@@ -31,7 +31,7 @@ const UpdateMenu = ({ id }) => {
         data,
         config
       );
-      await navigate("/dashboard");
+      await getAllData();
       event.preventDefault();
     } catch (error) {
       console.log(error);
