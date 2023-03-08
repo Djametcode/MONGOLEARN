@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { useRef, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
   const usernameref = useRef();
   const emailref = useRef();
   const passref = useRef();
@@ -13,7 +14,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
 
   const [msg, togglemsg] = useState(false);
-  const [txt, settxt] = useState("");
+  const [txt, settxt] = useState(msg);
 
   const handleChange = () => {
     setUsername(usernameref.current.value);
@@ -38,16 +39,10 @@ const Register = () => {
       );
       const datas = item.data;
       const { user, token, msg } = datas;
-
       settxt(msg);
-      togglemsg(true);
-      localStorage.setItem("token", token);
-
-      setUsername("");
-      setEmail("");
-      setPassword("");
-
-      event.preventDefault();
+      await togglemsg(true);
+      localStorage.removeItem("token");
+      await navigate("/");
     } catch (error) {
       console.log(error);
       const txt = error.response.data;
