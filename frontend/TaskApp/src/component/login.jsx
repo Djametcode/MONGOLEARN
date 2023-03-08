@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRef, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const emailref = useRef();
@@ -19,7 +19,7 @@ const Login = () => {
     password: password,
   };
   const navigate = useNavigate();
-  const [username, setUsername] = useState();
+  const [warning, setWarning] = useState("");
   const handleSubmit = async () => {
     try {
       const datas = await axios.post(
@@ -31,13 +31,15 @@ const Login = () => {
         user: { name },
         token,
       } = item;
-      console.log(name);
       await localStorage.removeItem("token");
       await localStorage.setItem("token", token);
       await localStorage.setItem("name", name);
       await navigate("/dashboard");
     } catch (error) {
       console.log(error);
+      const data = error.response.data;
+      const { msg } = data;
+      setWarning(msg);
     }
   };
   return (
@@ -60,6 +62,9 @@ const Login = () => {
           ref={passref}
           onChange={handleChange}
         />
+        <div className=" text-center bg-slate-200/20 text-red-600">
+          <p>{warning}</p>
+        </div>
         <div className=" flex justify-center">
           <Link
             className=" p-2 focus:outline-none bg-white/20"

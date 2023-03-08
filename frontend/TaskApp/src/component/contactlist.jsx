@@ -2,7 +2,7 @@ import { useContext, useRef, useState } from "react";
 import axios from "axios";
 import { ItemContext } from "../App";
 
-const UpdateMenu = ({ id }) => {
+const UpdateMenu = ({ id, setUpdate }) => {
   const { getAllData } = useContext(ItemContext);
   const [nama, setnama] = useState("");
   const [alamat, setalamat] = useState("");
@@ -30,6 +30,7 @@ const UpdateMenu = ({ id }) => {
         data,
         config
       );
+      await setUpdate(false);
       await getAllData();
       event.preventDefault();
     } catch (error) {
@@ -44,7 +45,7 @@ const UpdateMenu = ({ id }) => {
   };
   return (
     <div className=" p-3 shadow-lg">
-      <form className=" pt-3 rounded-lg p-2 flex flex-col gap-1">
+      <form action="#" className=" pt-3 rounded-lg p-2 flex flex-col gap-1">
         <input
           className=" bg-slate-100 w-full p-1 rounded-lg focus:outline-none"
           type="text"
@@ -67,12 +68,12 @@ const UpdateMenu = ({ id }) => {
           ref={secretref}
         />
         <div className=" flex justify-center">
-          <input
+          <button
             onClick={updatedata}
-            type="submit"
-            value="update"
             className=" bg-slate-100 text-slate-400 p-1 rounded-lg"
-          />
+          >
+            Update
+          </button>
         </div>
       </form>
     </div>
@@ -150,7 +151,7 @@ const ContactMap = ({ data, setContact }) => {
     if (checkRef.current.checked === false) {
       setUpdate(true);
     } else {
-      setUpdate(false);
+      setUpdate(checkRef.current.checked === true);
     }
   };
   const result = data.map((item) => (
@@ -182,7 +183,7 @@ const ContactMap = ({ data, setContact }) => {
           Update
         </label>
       </div>
-      {updateMenu && <UpdateMenu id={item._id} />}
+      {updateMenu && <UpdateMenu setUpdate={setUpdate} id={item._id} />}
     </div>
   ));
   return <div className=" flex flex-col gap-3 text-lg">{result}</div>;

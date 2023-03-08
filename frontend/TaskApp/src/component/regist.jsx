@@ -50,6 +50,9 @@ const Register = () => {
       event.preventDefault();
     } catch (error) {
       console.log(error);
+      const txt = error.response.data;
+      const { msg } = txt;
+      settxt(msg);
     }
   };
   return (
@@ -79,15 +82,19 @@ const Register = () => {
           ref={passref}
           onChange={handleChange}
         />
+        <div>
+          {msg && (
+            <p className=" bg-slate-200/40 text-center text-green-800">{txt}</p>
+          )}
+        </div>
         <div className=" flex justify-center">
-          {msg && <p>{txt} cok</p>}
-          <Link
+          <button
             className=" p-2 focus:outline-none bg-white/20"
             onClick={handleSubmit}
-            to="/landing"
+            type="submit"
           >
             Buat Akun
-          </Link>
+          </button>
         </div>
       </form>
     </div>
