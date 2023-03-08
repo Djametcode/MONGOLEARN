@@ -7,7 +7,7 @@ module.exports = {
         quick: ["Quicksand", "sans-serif"],
       },
       backgroundImage: {
-        user: "url('./dist/assets/user.png')",
+        user: "url('./TaskApp/public/static/image/user.png')",
       },
     },
   },
