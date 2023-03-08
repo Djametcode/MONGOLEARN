@@ -43,7 +43,6 @@ const Register = () => {
       settxt(msg);
       await togglemsg(true);
       localStorage.removeItem("token");
-      await navigate("/landing");
     } catch (error) {
       console.log(error);
       const txt = error.response.data;
