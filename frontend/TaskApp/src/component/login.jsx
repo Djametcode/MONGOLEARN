@@ -27,7 +27,9 @@ const Login = () => {
         data
       );
       const item = datas.data;
-      console.log(item);
+      const { user, token } = item;
+      localStorage.removeItem("token");
+      localStorage.setItem("token", token);
     } catch (error) {
       console.log(error);
     }
