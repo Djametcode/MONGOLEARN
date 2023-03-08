@@ -16,11 +16,18 @@ const UpdateMenu = ({ id }) => {
     address: alamat,
     secret: secretmsg,
   };
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  };
   const updatedata = async () => {
     try {
       await axios.patch(
         `https://grumpy-worm-stockings.cyclic.app/api/v3/user/${id}`,
-        data
+        data,
+        config
       );
       console.log(id);
     } catch (error) {
@@ -179,10 +186,10 @@ const ContactMap = ({ data, setContact }) => {
 };
 
 const List = () => {
-  const { data, setData } = useContext(ItemContext);
+  const { data, setdata } = useContext(ItemContext);
   return (
     <div>
-      <ContactMap data={data} setContact={setData} />
+      <ContactMap data={data} setContact={setdata} />
     </div>
   );
 };

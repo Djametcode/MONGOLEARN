@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ItemContext } from "../App";
 
 const Input = () => {
+  const { getAllData } = useContext(ItemContext);
   const [username, setUsername] = useState("");
   const [address, setAddress] = useState("");
   const [secretmsg, setSecret] = useState("");
@@ -31,6 +32,7 @@ const Input = () => {
         data,
         config
       );
+      getAllData();
       event.preventDefault();
     } catch (error) {
       console.log(error);

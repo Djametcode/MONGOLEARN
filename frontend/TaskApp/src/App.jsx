@@ -30,7 +30,7 @@ const ContactApp = () => {
   }, []);
   return (
     <div>
-      <ItemContext.Provider value={{ data, setdata }}>
+      <ItemContext.Provider value={{ data, setdata, getAllData }}>
         <Landing />
         <Input />
         <ContactList />
