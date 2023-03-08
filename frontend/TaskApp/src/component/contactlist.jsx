@@ -1,8 +1,10 @@
 import { useContext, useRef, useState } from "react";
 import axios from "axios";
 import { ItemContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 const UpdateMenu = ({ id }) => {
+  const navigate = useNavigate();
   const [nama, setnama] = useState("");
   const [alamat, setalamat] = useState("");
   const [secretmsg, setSecret] = useState("");
@@ -29,7 +31,7 @@ const UpdateMenu = ({ id }) => {
         data,
         config
       );
-      console.log(id);
+      await navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
