@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRef, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const emailref = useRef();
@@ -18,7 +18,7 @@ const Login = () => {
     email: email,
     password: password,
   };
-
+  const navigate = useNavigate();
   const [username, setUsername] = useState();
   const handleSubmit = async () => {
     try {
@@ -28,9 +28,9 @@ const Login = () => {
       );
       const item = datas.data;
       const { user, token } = item;
-      localStorage.removeItem("token");
-      localStorage.setItem("token", token);
-      <Navigate to="/dashboard"></Navigate>;
+      await localStorage.removeItem("token");
+      await localStorage.setItem("token", token);
+      await navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +59,7 @@ const Login = () => {
           <Link
             className=" p-2 focus:outline-none bg-white/20"
             onClick={handleSubmit}
-            to="/dashboard"
+            to="/landing"
           >
             Login
           </Link>
