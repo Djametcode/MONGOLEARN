@@ -67,7 +67,7 @@ const Wrapper = () => {
         <UserList />
       </div>
       <div className=" fixed bottom-0 w-full flex text-white">
-        <div className=" bg-black w-full p-5 flex flex-col justify-center text-center">
+        <div className=" bg-black w-full p-2 flex flex-col justify-center text-center">
           <p>Made By Djamet Coder</p>
           <p>Copyright &copy; 2023</p>
         </div>
