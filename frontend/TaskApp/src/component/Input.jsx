@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ItemContext } from "../App";
 
 const Input = () => {
   const [username, setUsername] = useState("");
@@ -16,7 +17,6 @@ const Input = () => {
     address: address,
     secret: secretmsg,
   };
-  console.log(data);
 
   const token = localStorage.getItem("token");
   const config = {
@@ -31,12 +31,12 @@ const Input = () => {
         data,
         config
       );
-
       event.preventDefault();
     } catch (error) {
       console.log(error);
     }
   };
+
   const handleChange = () => {
     setUsername(usernameref.current.value);
     setAddress(addressRef.current.value);
@@ -44,10 +44,7 @@ const Input = () => {
   };
   return (
     <div>
-      <form
-        action="#"
-        className=" bg-slate-600/50 h-full p-7 m-2 rounded-xl flex flex-col gap-2 font-quick"
-      >
+      <form className=" bg-slate-600/50 h-full p-7 m-2 rounded-xl flex flex-col gap-2 font-quick">
         <input
           className=" p-2 focus:outline-none rounded-lg focus:bg-slate-600 focus:text-white/20"
           type="text"

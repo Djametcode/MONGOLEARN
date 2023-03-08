@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import axios from "axios";
+import { ItemContext } from "../App";
 
 const UpdateMenu = ({ id }) => {
   const [nama, setnama] = useState("");
@@ -178,30 +179,10 @@ const ContactMap = ({ data, setContact }) => {
 };
 
 const List = () => {
-  const [contact, setContact] = useState([]);
-  const token = localStorage.getItem("token");
-  const config = {
-    headers: {
-      authorization: `Bearer ${token}`,
-    },
-  };
-  const getAllData = async () => {
-    const url = "https://grumpy-worm-stockings.cyclic.app/api/v3/user";
-    try {
-      const response = await axios.get(url, config);
-      const item = response.data;
-      const { data } = item;
-      setContact(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getAllData();
-  }, []);
+  const { data, setData } = useContext(ItemContext);
   return (
     <div>
-      <ContactMap data={contact} setContact={setContact} />
+      <ContactMap data={data} setContact={setData} />
     </div>
   );
 };
