@@ -38,6 +38,8 @@ const Wrapper = () => {
         {login && <Login />}
         {regist && <Register />}
       </div>
+      <div className=" bg-slate-400 h-96"></div>
+      <div className=" bg-slate-400 h-96"></div>
     </div>
   );
 };

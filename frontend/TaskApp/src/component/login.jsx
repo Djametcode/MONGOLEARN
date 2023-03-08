@@ -27,9 +27,14 @@ const Login = () => {
         data
       );
       const item = datas.data;
-      const { user, token } = item;
+      const {
+        user: { name },
+        token,
+      } = item;
+      console.log(name);
       await localStorage.removeItem("token");
       await localStorage.setItem("token", token);
+      await localStorage.setItem("name", name);
       await navigate("/dashboard");
     } catch (error) {
       console.log(error);

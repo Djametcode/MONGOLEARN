@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         quick: ["Quicksand", "sans-serif"],
       },
+      backgroundImage: {
+        user: "url('./src/assets/user.png')",
+      },
     },
   },
   plugins: [],
