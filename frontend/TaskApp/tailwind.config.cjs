@@ -7,7 +7,7 @@ module.exports = {
         quick: ["Quicksand", "sans-serif"],
       },
       backgroundImage: {
-        user: "url('./assets/user.png')",
+        user: "url('./dist/assets/user.png')",
       },
     },
   },
