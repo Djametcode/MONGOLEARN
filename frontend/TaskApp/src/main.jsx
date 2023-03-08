@@ -6,12 +6,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Wrapper from "./component/wrapper";
 const router = createBrowserRouter([
   {
-    path: "/login",
-    element: <App />,
-  },
-  {
     path: "/",
     element: <Wrapper />,
+  },
+  {
+    path: "/landing",
+    element: <Wrapper />,
+  },
+  {
+    path: "/dashboard",
+    element: <App />,
   },
 ]);
 

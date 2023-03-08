@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Login = () => {
   const emailref = useRef();
@@ -56,7 +56,7 @@ const Login = () => {
           <Link
             className=" p-2 focus:outline-none bg-white/20"
             onClick={handleSubmit}
-            to="/login"
+            to="/dashboard"
           >
             Login
           </Link>

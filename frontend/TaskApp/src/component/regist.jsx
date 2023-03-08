@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Register = () => {
   const usernameref = useRef();
@@ -84,7 +84,7 @@ const Register = () => {
           <Link
             className=" p-2 focus:outline-none bg-white/20"
             onClick={handleSubmit}
-            to="/login"
+            to="/landing"
           >
             Buat Akun
           </Link>

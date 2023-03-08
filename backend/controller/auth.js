@@ -33,7 +33,8 @@ const login = async (req, res) => {
     if (!isPassCorrect) {
       res.status(501).json({ msg: "Password Salah" });
     }
-    res.status(200).json({ user: { name: user.username } });
+    const token = await user.createJWT();
+    res.status(200).json({ user: { name: user.username }, token });
   } catch (error) {
     console.log(error);
   }
