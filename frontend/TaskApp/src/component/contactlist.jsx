@@ -32,6 +32,7 @@ const UpdateMenu = ({ id }) => {
         config
       );
       await navigate("/dashboard");
+      event.preventDefault();
     } catch (error) {
       console.log(error);
     }
@@ -44,7 +45,7 @@ const UpdateMenu = ({ id }) => {
   };
   return (
     <div className=" p-3 shadow-lg">
-      <form className=" pt-3 rounded-lg p-2 flex flex-col gap-1" action="/">
+      <form className=" pt-3 rounded-lg p-2 flex flex-col gap-1" action="#">
         <input
           className=" bg-slate-100 w-full p-1 rounded-lg focus:outline-none"
           type="text"
