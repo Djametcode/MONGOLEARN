@@ -30,6 +30,7 @@ const Login = () => {
       const { user, token } = item;
       localStorage.removeItem("token");
       localStorage.setItem("token", token);
+      <Navigate to="/dashboard"></Navigate>;
     } catch (error) {
       console.log(error);
     }
