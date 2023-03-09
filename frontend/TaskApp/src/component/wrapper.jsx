@@ -40,9 +40,6 @@ const Wrapper = () => {
       <h1 className=" sticky z-10 top-0 bg-wave bg-cover text-white p-6 text-3xl text-center">
         Secret Message
       </h1>
-      <p className=" text-center text-white p-3 bg-gradient">
-        <q>Silahkan Login atau register dulu</q>
-      </p>
       <div className=" flex justify-around">
         <button
           className=" z-0 p-2"
