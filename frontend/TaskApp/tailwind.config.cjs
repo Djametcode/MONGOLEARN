@@ -8,6 +8,7 @@ module.exports = {
       },
       backgroundImage: {
         user: "url('./src/images/user.jpg')",
+        wave: "url('./src/images/wave-haikei.png')",
       },
     },
   },

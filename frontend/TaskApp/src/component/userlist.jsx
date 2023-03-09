@@ -58,7 +58,7 @@ const UserList = () => {
     getAllUser();
   }, []);
   return (
-    <div className=" bg-slate-200 p-2 pb-40">
+    <div className=" bg-wave text-white p-2 pb-40">
       <h1 className=" text-2xl p-2">User List :</h1>
       <UserMap data={user} setUser={setUser} />
     </div>

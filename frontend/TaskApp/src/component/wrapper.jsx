@@ -66,12 +66,13 @@ const Wrapper = () => {
       <div className=" bg-slate-400">
         <UserList />
       </div>
+      <div className=" bg-wave h-96"></div>
       <div className=" fixed bottom-0 w-full flex text-white">
-        <div className=" bg-black w-full p-2 flex flex-col justify-center text-center">
+        <div className=" bg-wave w-full p-2 flex flex-col justify-center text-center">
           <p>Made By Djamet Coder</p>
           <p>Copyright &copy; 2023</p>
         </div>
-        <div className=" bg-black w-full flex flex-col justify-center text-center">
+        <div className=" bg-wave w-full flex flex-col justify-center text-center">
           <p className="">Contact Me</p>
           <p className="">Support Me</p>
         </div>
