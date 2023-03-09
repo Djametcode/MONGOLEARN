@@ -73,7 +73,7 @@ const Input = () => {
 
         <div className=" flex justify-center">
           <Link onClick={handleSubmit} className=" bg-slate-300 p-2 rounded-lg">
-            Kirim pesan
+            Kirim Secret Message
           </Link>
         </div>
       </form>

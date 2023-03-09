@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Beranda from "./beranda";
-import ForYouPage from "./fyp";
 import Login from "./login";
 import Register from "./regist";
 import UserList from "./userlist";
@@ -40,7 +38,7 @@ const Wrapper = () => {
   return (
     <div className=" bg-gradient font-quick">
       <h1 className=" sticky z-10 top-0 bg-wave bg-cover text-white p-6 text-3xl text-center">
-        Secret Message
+        Posting Aja Dulu
       </h1>
       <div className=" flex justify-around">
         <button

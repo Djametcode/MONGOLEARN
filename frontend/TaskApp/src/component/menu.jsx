@@ -1,7 +1,22 @@
+import { useNavigate } from "react-router-dom";
+
 const Menu = () => {
+  const navigate = useNavigate();
+  const navigateHome = () => {
+    navigate("/beranda");
+  };
+  const navigatesend = () => {
+    navigate("/send");
+  };
+  const navigateProfile = () => {
+    navigate("/profile");
+  };
   return (
     <div className=" flex justify-between bg-wave text-white p-3 gap-3 overflow-scroll">
-      <div className=" flex w-full justify-center bg-slate-300/30 rounded-lg text-white pr-1">
+      <div
+        onClick={navigateHome}
+        className=" cursor-pointer flex w-full justify-center bg-slate-300/30 rounded-lg text-white pr-1"
+      >
         <p className=" p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +37,10 @@ const Menu = () => {
           <p>Beranda</p>
         </div>
       </div>
-      <div className=" flex w-full justify-center bg-slate-300/30 rounded-lg text-white pr-1">
+      <div
+        onClick={navigatesend}
+        className=" cursor-pointer flex w-full justify-center bg-slate-300/30 rounded-lg text-white pr-1"
+      >
         <p className=" p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,10 +58,13 @@ const Menu = () => {
           </svg>
         </p>
         <div className=" flex flex-col justify-center pr-2">
-          <p>Chat</p>
+          <p>Kirim</p>
         </div>
       </div>
-      <div className=" flex w-full justify-center bg-slate-300/30 rounded-lg text-white pr-1">
+      <div
+        onClick={navigateProfile}
+        className=" cursor-pointer flex w-full justify-center bg-slate-300/30 rounded-lg text-white pr-1"
+      >
         <p className=" p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"

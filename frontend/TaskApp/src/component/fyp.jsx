@@ -1,3 +1,11 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const Extend = ({ data }) => {
+  const results = data.map((item) => <List key={data._id} data={item} />);
+  return <div className=" text-white font-quick">{results}</div>;
+};
+
 const List = ({ data }) => {
   const { username, address, secret, date } = data;
   const formatdate = date.split("T")[0];
@@ -19,9 +27,28 @@ const List = ({ data }) => {
   );
 };
 
-const ForYouPage = ({ data }) => {
-  const result = data.map((item) => <List key={item._id} data={item} />);
-  return <div className=" text-white">{result}</div>;
+const ForYouPage = () => {
+  const [fyp, setData] = useState([]);
+  const getAllSecretMsg = async () => {
+    try {
+      const response = await axios.get(
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/u/list"
+      );
+      const item = response.data;
+      const { data } = item;
+      setData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getAllSecretMsg();
+  }, []);
+  return (
+    <div>
+      <Extend data={fyp} />
+    </div>
+  );
 };
 
 export default ForYouPage;

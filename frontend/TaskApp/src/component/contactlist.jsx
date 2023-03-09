@@ -205,7 +205,7 @@ const ContactList = () => {
         className=" text-center p-3
       "
       >
-        Secret Message List From database
+        Postingan saya
       </h1>
       <div>
         <List />

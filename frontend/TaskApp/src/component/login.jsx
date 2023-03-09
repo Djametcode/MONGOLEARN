@@ -34,7 +34,7 @@ const Login = () => {
       await localStorage.removeItem("token");
       await localStorage.setItem("token", token);
       await localStorage.setItem("name", name);
-      await navigate("/dashboard");
+      await navigate("/beranda");
     } catch (error) {
       console.log(error);
       const data = error.response.data;

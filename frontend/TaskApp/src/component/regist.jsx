@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -83,12 +83,13 @@ const Register = () => {
           )}
         </div>
         <div className=" flex justify-center">
-          <button
+          <Link
             className=" rounded-lg p-2 focus:outline-none bg-white/20"
             onClick={handleSubmit}
+            to="/landing"
           >
             Buat Akun
-          </button>
+          </Link>
         </div>
       </form>
     </div>

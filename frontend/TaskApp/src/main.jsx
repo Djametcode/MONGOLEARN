@@ -1,22 +1,35 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Wrapper from "./component/wrapper";
-import Beranda from "./component/beranda";
+import BerandaUser from "./component/berandaUser";
+import App from "./App";
+import Profile from "./component/profile";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Beranda />,
+    element: <Wrapper />,
+  },
+  {
+    path: "/beranda",
+    element: <BerandaUser />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/send",
+    element: <App />,
   },
   {
     path: "/landing",
     element: <Wrapper />,
   },
   {
-    path: "/dashboard",
-    element: <App />,
+    path: "/beranda",
+    element: <BerandaUser />,
   },
 ]);
 
