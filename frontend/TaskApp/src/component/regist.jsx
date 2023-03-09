@@ -31,7 +31,6 @@ const Register = () => {
     email: email,
     password: password,
   };
-  console.log(data);
   const handleSubmit = async () => {
     try {
       const item = await axios.post(

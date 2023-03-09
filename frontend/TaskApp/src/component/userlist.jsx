@@ -40,7 +40,6 @@ const UserMap = ({ data, setUser }) => {
 };
 const UserList = () => {
   const [user, setUser] = useState([]);
-  console.log(user);
   const getAllUser = async () => {
     try {
       const response = await axios.get(

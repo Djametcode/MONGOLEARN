@@ -1,7 +1,6 @@
 const List = ({ data }) => {
   const { username, address, secret, date } = data;
   const formatdate = date.split("T")[0];
-  console.log(formatdate);
   return (
     <div className=" bg-wave flex flex-col p-4">
       <div className=" flex justify-between bg-slate-400/30 mb-2 rounded-lg">
