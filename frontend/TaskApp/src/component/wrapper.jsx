@@ -64,7 +64,6 @@ const Wrapper = () => {
       </div>
       <div className=" bg-slate-400">
         <UserList />
-        <ForYouPage />
       </div>
       <div className=" bg-wave h-96"></div>
       <div className=" fixed bottom-0 w-full flex text-white text-sm">
