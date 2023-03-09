@@ -7,8 +7,8 @@ module.exports = {
         quick: ["Quicksand", "sans-serif"],
       },
       backgroundImage: {
-        user: "url('./src/images/user.jpg')",
-        wave: "url('./src/images/wave-haikei.png')",
+        user: "url('.TaskApp//src/images/user.jpg')",
+        wave: "url('./TaskApp/src/images/wave-haikei.png')",
       },
     },
   },
