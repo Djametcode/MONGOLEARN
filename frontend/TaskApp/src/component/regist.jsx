@@ -3,6 +3,13 @@ import axios from "axios";
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+const RegistDone = ({ txt }) => {
+  return (
+    <div className=" alert alert-success p-1 shadow-lg">
+      <span>{txt}</span>
+    </div>
+  );
+};
 const Register = () => {
   const navigate = useNavigate();
 
@@ -77,7 +84,7 @@ const Register = () => {
           ref={passref}
           onChange={handleChange}
         />
-        <div>{msg && <p className=" text-center text-green-800">{txt}</p>}</div>
+        <div>{msg && <RegistDone txt={txt} />}</div>
         <div className=" flex justify-center">
           <Link
             className=" rounded-lg p-2 focus:outline-none bg-white/20 text-white/40"

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Footer from "./footer";
+import Help from "./help";
 import Login from "./login";
 import Register from "./regist";
 import UserList from "./userlist";
@@ -38,22 +40,26 @@ const Wrapper = () => {
         {login && <Login />}
         {regist && <Register />}
       </div>
+      <div className=" p-2">
+        <Help />
+      </div>
       <div className=" bg-slate-400">
         <UserList />
       </div>
       <div className=" fixed bottom-0 w-full flex text-white text-sm">
-        <div className=" bg-wave w-full p-2 flex flex-col justify-center text-center">
+        <Footer />
+        {/* <div className=" bg-wave w-full p-2 flex flex-col justify-center text-center">
           <p>Made By Djamet Coder</p>
           <p>Copyright &copy; 2023</p>
         </div>
         <div>
           <hr className=" text-white bg-white" />
-        </div>
-        <div className=" bg-wave w-full flex flex-col justify-center text-center">
+        </div> */}
+        {/* <div className=" bg-wave w-full flex flex-col justify-center text-center">
           <p className=" underline">Contact Me</p>
 
           <p className=" underline">Support Me</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

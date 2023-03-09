@@ -30,9 +30,9 @@ const UserMap = ({ data, setUser }) => {
         <p>username: {item.username}</p>
         <hr className=" text-white bg-white" />
       </div>
-      <div>
+      {/* <div>
         <DeleteButton data={data} id={item._id} setUser={setUser} />
-      </div>
+      </div> */}
     </div>
   ));
   return <div className=" flex flex-col">{result}</div>;
