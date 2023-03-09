@@ -3,6 +3,7 @@ const express = require("express");
 const connectDB = require("./db/connect");
 const cors = require("cors");
 const auth = require("./middleware/authentication");
+const notfound = require("./middleware/notfound");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -10,12 +11,16 @@ const port = process.env.PORT || 3000;
 //router import
 const dataRouter = require("./routes/routes");
 const authRouter = require("./routes/userroutes");
+const universalRouter = require("./routes/globalroutes");
 
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/v3/u", universalRouter);
 app.use("/api/v3/user", auth, dataRouter);
 app.use("/api/v3/auth", authRouter);
+
+// app.use(notfound);
 
 const start = async () => {
   try {

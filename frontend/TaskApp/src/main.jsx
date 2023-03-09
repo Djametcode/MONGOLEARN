@@ -4,10 +4,11 @@ import App from "./App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Wrapper from "./component/wrapper";
+import Beranda from "./component/beranda";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Wrapper />,
+    element: <Beranda />,
   },
   {
     path: "/landing",

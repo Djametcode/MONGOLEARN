@@ -1,4 +1,5 @@
-const motfound = (req, res, next) => {
-  res.json({ msg: "Silahkan Login Lagi" });
-  next();
+const notfound = (req, res) => {
+  res.json({ msg: "route tidak ditemukan" });
 };
+
+module.exports = notfound;

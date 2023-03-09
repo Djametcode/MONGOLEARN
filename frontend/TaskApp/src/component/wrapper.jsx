@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Beranda from "./beranda";
 import Login from "./login";
 import Register from "./regist";
 import UserList from "./userlist";
