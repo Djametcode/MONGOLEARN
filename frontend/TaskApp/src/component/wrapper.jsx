@@ -69,8 +69,12 @@ const Wrapper = () => {
           <p>Made By Djamet Coder</p>
           <p>Copyright &copy; 2023</p>
         </div>
+        <div>
+          <hr className=" text-white bg-white" />
+        </div>
         <div className=" bg-wave w-full flex flex-col justify-center text-center">
           <p className=" underline">Contact Me</p>
+
           <p className=" underline">Support Me</p>
         </div>
       </div>

@@ -29,6 +29,7 @@ const UserMap = ({ data, setUser }) => {
       <div>
         <p>username: {item.username}</p>
         <p>Email: {item.email}</p>
+        <hr className=" text-white bg-white" />
       </div>
       <div>
         <DeleteButton data={data} id={item._id} setUser={setUser} />
