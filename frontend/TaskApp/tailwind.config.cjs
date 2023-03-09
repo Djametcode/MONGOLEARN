@@ -9,6 +9,7 @@ module.exports = {
       backgroundImage: {
         user: "url('./images/user.jpg')",
         wave: "url('./images/wave-haikei.png')",
+        gradient: "url('./images/blurry-gradient-haikei.png')",
       },
     },
   },

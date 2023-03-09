@@ -14,7 +14,7 @@ const DeleteButton = ({ data, id, setUser }) => {
     }
   };
   return (
-    <button onClick={handleDelete} className=" bg-slate-200 rounded-lg p-1">
+    <button onClick={handleDelete} className=" bg-wave rounded-lg p-1">
       Hapus User
     </button>
   );
@@ -24,7 +24,7 @@ const UserMap = ({ data, setUser }) => {
   const result = data.map((item) => (
     <div
       key={item._id}
-      className=" bg-slate-400/60 p-2 m-1 rounded-lg flex justify-between"
+      className=" animate-pulse bg-slate-400/60 p-2 m-1 rounded-lg flex justify-between"
     >
       <div>
         <p>username: {item.username}</p>
@@ -59,7 +59,7 @@ const UserList = () => {
   }, []);
   return (
     <div className=" bg-wave text-white p-2 pb-40">
-      <h1 className=" text-2xl p-2">User List :</h1>
+      <h1 className=" text-lg p-2">User List :</h1>
       <UserMap data={user} setUser={setUser} />
     </div>
   );

@@ -17,7 +17,7 @@ const Landing = () => {
     await navigate("/landing");
   };
   return (
-    <div className=" sticky flex justify-between top-0 font-quick bg-blue-600 text-white/40 p-4 text-center z-10">
+    <div className=" sticky flex justify-between top-0 font-quick bg-blue-600 text-white/40 p-3 text-center z-10">
       <h1 className=" p-2 text-xl">Secret Message App</h1>
       <div
         className=" bg-slate-300/30 p-1 rounded-2xl flex gap-2 justify-center"

@@ -133,7 +133,7 @@ const ToggleSecretMessage = ({ data }) => {
         id="secretmsg"
       />
       <label
-        className=" text-sm underline p-2 text-black/50 rounded-lg"
+        className=" text-sm underline p-2 text-white/70 rounded-lg"
         onClick={toggleSecretMsg}
         htmlFor="secretmsg"
       >
@@ -157,9 +157,9 @@ const ContactMap = ({ data, setContact }) => {
   const result = data.map((item) => (
     <div
       key={item._id}
-      className=" bg-slate-50 p-5 rounded-lg h-full relative z-0 text-base"
+      className=" p-5 rounded-lg h-full relative z-0 text-base"
     >
-      <div className=" bg-slate-200/50 p-1 rounded-lg relative z-20">
+      <div className=" p-1 rounded-lg relative z-20">
         <p>Nama : {item.username}</p>
         <p>Alamat: {item.address}</p>
         <p>Di buat oleh user: {item.createdBy}</p>
@@ -200,7 +200,7 @@ const List = () => {
 
 const ContactList = () => {
   return (
-    <div className=" font-quick m-3 bg-slate-600/10 rounded-lg p-3 text-2xl">
+    <div className=" font-quick m-3 bg-wave text-white/70 rounded-lg p-3 text-2xl">
       <h1
         className=" text-center p-3
       "

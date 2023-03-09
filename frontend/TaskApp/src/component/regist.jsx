@@ -53,25 +53,25 @@ const Register = () => {
   return (
     <div className=" flex flex-col justify-center">
       <form
-        className=" bg-slate-400 flex flex-col p-3 gap-1 font-quick justify-center"
+        className=" bg-gradient flex flex-col p-3 gap-1 font-quick justify-center"
         action="#"
       >
         <input
-          className=" rounded-lg p-3 focus:outline-none"
+          className=" rounded-lg p-2 focus:outline-none bg-wave focus:text-white text-white"
           type="text"
           placeholder="Username"
           ref={usernameref}
           onChange={handleChange}
         />
         <input
-          className=" rounded-lg p-3 focus:outline-none"
+          className=" rounded-lg p-2 focus:outline-none bg-wave focus:text-white text-white"
           type="text"
           placeholder="Email"
           ref={emailref}
           onChange={handleChange}
         />
         <input
-          className=" rounded-lg p-3 focus:outline-none"
+          className=" rounded-lg p-2 focus:outline-none bg-wave focus:text-white text-white"
           type="text"
           placeholder="Password"
           ref={passref}

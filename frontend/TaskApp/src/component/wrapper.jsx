@@ -36,23 +36,23 @@ const Wrapper = () => {
   const [txt1, setTxt1] = useState("white");
   const [txt2, setTxt2] = useState("");
   return (
-    <div className=" bg-slate-400 font-quick">
-      <h1 className=" bg-blue-900 text-white p-6 text-3xl text-center">
+    <div className=" bg-gradient font-quick">
+      <h1 className=" sticky z-10 top-0 bg-wave bg-cover text-white p-6 text-3xl text-center">
         Secret Message
       </h1>
-      <p className=" text-center text-white p-3 bg-slate-600">
+      <p className=" text-center text-white p-3 bg-gradient">
         <q>Silahkan Login atau register dulu</q>
       </p>
-      <div className=" flex justify-around p-2 gap-2">
+      <div className=" flex justify-around">
         <button
-          className=" rounded-lg p-2"
+          className=" z-0 p-2"
           onClick={HandleLogin}
           style={{ width: width1, backgroundColor: bg1, color: txt1 }}
         >
           Login
         </button>
         <button
-          className=" rounded-lg "
+          className=" p-2 "
           onClick={handleRegist}
           style={{ width: width2, backgroundColor: bg2, color: txt2 }}
         >
@@ -67,14 +67,14 @@ const Wrapper = () => {
         <UserList />
       </div>
       <div className=" bg-wave h-96"></div>
-      <div className=" fixed bottom-0 w-full flex text-white">
+      <div className=" fixed bottom-0 w-full flex text-white text-sm">
         <div className=" bg-wave w-full p-2 flex flex-col justify-center text-center">
           <p>Made By Djamet Coder</p>
           <p>Copyright &copy; 2023</p>
         </div>
         <div className=" bg-wave w-full flex flex-col justify-center text-center">
-          <p className="">Contact Me</p>
-          <p className="">Support Me</p>
+          <p className=" underline">Contact Me</p>
+          <p className=" underline">Support Me</p>
         </div>
       </div>
     </div>
