@@ -45,29 +45,29 @@ const Login = () => {
   return (
     <div className=" flex flex-col justify-center">
       <form
-        className=" bg-gradient flex flex-col p-3 gap-1 font-quick justify-center h-52"
+        className=" bg-wave flex flex-col p-3 gap-1 font-quick justify-center h-52"
         action="#"
       >
         <input
-          className=" text-white/70 rounded-lg p-2 focus:outline-none bg-wave focus:text-white"
+          className=" text-white/70 rounded-lg p-2 focus:outline-none bg-slate-400/30 focus:text-white"
           type="text"
           placeholder="Email"
           ref={emailref}
           onChange={handleChange}
         />
         <input
-          className=" text-white/70 rounded-lg p-2 focus:outline-none bg-wave focus:text-white"
+          className=" text-white/70 rounded-lg p-2 focus:outline-none bg-slate-400/30 focus:text-white"
           type="text"
           placeholder="Password"
           ref={passref}
           onChange={handleChange}
         />
-        <div className=" text-center bg-slate-200/20 text-red-600">
+        <div className=" text-center text-red-600">
           <p>{warning}</p>
         </div>
         <div className=" flex justify-center">
           <Link
-            className=" rounded-lg p-2 focus:outline-none bg-white/20"
+            className=" rounded-lg p-2 focus:outline-none bg-white/20 text-white/40"
             onClick={handleSubmit}
             to="/landing"
           >

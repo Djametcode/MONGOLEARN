@@ -3,7 +3,6 @@ import React, { createContext, useEffect, useState } from "react";
 import ContactList from "./component/contactlist";
 import Header from "./component/Header";
 import Input from "./component/Input";
-import Landing from "./component/landing";
 import Menu from "./component/menu";
 
 export const ItemContext = createContext(null);

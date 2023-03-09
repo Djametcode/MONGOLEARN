@@ -28,7 +28,6 @@ const UserMap = ({ data, setUser }) => {
     >
       <div>
         <p>username: {item.username}</p>
-        <p>Email: {item.email}</p>
         <hr className=" text-white bg-white" />
       </div>
       <div>
@@ -58,7 +57,7 @@ const UserList = () => {
     getAllUser();
   }, []);
   return (
-    <div className=" bg-wave text-white p-2 pb-40">
+    <div className=" bg-wave text-white p-2 pb-96">
       <h1 className=" text-lg p-2">User List :</h1>
       <UserMap data={user} setUser={setUser} />
     </div>

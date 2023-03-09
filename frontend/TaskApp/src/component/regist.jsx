@@ -53,38 +53,34 @@ const Register = () => {
   return (
     <div className=" flex flex-col justify-center">
       <form
-        className=" bg-gradient flex flex-col p-3 gap-1 font-quick justify-center"
+        className=" bg-wave flex flex-col p-3 gap-1 font-quick justify-center"
         action="#"
       >
         <input
-          className=" rounded-lg p-2 focus:outline-none bg-wave focus:text-white text-white"
+          className=" rounded-lg p-2 focus:outline-none bg-slate-400/30 focus:text-white text-white"
           type="text"
           placeholder="Username"
           ref={usernameref}
           onChange={handleChange}
         />
         <input
-          className=" rounded-lg p-2 focus:outline-none bg-wave focus:text-white text-white"
+          className=" rounded-lg p-2 focus:outline-none bg-slate-400/30 focus:text-white text-white"
           type="text"
           placeholder="Email"
           ref={emailref}
           onChange={handleChange}
         />
         <input
-          className=" rounded-lg p-2 focus:outline-none bg-wave focus:text-white text-white"
+          className=" rounded-lg p-2 focus:outline-none bg-slate-400/30 focus:text-white text-white"
           type="text"
           placeholder="Password"
           ref={passref}
           onChange={handleChange}
         />
-        <div>
-          {msg && (
-            <p className=" bg-slate-200/40 text-center text-green-800">{txt}</p>
-          )}
-        </div>
+        <div>{msg && <p className=" text-center text-green-800">{txt}</p>}</div>
         <div className=" flex justify-center">
           <Link
-            className=" rounded-lg p-2 focus:outline-none bg-white/20"
+            className=" rounded-lg p-2 focus:outline-none bg-white/20 text-white/40"
             onClick={handleSubmit}
             to="/landing"
           >
