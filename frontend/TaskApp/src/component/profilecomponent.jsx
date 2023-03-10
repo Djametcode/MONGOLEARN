@@ -5,7 +5,7 @@ const ProfileComponent = () => {
   const navigate = useNavigate();
   const username = localStorage.getItem("name");
   const email = localStorage.getItem("email");
-  const id = localStorage.getItem("id");
+  const id = localStorage.getItem("_id");
   const deleteAccount = async () => {
     try {
       await axios.delete(
