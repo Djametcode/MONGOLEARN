@@ -5,7 +5,10 @@ import ProfileComponent from "./profilecomponent";
 const Profile = () => {
   return (
     <div>
-      <Header />
+      <div className=" sticky top-0">
+        <Header />
+      </div>
+
       <ProfileComponent />
       <div className=" fixed bottom-0 w-full">
         <Menu />

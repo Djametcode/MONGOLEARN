@@ -39,7 +39,7 @@ const ProfileComponent = () => {
           Hapus akun
         </button>
       </div>
-      <div className=" bg-slate-300/40 m-3 rounded-lg h-96 text-slate-300 p-4">
+      <div className=" bg-slate-300/40 m-3 mb-14 rounded-lg h-96 text-slate-300 p-4">
         <p>Tutor :</p>
         <ul>
           <li>1. Gunakan tombol hapus akun untuk menghapus akun</li>
