@@ -12,7 +12,7 @@ const Menu = () => {
     navigate("/profile");
   };
   return (
-    <div className=" flex justify-between bg-wave text-white p-3 gap-3 overflow-scroll">
+    <div className=" flex justify-between bg-wave text-white p-3 gap-3 overflow-scroll font-quick">
       <div
         onClick={navigateHome}
         className=" cursor-pointer flex w-full justify-center bg-slate-300/30 rounded-lg text-white pr-1"

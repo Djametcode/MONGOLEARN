@@ -52,8 +52,8 @@ const Header = () => {
       <div class="flex-none">
         <div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-            <div class="w-10 rounded-full">
-              <img src="./src/images/user.png" alt="" />
+            <div class="w-10 bg-slate-500 rounded-full">
+              <div className=" bg-user bg-cover w-10 h-10"></div>
             </div>
           </label>
           <ul
