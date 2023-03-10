@@ -1,6 +1,6 @@
 const FooterBeranda = () => {
   return (
-    <div className=" flex justify-evenly bg-slate-500/40 p-2 -translate-y-9 rounded-bl-lg rounded-br-lg">
+    <div className=" relative flex justify-evenly bg-slate-500/40 p-2 -translate-y-9 rounded-bl-lg rounded-br-lg">
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"

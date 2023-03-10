@@ -23,6 +23,9 @@ const Schema = new mongoose.Schema({
     ref: "UserModel",
     required: [true],
   },
+  like: {
+    type: Number,
+  },
 });
 
 module.exports = mongoose.model("Schemas", Schema);

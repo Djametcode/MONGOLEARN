@@ -6,7 +6,7 @@ import Menu from "./menu";
 const BerandaUser = () => {
   return (
     <div>
-      <div className=" sticky top-0">
+      <div className=" sticky top-0 z-20">
         <Header />
         <Menu />
       </div>
