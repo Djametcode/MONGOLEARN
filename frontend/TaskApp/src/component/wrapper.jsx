@@ -18,19 +18,19 @@ const Wrapper = () => {
     toggleLogin(true);
   };
   return (
-    <div className=" bg-wave font-quick">
+    <div className=" bg-wave font-quick sm:hidden">
       <h1 className=" sticky z-10 top-0 bg-wave bg-cover text-white p-6 text-3xl text-center">
         Posting Aja Dulu
       </h1>
-      <div className=" flex justify-around">
+      <div className=" flex justify-around p-2">
         <button
-          className=" z-0 p-2 bg-slate-400/30 text-white/40 w-full m-1 rounded-lg underline"
+          className=" z-0 p-2 bg-slate-400/30 text-white/40 w-full m-1 rounded-lg"
           onClick={HandleLogin}
         >
           Login
         </button>
         <button
-          className=" p-2 bg-slate-400/30 text-white/40 w-full m-1 rounded-lg underline"
+          className=" p-2 bg-slate-400/30 text-white/40 w-full m-1 rounded-lg"
           onClick={handleRegist}
         >
           Register
