@@ -27,8 +27,9 @@ const UserMap = ({ data, setUser }) => {
       className=" animate-pulse bg-slate-400/60 p-2 m-1 rounded-lg flex justify-between"
     >
       <div>
-        <p>username: {item.username}</p>
-        <hr className=" text-white bg-white" />
+        <p>
+          Sudah ada {item.jumlah} yang bergabung, klik menu register sekarang
+        </p>
       </div>
       {/* <div>
         <DeleteButton data={data} id={item._id} setUser={setUser} />

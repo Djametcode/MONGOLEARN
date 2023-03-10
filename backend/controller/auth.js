@@ -36,12 +36,10 @@ const login = async (req, res) => {
     const token = await user.createJWT();
     const email_user = user.email;
     const id_user = user._id;
-    res
-      .status(200)
-      .json({
-        user: { name: user.username, email_user: email_user, id_user: id_user },
-        token,
-      });
+    res.status(200).json({
+      user: { name: user.username, email_user: email_user, id_user: id_user },
+      token,
+    });
   } catch (error) {
     console.log(error);
   }
@@ -49,7 +47,7 @@ const login = async (req, res) => {
 
 const getAlluser = async (req, res) => {
   const user = await UserModel.find({});
-  res.status(200).json({ list: { user } });
+  res.status(200).json({ list: { jumlah: user.length } });
 };
 const getUserById = async (req, res) => {
   try {
