@@ -5,4 +5,13 @@ const getAllSecretMessage = async (req, res) => {
   res.status(200).json({ data });
 };
 
-module.exports = { getAllSecretMessage };
+const giveLike = async (req, res) => {
+  try {
+    const { Id } = req.params;
+    const { like } = req.body;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { getAllSecretMessage, giveLike };
