@@ -6,8 +6,10 @@ const Profile = () => {
   return (
     <div>
       <Header />
-      <Menu />
       <ProfileComponent />
+      <div className=" fixed bottom-0 w-full">
+        <Menu />
+      </div>
     </div>
   );
 };

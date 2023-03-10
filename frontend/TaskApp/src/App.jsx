@@ -32,10 +32,14 @@ const ContactApp = () => {
   return (
     <div>
       <ItemContext.Provider value={{ data, setdata, getAllData }}>
-        <Header />
-        <Menu />
+        <div className=" sticky top-0 z-20">
+          <Header />
+        </div>
         <Input />
         <ContactList />
+        <div className=" fixed bottom-0 w-full">
+          <Menu />
+        </div>
       </ItemContext.Provider>
     </div>
   );

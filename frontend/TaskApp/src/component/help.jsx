@@ -26,7 +26,8 @@ const Help = () => {
           <div className="collapse-content">
             <p className=" text-sm">
               Silahkan Klik register untuk daftar, kemudian Login menggunakan
-              email dan password yang sudah anda daftarkan tadi
+              email dan password yang sudah anda daftarkan tadi. (pakai email
+              asal gpp yang penting belakang @gmail.com)
             </p>
           </div>
         </div>

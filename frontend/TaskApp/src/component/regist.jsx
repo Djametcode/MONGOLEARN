@@ -48,6 +48,7 @@ const Register = () => {
       const { user, token, msg } = datas;
       settxt(msg);
       await togglemsg(true);
+      await navigate("/");
       localStorage.removeItem("token");
       event.preventDefault();
     } catch (error) {

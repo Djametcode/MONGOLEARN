@@ -8,9 +8,11 @@ const BerandaUser = () => {
     <div>
       <div className=" sticky top-0 z-20">
         <Header />
-        <Menu />
       </div>
       <ForYouPage />
+      <div className=" fixed bottom-0 w-full">
+        <Menu />
+      </div>
     </div>
   );
 };

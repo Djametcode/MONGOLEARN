@@ -157,7 +157,7 @@ const ContactMap = ({ data, setContact }) => {
   const result = data.map((item) => (
     <div
       key={item._id}
-      className=" p-5 rounded-lg h-full relative z-0 text-base"
+      className=" p-5 bg-wave mb-20 rounded-lg h-full relative z-0 text-base"
     >
       <div className=" p-1 rounded-lg relative z-20">
         <p>Nama : {item.username}</p>
@@ -200,7 +200,7 @@ const List = () => {
 
 const ContactList = () => {
   return (
-    <div className=" font-quick m-3 bg-wave text-white/70 rounded-lg p-3 text-2xl">
+    <div className=" font-quick m-3 text-white/70 rounded-lg p-3 text-2xl">
       <h1
         className=" text-center p-3
       "
