@@ -53,8 +53,8 @@ const Header = () => {
       <div class="flex-none">
         <div class="dropdown dropdown-end">
           <label tabindex="0" className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 bg-slate-500 rounded-full">
-              <div className=" bg-user bg-cover w-10 h-10"></div>
+            <div className="w-9 bg-slate-500 rounded-full flex flex-col justify-center">
+              <div className=" bg-user bg-cover w-9 h-9"></div>
             </div>
           </label>
           <ul
