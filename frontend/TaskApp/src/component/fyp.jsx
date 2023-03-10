@@ -10,7 +10,6 @@ const Extend = ({ data, getAllSecretMsg }) => {
 };
 
 const List = ({ data, getAllSecretMsg }) => {
-  console.log(data);
   const { username, address, secret, date, like, _id } = data;
   const formatdate = date.split("T")[0];
   return (
@@ -27,7 +26,7 @@ const List = ({ data, getAllSecretMsg }) => {
       <div className=" bg-slate-400/30 p-3 pb-48 rounded-xl">
         <p>Pesan: {secret}</p>
       </div>
-      <FooterBeranda like={like} id={_id} getAllSecretMsg={getAllSecretMsg} />
+      <FooterBeranda data={data} id={_id} getAllSecretMsg={getAllSecretMsg} />
     </div>
   );
 };
