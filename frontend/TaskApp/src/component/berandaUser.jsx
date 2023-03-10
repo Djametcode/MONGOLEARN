@@ -10,7 +10,6 @@ const BerandaUser = () => {
         <Header />
         <Menu />
       </div>
-
       <ForYouPage />
     </div>
   );

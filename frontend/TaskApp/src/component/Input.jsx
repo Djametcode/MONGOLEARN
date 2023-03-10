@@ -72,7 +72,10 @@ const Input = () => {
         </div>
 
         <div className=" flex justify-center">
-          <Link onClick={handleSubmit} className=" bg-slate-300 p-2 rounded-lg">
+          <Link
+            onClick={handleSubmit}
+            className=" bg-slate-400/30 p-2 rounded-lg"
+          >
             Kirim Secret Message
           </Link>
         </div>

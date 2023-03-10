@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -47,22 +47,24 @@ const Header = () => {
     //   </div>
     // </div>
     <div class="navbar bg-base-100">
-      <div class="flex-1">
+      <div class="flex-1 font-quick">
         <a class="btn btn-ghost normal-case text-xl">Posting Aja Dulu</a>
       </div>
       <div class="flex-none">
         <div class="dropdown dropdown-end">
-          <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+          <label tabindex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 bg-slate-500 rounded-full">
               <div className=" bg-user bg-cover w-10 h-10"></div>
             </div>
           </label>
           <ul
             tabindex="0"
-            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            class="menu menu-compact font-quick dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a class="justify-between">{user}</a>
+              <Link to="/profile" class="justify-between">
+                {user}
+              </Link>
             </li>
             <li>
               <a onClick={logouthandle}>Logout</a>

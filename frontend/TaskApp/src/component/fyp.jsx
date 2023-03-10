@@ -11,17 +11,17 @@ const List = ({ data }) => {
   const formatdate = date.split("T")[0];
   return (
     <div className=" bg-wave flex flex-col p-4">
-      <div className=" flex justify-between bg-slate-400/30 mb-2 rounded-lg">
-        <div className=" w-full pb-4 p-2">
-          <p>Dari : {username} </p>
+      <div className=" flex justify-start bg-slate-400/30 mb-2 rounded-lg">
+        <div className=" flex flex-col pb-4 p-3">
+          <p className=" w-56">Dari : {username} </p>
+          <p className=" w-full">Alamat: {address}</p>
         </div>
-        <div className=" w-full flex gap-3 p-2">
-          <p>{address}</p>
+        <div className=" w-full flex justify-end gap-3 p-3">
           <p>{formatdate}</p>
         </div>
       </div>
-      <div className=" bg-slate-400/30 p-2 pb-48 rounded-xl">
-        <p>{secret}</p>
+      <div className=" bg-slate-400/30 p-3 pb-48 rounded-xl">
+        <p>Pesan: {secret}</p>
       </div>
     </div>
   );
