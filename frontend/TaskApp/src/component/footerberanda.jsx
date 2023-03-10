@@ -5,17 +5,18 @@ const FooterBeranda = ({ data }) => {
   const { like, _id } = data;
   //   console.log(like, _id);
   const [likes, setLike] = useState(like);
-  const datax = {
+  const givelike = {
     like: likes,
   };
   const addlike = async () => {
     try {
       await setLike(like + 1);
-      await axios.post(
+      const response = await axios.post(
         `https://grumpy-worm-stockings.cyclic.app/api/v3/u/list/${_id}`,
-        datax
+        givelike
       );
-      console.log(like, _id);
+      const item = response.data;
+      console.log(item);
     } catch (error) {
       console.log(error);
     }
