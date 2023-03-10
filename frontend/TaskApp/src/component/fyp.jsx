@@ -2,14 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import FooterBeranda from "./footerberanda";
 
-const Extend = ({ data, getAllSecretMsg }) => {
+const Extend = ({ data, refresh }) => {
   const results = data.map((item) => (
-    <List key={data._id} data={item} getAllSecretMsg={getAllSecretMsg} />
+    <List key={data._id} data={item} refresh={refresh} />
   ));
   return <div className=" text-white font-quick">{results}</div>;
 };
 
-const List = ({ data, getAllSecretMsg }) => {
+const List = ({ data, refresh }) => {
   const { username, address, secret, date, like, _id } = data;
   const formatdate = date.split("T")[0];
   return (
@@ -26,7 +26,7 @@ const List = ({ data, getAllSecretMsg }) => {
       <div className=" bg-slate-400/30 p-3 pb-48 rounded-xl">
         <p>Pesan: {secret}</p>
       </div>
-      <FooterBeranda data={data} id={_id} getAllSecretMsg={getAllSecretMsg} />
+      <FooterBeranda data={data} id={_id} refresh={refresh} />
     </div>
   );
 };
@@ -50,7 +50,7 @@ const ForYouPage = () => {
   }, []);
   return (
     <div>
-      <Extend data={fyp} getAllSecretMsg={getAllSecretMsg} />
+      <Extend data={fyp} refresh={getAllSecretMsg} />
     </div>
   );
 };
