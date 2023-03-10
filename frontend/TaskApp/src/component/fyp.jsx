@@ -8,6 +8,7 @@ const Extend = ({ data }) => {
 };
 
 const List = ({ data }) => {
+  console.log(data);
   const { username, address, secret, date } = data;
   const formatdate = date.split("T")[0];
   return (

@@ -8,7 +8,10 @@ const getAllSecretMessage = async (req, res) => {
 const giveLike = async (req, res) => {
   try {
     const { Id } = req.params;
-    const { like } = req.body;
+    const data = await DataScheme.findOneAndUpdate({ _id: Id }, req.body, {
+      new: true,
+    });
+    res.status(200).json({ data: { like: data.like } });
   } catch (error) {
     console.log(error);
   }
