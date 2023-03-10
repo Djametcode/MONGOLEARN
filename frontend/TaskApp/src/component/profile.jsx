@@ -5,7 +5,7 @@ import ProfileComponent from "./profilecomponent";
 const Profile = () => {
   return (
     <div>
-      <div className=" sticky top-0">
+      <div className=" sticky top-0 z-20">
         <Header />
       </div>
 
