@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const ProfileComponent = () => {
-  const id_user = localStorage.getItem("id_user");
+  const id_user = localStorage.getItem("_id");
   const getUserById = async () => {
     try {
       const response = await axios.get(

@@ -30,12 +30,13 @@ const Login = () => {
       const item = datas.data;
       const {
         user: { name, email_user, id_user },
+        token,
       } = item;
-      console.log(item);
-      // await localStorage.removeItem("token");
-      // await localStorage.setItem("token", token);
-      // await localStorage.setItem("name", name);
-      // await localStorage.setItem("_id", ids);
+      await localStorage.removeItem("token");
+      await localStorage.setItem("token", token);
+      await localStorage.setItem("name", name);
+      await localStorage.setItem("_id", id_user);
+      await localStorage.setItem("email", email_user);
       await navigate("/beranda");
     } catch (error) {
       console.log(error);
