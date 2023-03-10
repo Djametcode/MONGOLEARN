@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Drawer from "./frawer";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -16,6 +15,8 @@ const Header = () => {
   // };
   const logouthandle = async () => {
     await localStorage.removeItem("token");
+    await localStorage.removeItem("_id");
+    await localStorage.removeItem("name");
     await navigate("/landing");
   };
   return (
@@ -52,7 +53,7 @@ const Header = () => {
       <div class="flex-none">
         <div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-            <div class="w-10 bg-slate-500 rounded-full">
+            <div className="w-10 bg-slate-500 rounded-full">
               <div className=" bg-user bg-cover w-10 h-10"></div>
             </div>
           </label>

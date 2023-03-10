@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRef, useState } from "react";
+import { createContext, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -20,6 +20,7 @@ const Login = () => {
   };
   const navigate = useNavigate();
   const [warning, setWarning] = useState("");
+  const [ids, setId] = useState("");
   const handleSubmit = async () => {
     try {
       const datas = await axios.post(
@@ -28,12 +29,13 @@ const Login = () => {
       );
       const item = datas.data;
       const {
-        user: { name },
-        token,
+        user: { name, email_user, id_user },
       } = item;
-      await localStorage.removeItem("token");
-      await localStorage.setItem("token", token);
-      await localStorage.setItem("name", name);
+      console.log(item);
+      // await localStorage.removeItem("token");
+      // await localStorage.setItem("token", token);
+      // await localStorage.setItem("name", name);
+      // await localStorage.setItem("_id", ids);
       await navigate("/beranda");
     } catch (error) {
       console.log(error);

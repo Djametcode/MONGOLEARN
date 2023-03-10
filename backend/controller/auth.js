@@ -34,7 +34,14 @@ const login = async (req, res) => {
       res.status(501).json({ msg: "Password Salah" });
     }
     const token = await user.createJWT();
-    res.status(200).json({ user: { name: user.username }, token });
+    const email_user = user.email;
+    const id_user = user._id;
+    res
+      .status(200)
+      .json({
+        user: { name: user.username, email_user: email_user, id_user: id_user },
+        token,
+      });
   } catch (error) {
     console.log(error);
   }
@@ -43,6 +50,19 @@ const login = async (req, res) => {
 const getAlluser = async (req, res) => {
   const user = await UserModel.find({});
   res.status(200).json({ list: { user } });
+};
+const getUserById = async (req, res) => {
+  try {
+    const { Id: userId } = req.params;
+    const user = await UserModel.findOne({ _id: userId });
+    if (!user) {
+      res.status(404).json({ msg: "User tidak di temukan" });
+    }
+
+    res.status(200).json({ user });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const deleteUser = async (req, res) => {
@@ -58,4 +78,4 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { login, register, getAlluser, deleteUser };
+module.exports = { login, register, getAlluser, deleteUser, getUserById };
