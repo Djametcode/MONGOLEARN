@@ -1,20 +1,20 @@
 import axios from "axios";
 import { useState } from "react";
 
-const FooterBeranda = ({ data, refresh }) => {
+const FooterBeranda = ({ data, id, refresh }) => {
   const { like, _id } = data;
   //   console.log(like, _id);
   const [likes, setLike] = useState(like);
   const givelike = {
-    like: likes,
+    like: like + 1,
   };
   const addlike = async () => {
     try {
-      await setLike(like + 1);
       await axios.post(
-        `https://grumpy-worm-stockings.cyclic.app/api/v3/u/list/${_id}`,
+        `https://grumpy-worm-stockings.cyclic.app/api/v3/u/list/${id}`,
         givelike
       );
+      await setLike(like + 1);
       await refresh();
     } catch (error) {
       console.log(error);
