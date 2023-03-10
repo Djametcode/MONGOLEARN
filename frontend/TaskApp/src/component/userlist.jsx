@@ -1,45 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const DeleteButton = ({ data, id, setUser }) => {
-  const handleDelete = async () => {
-    try {
-      const filter = data.filter((item) => item._id !== id);
-      await axios.delete(
-        `https://grumpy-worm-stockings.cyclic.app/api/v3/auth/user/${id}`
-      );
-      await setUser(filter);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  return (
-    <button onClick={handleDelete} className=" bg-wave rounded-lg p-1">
-      Hapus User
-    </button>
-  );
-};
-
-const UserMap = ({ data, setUser }) => {
-  const result = data.map((item) => (
-    <div
-      key={item._id}
-      className=" animate-pulse bg-slate-400/60 p-2 m-1 rounded-lg flex justify-between"
-    >
-      <div>
-        <p>
-          Sudah ada {item.jumlah} yang bergabung, klik menu register sekarang
-        </p>
-      </div>
-      {/* <div>
-        <DeleteButton data={data} id={item._id} setUser={setUser} />
-      </div> */}
-    </div>
-  ));
-  return <div className=" flex flex-col">{result}</div>;
-};
 const UserList = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState();
   const getAllUser = async () => {
     try {
       const response = await axios.get(
@@ -47,9 +10,9 @@ const UserList = () => {
       );
       const item = response.data;
       const {
-        list: { user },
+        list: { jumlah },
       } = item;
-      setUser(user);
+      setUser(jumlah);
     } catch (error) {
       console.log(error);
     }
@@ -58,9 +21,9 @@ const UserList = () => {
     getAllUser();
   }, []);
   return (
-    <div className=" bg-wave text-white p-2 pb-96">
-      <h1 className=" text-lg p-2">User List :</h1>
-      <UserMap data={user} setUser={setUser} />
+    <div className=" bg-wave text-white/40 p-2 pb-9 text-sm flex text-center flex-col">
+      <h1 className=" p-2">Tercatat {user} user aktif di Posting Aja dulu</h1>
+      <p>Ayo daftar gratis kok !</p>
     </div>
   );
 };

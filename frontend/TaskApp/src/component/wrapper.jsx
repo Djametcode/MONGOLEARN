@@ -40,12 +40,13 @@ const Wrapper = () => {
         {login && <Login />}
         {regist && <Register />}
       </div>
-      <div className=" p-2">
-        <Help />
-      </div>
       <div className=" bg-slate-400">
         <UserList />
       </div>
+      <div className=" p-2">
+        <Help />
+      </div>
+
       <div className=" fixed bottom-0 w-full flex text-white text-sm">
         <Footer />
         {/* <div className=" bg-wave w-full p-2 flex flex-col justify-center text-center">
