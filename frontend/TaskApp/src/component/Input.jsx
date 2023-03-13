@@ -13,13 +13,13 @@ const Input = () => {
   const usernameref = useRef();
   const addressRef = useRef();
   const secretMsgRef = useRef();
-  const imgref = useRef(null);
+  const imgref = useRef();
 
   const data = {
     username: username,
     address: address,
     secret: secretmsg,
-    images: img[0],
+    image: img,
   };
   console.log(data);
 
@@ -47,7 +47,7 @@ const Input = () => {
     setUsername(usernameref.current.value);
     setAddress(addressRef.current.value);
     setSecret(secretMsgRef.current.value);
-    setImg(imgref.current.files);
+    setImg(imgref.current.value);
   };
   return (
     <div>
