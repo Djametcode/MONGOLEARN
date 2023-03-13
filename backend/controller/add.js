@@ -12,7 +12,7 @@ const addData = async (req, res) => {
     });
     req.body.image = {
       public_id: result.public_id,
-      url: result.secure_url,
+      secure_url: result.secure_url,
     };
 
     const data = await DataScheme.create({

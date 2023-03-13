@@ -143,14 +143,6 @@ const ToggleSecretMessage = ({ data }) => {
     </div>
   );
 };
-const Images = ({ data }) => {
-  console.log(data);
-  return (
-    <div>
-      <img src={data.url} alt="" width="100px" height="100px" />
-    </div>
-  );
-};
 
 const ContactMap = ({ data, setContact }) => {
   const checkRef = useRef();
@@ -175,7 +167,7 @@ const ContactMap = ({ data, setContact }) => {
       </div>
 
       <ToggleSecretMessage data={item.secret} />
-      <Images data={item.image} />
+
       <div className=" flex justify-around gap-3">
         <DeleteButton id={item._id} data={data} setContact={setContact} />
         <input
