@@ -23,6 +23,10 @@ const Schema = new mongoose.Schema({
     ref: "UserModel",
     required: [true],
   },
+  image: {
+    public_id: String,
+    url: String,
+  },
   like: {
     type: Number,
     default: 0,

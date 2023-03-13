@@ -1,9 +1,28 @@
 const DataScheme = require("../model/Learn");
+const cloudinary = require("../utlis/cloudinary");
 
 const addData = async (req, res) => {
-  req.body.createdBy = req.UserModel.username;
-  const data = await DataScheme.create(req.body);
-  return res.status(200).json({ data });
+  try {
+    req.body.createdBy = req.UserModel.username;
+    const file = req.files.image;
+
+    const result = await cloudinary.uploader.upload(file.tempFilePath, {
+      public_id: `${Date.now()}`,
+      resource_type: "auto",
+      folder: "Testing",
+    });
+
+    const data = await DataScheme.create({
+      image: {
+        public_id: result.public_id,
+        url: result.secure_url,
+      },
+      ...req.body,
+    });
+    return res.status(200).json({ data });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getAllData = async (req, res) => {

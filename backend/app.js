@@ -3,7 +3,7 @@ const express = require("express");
 const connectDB = require("./db/connect");
 const cors = require("cors");
 const auth = require("./middleware/authentication");
-const notfound = require("./middleware/notfound");
+const fileUpload = require("express-fileupload");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -15,6 +15,11 @@ const universalRouter = require("./routes/globalroutes");
 
 app.use(cors());
 app.use(express.json());
+app.use(
+  fileUpload({
+    useTempFiles: true,
+  })
+);
 
 app.use("/api/v3/u", universalRouter);
 app.use("/api/v3/user", auth, dataRouter);
