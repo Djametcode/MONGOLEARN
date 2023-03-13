@@ -11,11 +11,7 @@ const Extend = ({ data, refresh }) => {
 
 const Images = ({ data }) => {
   console.log(data);
-  return (
-    <div>
-      <img src={data} alt="test" width="100px" height="100px" />
-    </div>
-  );
+  return <div></div>;
 };
 const List = ({ data, refresh }) => {
   const { username, address, secret, date, like, _id, image } = data;
@@ -35,7 +31,7 @@ const List = ({ data, refresh }) => {
         <p>Pesan: {secret}</p>
       </div>
       <div>
-        <Images data={image: {}} />
+        <Images data={image} />
       </div>
       <FooterBeranda data={data} id={_id} refresh={refresh} />
     </div>

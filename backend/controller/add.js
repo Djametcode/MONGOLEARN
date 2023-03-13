@@ -5,6 +5,7 @@ const addData = async (req, res) => {
   try {
     req.body.createdBy = req.UserModel.username;
     const file = req.files.image;
+
     const result = await cloudinary.uploader.upload(file.tempFilePath, {
       public_id: `${Date.now()}`,
       resource_type: "auto",
