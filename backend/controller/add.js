@@ -5,18 +5,17 @@ const addData = async (req, res) => {
   try {
     req.body.createdBy = req.UserModel.username;
     const file = req.files.image;
-
     const result = await cloudinary.uploader.upload(file.tempFilePath, {
       public_id: `${Date.now()}`,
       resource_type: "auto",
       folder: "Testing",
     });
+    req.body.image = {
+      public_id: result.public_id,
+      url: result.secure_url,
+    };
 
     const data = await DataScheme.create({
-      image: {
-        public_id: result.public_id,
-        url: result.secure_url,
-      },
       ...req.body,
     });
     return res.status(200).json({ data });
