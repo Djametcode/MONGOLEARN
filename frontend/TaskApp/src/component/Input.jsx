@@ -8,16 +8,20 @@ const Input = () => {
   const [username, setUsername] = useState("");
   const [address, setAddress] = useState("");
   const [secretmsg, setSecret] = useState("");
+  const [img, setImg] = useState("");
 
   const usernameref = useRef();
   const addressRef = useRef();
   const secretMsgRef = useRef();
+  const imgref = useRef(null);
 
   const data = {
     username: username,
     address: address,
     secret: secretmsg,
+    images: img[0],
   };
+  console.log(data);
 
   const token = localStorage.getItem("token");
   const config = {
@@ -43,6 +47,7 @@ const Input = () => {
     setUsername(usernameref.current.value);
     setAddress(addressRef.current.value);
     setSecret(secretMsgRef.current.value);
+    setImg(imgref.current.files);
   };
   return (
     <div>
@@ -70,7 +75,7 @@ const Input = () => {
             onChange={handleChange}
           />
         </div>
-
+        <input ref={imgref} type="file" />
         <div className=" flex justify-center">
           <Link
             onClick={handleSubmit}
