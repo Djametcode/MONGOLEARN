@@ -87,13 +87,12 @@ const Register = () => {
         />
         <div>{msg && <RegistDone txt={txt} />}</div>
         <div className=" flex justify-center">
-          <Link
+          <button
             className=" rounded-lg p-2 focus:outline-none bg-white/20 text-white/40"
             onClick={handleSubmit}
-            to="/landing"
           >
             Buat Akun
-          </Link>
+          </button>
         </div>
       </form>
     </div>
