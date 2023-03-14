@@ -10,7 +10,7 @@ const RegistOnly = () => {
         Posting Aja Dulu
       </h1>
       <div className=" flex flex-col p-2">
-        <div className=" flex justify-start pl-4 underline">
+        <div className=" flex justify-start pl-4 underline text-sm">
           <Link to="/"> klik untuk kembali ke Login</Link>
         </div>
         <Register />
