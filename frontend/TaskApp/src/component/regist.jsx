@@ -39,6 +39,7 @@ const Register = () => {
     password: password,
   };
   const handleSubmit = async () => {
+    event.preventDefault();
     try {
       const item = await axios.post(
         "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/register",
@@ -48,9 +49,7 @@ const Register = () => {
       const { user, token, msg } = datas;
       settxt(msg);
       await togglemsg(true);
-      await navigate("/");
       localStorage.removeItem("token");
-      event.preventDefault();
     } catch (error) {
       console.log(error);
       const txt = error.response.data;
