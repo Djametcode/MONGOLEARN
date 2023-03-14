@@ -1,12 +1,12 @@
 const Help = () => {
   return (
     <>
-      <div className=" flex flex-col gap-2 pb-40 text-base">
+      <div className=" flex flex-col gap-2 p-3 pb-40 text-base">
         <div
           tabIndex={0}
           className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box"
         >
-          <div className="collapse-title text-l font-medium">
+          <div className="collapse-title text-base font-medium">
             Apa Itu Posting Dulu?
           </div>
           <div className="collapse-content">
@@ -20,7 +20,7 @@ const Help = () => {
           tabIndex={0}
           className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box"
         >
-          <div className="collapse-title text-l font-medium">
+          <div className="collapse-title text-base font-medium">
             Bagaimana Cara Daftar user?
           </div>
           <div className="collapse-content">
@@ -35,7 +35,7 @@ const Help = () => {
           tabIndex={0}
           className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box"
         >
-          <div className="collapse-title text-l font-medium">
+          <div className="collapse-title text-base font-medium">
             Apakah data saya aman?
           </div>
           <div className="collapse-content">
@@ -49,7 +49,7 @@ const Help = () => {
           tabIndex={0}
           className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box"
         >
-          <div className="collapse-title text-l font-medium">
+          <div className="collapse-title text-base font-medium">
             Apakah saya bisa menghapus akun dan data saya?
           </div>
           <div className="collapse-content">

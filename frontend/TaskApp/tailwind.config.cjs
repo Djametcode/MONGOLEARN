@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         quick: ["Quicksand", "sans-serif"],
+        comic: ["Comic Neue", "cursive"],
       },
       backgroundImage: {
         user: "url('./images/user.png')",

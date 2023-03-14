@@ -31,11 +31,7 @@ const Input = () => {
   };
   const handleSubmit = async () => {
     try {
-      await axios.post(
-        "https://grumpy-worm-stockings.cyclic.app/api/v3/user",
-        data,
-        config
-      );
+      await axios.post("http://localhost:3000/api/v3/user", data, config);
       getAllData();
       event.preventDefault();
     } catch (error) {
@@ -47,7 +43,7 @@ const Input = () => {
     setUsername(usernameref.current.value);
     setAddress(addressRef.current.value);
     setSecret(secretMsgRef.current.value);
-    setImg(imgref.current.value);
+    setImg(imgref.current.files);
   };
   return (
     <div>

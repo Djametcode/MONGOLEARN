@@ -9,12 +9,17 @@ const Extend = ({ data, refresh }) => {
   return <div className=" text-white font-quick">{results}</div>;
 };
 
-const Images = ({ data }) => {
-  console.log(data);
-  return <div></div>;
-};
+// const Images = ({ data }) => {
+//   const [img, setImg] = useState(data.secure_url);
+//   return (
+//     <div>
+//       <img src={img} alt="" />
+//     </div>
+//   );
+// };
 const List = ({ data, refresh }) => {
   const { username, address, secret, date, like, _id, image } = data;
+
   const formatdate = date.split("T")[0];
   return (
     <div className=" bg-wave flex flex-col p-4 text-sm">
@@ -30,9 +35,6 @@ const List = ({ data, refresh }) => {
       <div className=" bg-slate-400/30 p-3 pb-48 rounded-xl">
         <p>Pesan: {secret}</p>
       </div>
-      <div>
-        <Images data={image} />
-      </div>
       <FooterBeranda data={data} id={_id} refresh={refresh} />
     </div>
   );
@@ -42,9 +44,7 @@ const ForYouPage = () => {
   const [fyp, setData] = useState([]);
   const getAllSecretMsg = async () => {
     try {
-      const response = await axios.get(
-        "https://grumpy-worm-stockings.cyclic.app/api/v3/u/list"
-      );
+      const response = await axios.get("http://localhost:3000/api/v3/u/list");
       const item = response.data;
       const { data } = item;
       setData(data);

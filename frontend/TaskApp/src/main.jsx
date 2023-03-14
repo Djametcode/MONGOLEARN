@@ -6,6 +6,7 @@ import Wrapper from "./component/wrapper";
 import BerandaUser from "./component/berandaUser";
 import App from "./App";
 import Profile from "./component/profile";
+import RegistOnly from "./component/registonly";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/beranda",
     element: <BerandaUser />,
+  },
+  {
+    path: "/regist",
+    element: <RegistOnly />,
   },
 ]);
 

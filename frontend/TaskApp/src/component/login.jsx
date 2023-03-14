@@ -48,7 +48,7 @@ const Login = () => {
   return (
     <div className=" flex flex-col justify-center">
       <form
-        className=" bg-wave flex flex-col p-3 gap-1 font-quick justify-center h-52"
+        className=" bg-wave m-3 flex flex-col p-3 gap-1 font-quick justify-center h-52"
         action="#"
       >
         <input
@@ -69,13 +69,23 @@ const Login = () => {
           <p>{warning}</p>
         </div>
         <div className=" flex justify-center">
-          <Link
-            className=" rounded-lg p-2 focus:outline-none bg-white/20 text-white/40"
-            onClick={handleSubmit}
-            to="/landing"
-          >
-            Login
-          </Link>
+          <div className=" m-1">
+            <Link
+              className=" rounded-lg p-2 focus:outline-none bg-white/20 text-white/40"
+              onClick={handleSubmit}
+              to="/landing"
+            >
+              Login
+            </Link>
+          </div>
+        </div>
+        <div className=" flex justify-center">
+          <div className=" text-center text-sm translate-y-3">
+            <p>Belum punya akun? </p>
+            <Link to="/regist" className=" underline">
+              Registrasi
+            </Link>
+          </div>
         </div>
       </form>
     </div>
