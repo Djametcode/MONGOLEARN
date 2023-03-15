@@ -43,11 +43,26 @@ const Input = () => {
     }
   };
 
+  const handleImage = () => {
+    let file = imgref.current.files[0];
+    transformFiles(file);
+  };
   const handleChange = () => {
     setUsername(usernameref.current.value);
     setAddress(addressRef.current.value);
     setSecret(secretMsgRef.current.value);
-    setImg(imgref.current.files);
+
+    // const files = imgref.current.files[0];
+    // console.log(files);
+    // transformFiles(files);
+  };
+
+  const transformFiles = (files) => {
+    let reader = new FileReader();
+    reader.onloadend = () => {
+      setImg(reader.result);
+    };
+    reader.readAsDataURL(files);
   };
   return (
     <div>
@@ -75,7 +90,7 @@ const Input = () => {
             onChange={handleChange}
           />
         </div>
-        <input ref={imgref} type="file" />
+        <input ref={imgref} type="file" onChange={handleImage} name="image" />
         <div className=" flex justify-center">
           <Link
             onClick={handleSubmit}

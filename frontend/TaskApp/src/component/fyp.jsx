@@ -19,6 +19,7 @@ const Extend = ({ data, refresh }) => {
 // };
 const List = ({ data, refresh }) => {
   const { username, address, secret, date, like, _id, image } = data;
+  console.log(image);
 
   const formatdate = date.split("T")[0];
   return (
@@ -34,6 +35,9 @@ const List = ({ data, refresh }) => {
       </div>
       <div className=" bg-slate-400/30 p-3 pb-48 rounded-xl">
         <p>Pesan: {secret}</p>
+        <div>
+          <img src={image.secure_url} alt="" />
+        </div>
       </div>
       <FooterBeranda data={data} id={_id} refresh={refresh} />
     </div>

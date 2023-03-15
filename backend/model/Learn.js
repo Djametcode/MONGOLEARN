@@ -25,7 +25,10 @@ const Schema = new mongoose.Schema({
   },
   image: {
     public_id: String,
-    secure_url: String,
+    secure_url: {
+      type: String,
+      default: "",
+    },
   },
   like: {
     type: Number,
