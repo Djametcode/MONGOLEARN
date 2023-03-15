@@ -23,7 +23,7 @@ const List = ({ data, refresh }) => {
 
   const formatdate = date.split("T")[0];
   return (
-    <div className=" bg-wave flex flex-col p-4 text-sm">
+    <div className=" bg-slate-700/40 flex flex-col p-4 text-sm">
       <div className=" flex justify-start bg-slate-400/30 mb-2 rounded-lg">
         <div className=" flex flex-col pb-4 p-3">
           <p className=" w-56">Dari : {username} </p>
@@ -33,10 +33,10 @@ const List = ({ data, refresh }) => {
           <p>{formatdate}</p>
         </div>
       </div>
-      <div className=" bg-slate-400/30 p-3 pb-48 rounded-xl">
-        <p>Pesan: {secret}</p>
-        <div>
-          <img src={image.secure_url} alt="" />
+      <div className=" bg-slate-400/30 p-3 pb-10 rounded-xl">
+        <p className=" pl-4">{secret}</p>
+        <div className=" flex justify-center p-3">
+          <img src={image.secure_url} alt="" className=" rounded-xl" />
         </div>
       </div>
       <FooterBeranda data={data} id={_id} refresh={refresh} />
