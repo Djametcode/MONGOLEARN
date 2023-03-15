@@ -4,10 +4,12 @@ const {
   getAllSecretMessage,
   giveLike,
   givecomment,
+  getComment,
 } = require("../controller/universal");
 
 router.get("/list", getAllSecretMessage);
+router.get("/comment", getComment);
 router.post("/list/:Id", giveLike);
-router.patch("/comment/:Id", givecomment);
+router.post("/comment/", givecomment);
 
 module.exports = router;

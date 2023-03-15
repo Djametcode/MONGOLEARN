@@ -5,7 +5,7 @@ import CommentJsx from "./comment";
 
 export const footerContext = createContext(null);
 
-const FooterBeranda = ({ data, id, refresh }) => {
+const FooterBeranda = ({ data, id, refresh, comments }) => {
   const navigate = useNavigate();
   const { like, _id } = data;
   //   console.log(like, _id);
@@ -83,7 +83,7 @@ const FooterBeranda = ({ data, id, refresh }) => {
         </div>
       </div>
       <div>
-        <footerContext.Provider value={{ toggleComment }}>
+        <footerContext.Provider value={{ toggleComment, id, comments }}>
           {comment && <CommentJsx />}
         </footerContext.Provider>
       </div>

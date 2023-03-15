@@ -18,8 +18,7 @@ const Extend = ({ data, refresh }) => {
 //   );
 // };
 const List = ({ data, refresh }) => {
-  const { username, address, secret, date, like, _id, image } = data;
-  console.log(data);
+  const { username, address, secret, date, like, _id, image, comment } = data;
 
   const formatdate = date.split("T")[0];
   return (
@@ -39,7 +38,12 @@ const List = ({ data, refresh }) => {
           <img src={image.secure_url} alt="" className=" rounded-xl" />
         </div>
       </div>
-      <FooterBeranda data={data} id={_id} refresh={refresh} />
+      <FooterBeranda
+        data={data}
+        id={_id}
+        refresh={refresh}
+        comments={comment}
+      />
     </div>
   );
 };
