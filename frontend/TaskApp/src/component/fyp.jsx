@@ -19,7 +19,7 @@ const Extend = ({ data, refresh }) => {
 // };
 const List = ({ data, refresh }) => {
   const { username, address, secret, date, like, _id, image } = data;
-  console.log(image);
+  console.log(data);
 
   const formatdate = date.split("T")[0];
   return (

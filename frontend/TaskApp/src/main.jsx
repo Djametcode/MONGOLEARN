@@ -7,6 +7,7 @@ import BerandaUser from "./component/berandaUser";
 import App from "./App";
 import Profile from "./component/profile";
 import RegistOnly from "./component/registonly";
+import CommentJsx from "./component/comment";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/regist",
     element: <RegistOnly />,
+  },
+  {
+    path: "/comment",
+    element: <CommentJsx />,
   },
 ]);
 

@@ -34,6 +34,10 @@ const Schema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  comment: {
+    type: String,
+    default: "",
+  },
 });
 
 module.exports = mongoose.model("Schemas", Schema);

@@ -22,5 +22,21 @@ const giveLike = async (req, res) => {
     console.log(error);
   }
 };
+const givecomment = async (req, res) => {
+  try {
+    const { Id } = req.params;
+    const data = await DataScheme.findOneAndUpdate(
+      { _id: Id },
+      { ...req.body },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+    res.status(200).json({ data: { komentar: data.comment } });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-module.exports = { getAllSecretMessage, giveLike };
+module.exports = { getAllSecretMessage, giveLike, givecomment };
