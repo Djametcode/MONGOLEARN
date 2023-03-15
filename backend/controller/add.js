@@ -5,7 +5,6 @@ const addData = async (req, res) => {
   try {
     req.body.createdBy = req.UserModel.username;
 
-    // const file = req.files.image;
     const { image } = req.body;
 
     if (image === "") {
@@ -15,6 +14,8 @@ const addData = async (req, res) => {
         public_id: `${Date.now()}`,
         resource_type: "auto",
         folder: "Testing",
+        width: 300,
+        crop: "scale",
       });
 
       req.body.image = {
