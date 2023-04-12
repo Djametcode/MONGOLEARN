@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react";
 import { footerContext } from "./footerberanda";
+import { useNavigate } from "react-router-dom";
 
 const ListComment = ({ datas }) => {
   const result = datas.map((item) => <p>{item.comment}</p>);
   return <div>{result}</div>;
 };
 const CommentJsx = () => {
+  const navigate = useNavigate();
   const commentref = useRef();
   const { toggleComment, id } = useContext(footerContext);
   const [comment, setComment] = useState([]);
@@ -29,6 +31,7 @@ const CommentJsx = () => {
         data
       );
       getAllComment();
+      await navigate("/");
     } catch (error) {
       console.log(error);
     }
