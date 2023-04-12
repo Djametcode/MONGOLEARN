@@ -34,7 +34,9 @@ const CommentJsx = () => {
 
   const getAllComment = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/v3/u/list");
+      const response = await axios.get(
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/u/list"
+      );
       const item = response.data;
       const { data } = item;
       console.log(data);
