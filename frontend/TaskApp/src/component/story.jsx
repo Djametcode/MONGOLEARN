@@ -33,7 +33,12 @@ const Story = () => {
                 <ProfileStory />
               </div>
               <div className=" flex justify-center">
-                <p className=" w-12 overflow-scroll">{item}</p>
+                <p className=" text-center w-full h-7 overflow-hidden">
+                  {item}
+                </p>
+              </div>
+              <div>
+                <hr className=" h-1 text-black" />
               </div>
             </div>
           </>
