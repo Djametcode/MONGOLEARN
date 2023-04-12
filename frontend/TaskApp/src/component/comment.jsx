@@ -38,8 +38,10 @@ const CommentJsx = () => {
         "https://grumpy-worm-stockings.cyclic.app/api/v3/u/list"
       );
       const item = response.data;
-      const { data } = item;
-      console.log(data);
+      const {
+        data: { comments },
+      } = item;
+      console.log(comments);
       setComment(data);
     } catch (error) {
       console.log(error);
