@@ -57,12 +57,11 @@ const getComment = async (req, res) => {
 const getCommentById = async (req, res) => {
   const { Id } = req.params;
 
-  const data = await comment.findOne({ _id: Id });
+  const data = await DataScheme.findOne({ _id: Id });
   if (!data) {
     return res.status(404).json({ msg: "Komentar mungkin sudah di hapus" });
   }
-
-  return res.status(200).json({ data });
+  return res.status(200).json({ data: data.comments });
 };
 module.exports = {
   getAllSecretMessage,

@@ -3,30 +3,33 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { footerContext } from "./footerberanda";
 
 const ListComment = ({ datas }) => {
-  const results = datas.map((item) => <p>{item.comment}</p>);
-  return <div>{results}</div>;
+  const result = datas.map((item) => <p>{item.comment}</p>);
+  return <div>{result}</div>;
 };
 const CommentJsx = () => {
   const commentref = useRef();
   const { toggleComment, id } = useContext(footerContext);
   const [comment, setComment] = useState([]);
-  console.log(comment);
+  const [sendComment, setCommentData] = useState("");
   const close = () => {
     toggleComment(false);
   };
   const handleChange = () => {
-    setComment(commentref.current.value);
+    setCommentData(commentref.current.value);
   };
   const data = {
-    comment: comment,
+    comment: sendComment,
   };
+
+  console.log(data);
   const postcomment = async () => {
     try {
       await axios.post(
-        "https://grumpy-worm-stockings.cyclic.app/api/v3/u/comment/",
+        `https://grumpy-worm-stockings.cyclic.app/api/v3/u/comment/${id}`,
         data
       );
       event.preventDefault();
+      getAllComment();
     } catch (error) {
       console.log(error);
     }
@@ -35,13 +38,10 @@ const CommentJsx = () => {
   const getAllComment = async () => {
     try {
       const response = await axios.get(
-        "https://grumpy-worm-stockings.cyclic.app/api/v3/u/list"
+        `https://grumpy-worm-stockings.cyclic.app/api/v3/u/comment/${id}`
       );
       const item = response.data;
-      const {
-        data: { comments },
-      } = item;
-      console.log(comments);
+      const { data } = item;
       setComment(data);
     } catch (error) {
       console.log(error);
