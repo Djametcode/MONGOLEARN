@@ -8,7 +8,7 @@ const ListComment = ({ datas }) => {
 };
 const CommentJsx = () => {
   const commentref = useRef();
-  const { toggleComment } = useContext(footerContext);
+  const { toggleComment, id } = useContext(footerContext);
   const [comment, setComment] = useState([]);
   console.log(comment);
   const close = () => {
@@ -23,7 +23,7 @@ const CommentJsx = () => {
   const postcomment = async () => {
     try {
       await axios.post(
-        "https://grumpy-worm-stockings.cyclic.app/api/v3/u/comment",
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/u/comment/",
         data
       );
       event.preventDefault();
@@ -35,7 +35,7 @@ const CommentJsx = () => {
   const getAllComment = async () => {
     try {
       const response = await axios.get(
-        "https://grumpy-worm-stockings.cyclic.app/api/v3/u/comment/"
+        `https://grumpy-worm-stockings.cyclic.app/api/v3/u/comment/${id}`
       );
       const item = response.data;
       const { data } = item;
