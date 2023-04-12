@@ -37,6 +37,10 @@ const Input = () => {
         config
       );
       getAllData();
+      usernameref.current.value = "";
+      addressRef.current.value = "";
+      secretMsgRef.current.value = "";
+      imgref.current.value = "";
       event.preventDefault();
     } catch (error) {
       console.log(error);

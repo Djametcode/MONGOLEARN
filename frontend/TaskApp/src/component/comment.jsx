@@ -31,7 +31,8 @@ const CommentJsx = () => {
         data
       );
       getAllComment();
-      await navigate("/");
+      commentref.current.value = "";
+      event.preventDefault();
     } catch (error) {
       console.log(error);
     }
@@ -64,15 +65,15 @@ const CommentJsx = () => {
               placeholder="Tulis komentar"
               onChange={handleChange}
             />
-            <div className=" flex flex-col justify-center">
-              <button
-                onClick={postcomment}
-                className=" bg-slate-300/20 p-2 rounded-lg"
-              >
-                Kirim
-              </button>
-            </div>
           </form>
+          <div className=" flex flex-col justify-center">
+            <button
+              onClick={postcomment}
+              className=" bg-slate-300/20 p-2 rounded-lg"
+            >
+              Kirim
+            </button>
+          </div>
         </div>
         <div className=" flex flex-col justify-center">
           <button className=" bg-slate-300/20 p-1 rounded-lg" onClick={close}>
