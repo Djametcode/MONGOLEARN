@@ -28,6 +28,7 @@ const FooterBeranda = ({ data, id, refresh, comments }) => {
   };
   const commentHandle = () => {
     toggleComment(true);
+    console.log(id);
   };
   return (
     <>

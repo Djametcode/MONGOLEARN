@@ -34,14 +34,13 @@ const Schema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  comment: {
-    list: [
-      {
+  comments: [
+    {
+      comment: {
         type: String,
-        default: "",
       },
-    ],
-  },
+    },
+  ],
 });
 
 module.exports = mongoose.model("Schemas", Schema);

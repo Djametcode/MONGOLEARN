@@ -28,7 +28,7 @@ const giveLike = async (req, res) => {
 const givecomment = async (req, res) => {
   try {
     const { Id } = req.params;
-    const data = await comment.findOneAndUpdate(
+    const data = await DataScheme.findOneAndUpdate(
       { _id: Id },
       {
         $push: {
