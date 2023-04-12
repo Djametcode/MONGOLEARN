@@ -10,7 +10,7 @@ const Story = () => {
   const getAllUser = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/v3/auth/user"
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/user"
       );
       const item = response.data;
       const { username } = item;
