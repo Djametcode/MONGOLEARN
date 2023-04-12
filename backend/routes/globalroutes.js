@@ -5,11 +5,13 @@ const {
   giveLike,
   givecomment,
   getComment,
+  getCommentById,
 } = require("../controller/universal");
 
 router.get("/list", getAllSecretMessage);
 router.get("/comment", getComment);
 router.post("/list/:Id", giveLike);
-router.post("/comment/", givecomment);
+router.post("/comment/:Id", givecomment);
+router.get("/comment/:Id", getCommentById);
 
 module.exports = router;

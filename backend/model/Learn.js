@@ -35,8 +35,12 @@ const Schema = new mongoose.Schema({
     default: 0,
   },
   comment: {
-    type: String,
-    default: "",
+    list: [
+      {
+        type: String,
+        default: "",
+      },
+    ],
   },
 });
 
