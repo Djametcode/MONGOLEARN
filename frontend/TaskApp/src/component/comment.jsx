@@ -39,6 +39,7 @@ const CommentJsx = () => {
       );
       const item = response.data;
       const { data } = item;
+      console.log(data);
       setComment(data);
     } catch (error) {
       console.log(error);
