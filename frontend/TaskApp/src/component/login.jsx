@@ -46,20 +46,20 @@ const Login = () => {
     }
   };
   return (
-    <div className=" flex flex-col justify-center">
+    <div className=" text-white flex flex-col justify-center">
       <form
-        className=" bg-wave m-3 flex flex-col p-3 gap-1 font-quick justify-center h-52"
+        className=" bg-cyan-700 rounded-2xl m-3 flex flex-col p-3 gap-1 font-quick justify-center h-52"
         action="#"
       >
         <input
-          className=" text-white/70 rounded-lg p-2 focus:outline-none bg-slate-400/30 focus:text-white"
+          className=" placeholder:text-white text-white/70 rounded-lg p-2 focus:outline-none bg-slate-400/30 focus:text-white"
           type="text"
           placeholder="Email"
           ref={emailref}
           onChange={handleChange}
         />
         <input
-          className=" text-white/70 rounded-lg p-2 focus:outline-none bg-slate-400/30 focus:text-white"
+          className=" placeholder:text-white text-white/70 rounded-lg p-2 focus:outline-none bg-slate-400/30 focus:text-white"
           type="text"
           placeholder="Password"
           ref={passref}

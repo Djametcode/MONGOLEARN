@@ -47,7 +47,12 @@ const login = async (req, res) => {
 
 const getAlluser = async (req, res) => {
   const user = await UserModel.find({});
-  res.status(200).json({ list: { jumlah: user.length } });
+  res
+    .status(200)
+    .json({
+      list: { jumlah: user.length },
+      username: user.map((item) => item.username),
+    });
 };
 const getUserById = async (req, res) => {
   try {

@@ -2,58 +2,66 @@ import { useState } from "react";
 import Footer from "./footer";
 import Help from "./help";
 import Login from "./login";
-import Register from "./regist";
 import UserList from "./userlist";
+import Hamburger from "./hamburger";
+import HamburgerTwo from "./hamburger2";
+import SideBar from "./sidebar";
 
 const Wrapper = () => {
-  // const [regist, toggleRegist] = useState(false);
-  // const [login, toggleLogin] = useState(true);
+  const icons = [
+    {
+      icon: <Hamburger />,
+    },
+    {
+      icon: <HamburgerTwo />,
+    },
+  ];
 
-  // const handleRegist = () => {
-  //   toggleLogin(false);
-  //   toggleRegist(true);
-  // };
-  // const HandleLogin = () => {
-  //   toggleRegist(false);
-  //   toggleLogin(true);
-  // };
+  const [index, setIndex] = useState(0);
+  const [Side, toggleSideBar] = useState(false);
+
+  const next = () => {
+    const indexPosition = index === 0;
+    const newIndex = indexPosition ? icons.length - 1 : 0;
+    setIndex(newIndex);
+    if (indexPosition) {
+      toggleSideBar(true);
+    } else {
+      toggleSideBar(false);
+    }
+  };
+
   return (
-    <div className=" bg-wave font-quick sm:hidden">
-      <h1 className=" font-comic sticky z-10 top-0 bg-wave bg-cover text-white p-6 text-3xl text-center">
-        Posting Aja Dulu
-      </h1>
-      <div className=" flex justify-around p-2">
-        {/* <button
-          className=" z-0 p-2 bg-slate-400/30 text-white/40 w-full m-1 rounded-lg"
-          onClick={HandleLogin}
-        >
-          Login
-        </button> */}
-        {/* <div>
-          <h2
-            className=" p-2 bg-slate-400/30 text-white/40 w-full m-1 rounded-lg text-center"
-            // onClick={handleRegist}
-          >
-            Login
-          </h2>
-        </div> */}
-      </div>
-      {/* <div>
-        {login && <Login />}
-        {regist && <Register />}
-      </div> */}
-      <Login />
-      <div className=" bg-slate-400">
-        <UserList />
-      </div>
-      <div className=" p-2">
-        <Help />
-      </div>
+    <>
+      <div className=" bg-slate-200 font-quick sm:hidden">
+        <div className=" flex sticky top-0 justify-end h-16 pl-4 pr-4 bg-slate-400">
+          <div className=" flex flex-col justify-center">
+            <h1 className=" font-quick bg-cover text-black text-3xl text-center">
+              Posting Aja Dulu
+            </h1>
+          </div>
+        </div>
+        <div className="">
+          <Login />
+        </div>
+        <div className=" m-3">
+          <UserList />
+        </div>
+        <div className=" p-2">
+          <Help />
+        </div>
 
-      <div className=" fixed bottom-0 w-full flex text-white text-sm">
-        <Footer />
+        <div className=" z-0 fixed bottom-0 w-full flex text-white text-sm">
+          <Footer />
+        </div>
       </div>
-    </div>
+      <div className=" absolute top-4 left-3 z-30">
+        <div className=" cursor-pointer relative" onClick={next}>
+          {icons[index].icon}
+        </div>
+      </div>
+      <div className=" fixed top-0 left-0">{Side && <SideBar />}</div>
+    </>
   );
 };
 

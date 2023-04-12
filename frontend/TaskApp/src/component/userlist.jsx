@@ -21,7 +21,7 @@ const UserList = () => {
     getAllUser();
   }, []);
   return (
-    <div className=" bg-wave text-white/40 p-2 pb-9 text-sm flex text-center flex-col">
+    <div className=" bg-slate-300 rounded-xl text-black p-2 pb-9 text-sm flex text-center flex-col">
       <h1 className=" p-2">Tercatat {user} user aktif di Posting Aja dulu</h1>
       <p>Ayo daftar gratis kok !</p>
     </div>
