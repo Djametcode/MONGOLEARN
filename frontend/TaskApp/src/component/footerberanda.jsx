@@ -85,7 +85,7 @@ const FooterBeranda = ({ data, id, refresh, comments }) => {
           </div>
         </div>
       </div>
-      <div>
+      <div className=" fixed bottom-0 w-screen z-30">
         <footerContext.Provider value={{ toggleComment, id, comments }}>
           {comment && <CommentJsx />}
         </footerContext.Provider>
