@@ -54,7 +54,7 @@ const CommentJsx = () => {
     getAllComment();
   }, []);
   return (
-    <div className=" flex flex-col gap-5 -translate-y-7 bg-slate-300/30 p-3 rounded-lg">
+    <div className=" flex flex-col gap-5 text-black bg-slate-300/30 p-3 rounded-lg">
       <div className=" flex justify-between">
         <div className=" flex justify-center">
           <form className=" flex gap-2">

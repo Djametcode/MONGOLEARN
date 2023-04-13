@@ -12,10 +12,10 @@ const Menu = () => {
     navigate("/profile");
   };
   return (
-    <div className=" flex justify-between bg-base-100 text-white p-3 gap-3 overflow-scroll font-quick">
+    <div className=" flex justify-between bg-slate-100 p-3 gap-3 overflow-scroll font-quick">
       <div
         onClick={navigateHome}
-        className=" cursor-pointer flex w-full justify-center bg-slate-300/30 rounded-lg text-white pr-1"
+        className=" cursor-pointer flex w-full justify-center bg-slate-300/30 rounded-lg text-black pr-1"
       >
         <p className=" p-2">
           <svg
@@ -39,7 +39,7 @@ const Menu = () => {
       </div>
       <div
         onClick={navigatesend}
-        className=" cursor-pointer flex w-full justify-center bg-slate-300/30 rounded-lg text-white pr-1"
+        className=" cursor-pointer flex w-full justify-center bg-slate-300/30 rounded-lg text-black pr-1"
       >
         <p className=" p-2">
           <svg
@@ -63,7 +63,7 @@ const Menu = () => {
       </div>
       <div
         onClick={navigateProfile}
-        className=" cursor-pointer flex w-full justify-center bg-slate-300/30 rounded-lg text-white pr-1"
+        className=" cursor-pointer flex w-full justify-center bg-slate-300/30 rounded-lg text-black pr-1"
       >
         <p className=" p-2">
           <svg

@@ -32,11 +32,8 @@ const List = ({ data, refresh }) => {
           <p className=" w-56 text-black">{username} </p>
         </div>
       </div>
-      <div className=" bg-slate-100 p-3 pb-10 rounded-xl">
-        <p className=" pl-4">{secret}</p>
-        <div className=" flex justify-center p-3">
-          <img src={image.secure_url} alt="" className=" rounded-xl" />
-        </div>
+      <div className=" bg-slate-100">
+        <img className=" w-screen" src={image.secure_url} alt="" />
       </div>
       <FooterBeranda
         data={data}
@@ -44,6 +41,9 @@ const List = ({ data, refresh }) => {
         refresh={refresh}
         comments={comment}
       />
+      {/* <div>
+        <p className=" text-black">{secret}</p>
+      </div> */}
     </div>
   );
 };
