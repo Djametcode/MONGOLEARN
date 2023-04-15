@@ -43,7 +43,7 @@ const ProfileComponent = () => {
   const getAllData = async () => {
     try {
       const response = await axios.get(
-        "ttps://grumpy-worm-stockings.cyclic.app/api/v3/user",
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/user",
         config
       );
       const item = response.data;
