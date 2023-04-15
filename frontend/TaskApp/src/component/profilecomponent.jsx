@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 const ImagePost = ({ data }) => {
   console.log(data);
-  return <img className=" w-48 h-48" src={data.secure_url} alt="" />;
+  return <img className=" w-48 h-44" src={data.secure_url} alt="" />;
 };
 
 const ProfileComponent = () => {
@@ -124,7 +124,7 @@ const ProfileComponent = () => {
           <TagsSVG />
         </div>
       </div>
-      <div className=" flex gap-1 justify-around flex-wrap flex-row">
+      <div className=" flex gap-1 justify-center flex-wrap flex-row">
         {post.map((item) => (
           <ImagePost data={item.image} />
         ))}
