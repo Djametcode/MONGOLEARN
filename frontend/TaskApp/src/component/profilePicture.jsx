@@ -7,7 +7,7 @@ const ProfilePicture = () => {
   const getData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v3/auth/user/${id}`
+        `https://grumpy-worm-stockings.cyclic.app/api/v3/auth/user/${id}`
       );
       const item = response.data;
       const {
