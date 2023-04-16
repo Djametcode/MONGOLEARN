@@ -24,7 +24,7 @@ const UpdateProfile = () => {
     event.preventDefault();
     try {
       await axios.patch(
-        `http://localhost:3000/api/v3/auth/user/update-avatar/${id}`,
+        `https://grumpy-worm-stockings.cyclic.app/${id}`,
         config,
         data
       );
