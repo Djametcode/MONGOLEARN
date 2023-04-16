@@ -6,6 +6,7 @@ import SquareSVG from "./squaresvg";
 import ReelsSVG from "./reelssvg";
 import TagsSVG from "./tags";
 import { useEffect, useState } from "react";
+import ProfilePicture from "./profilePicture";
 
 const ImagePost = ({ data }) => {
   console.log(data);
@@ -61,7 +62,7 @@ const ProfileComponent = () => {
     <div className=" font-quick bg-slate-100 text-black pt-5">
       <div className=" flex justify-around">
         <div>
-          <ProfileStory />
+          <ProfilePicture />
         </div>
         <div className=" flex flex-col justify-center">
           <div className=" flex justify-center">

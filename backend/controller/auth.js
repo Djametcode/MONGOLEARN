@@ -1,6 +1,7 @@
 const UserModel = require("../model/users");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("../utlis/cloudinary");
+const upload = require("../utlis/multer");
 
 const register = async (req, res) => {
   try {
@@ -85,7 +86,8 @@ const updateAvatar = async (req, res) => {
   try {
     const { Id } = req.params;
 
-    const file = req.files.avatar;
+    const file = req.files.file;
+    console.log(file);
 
     const result = await cloudinary.uploader.upload(file.tempFilePath, {
       resource_type: "auto",
