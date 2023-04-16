@@ -22,8 +22,8 @@ const ProfilePicture = () => {
     getData();
   }, []);
   return (
-    <div>
-      <img className=" w-10 h-10 rounded-full" src={avatar} alt="" />
+    <div className=" flex flex-col justify-center">
+      <img className=" w-24 h-24 rounded-full bg-center" src={avatar} alt="" />
     </div>
   );
 };
