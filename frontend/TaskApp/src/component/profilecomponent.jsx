@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProfileStory from "./profileStory";
 import StorySvg from "./storysvg";
 import SquareSVG from "./squaresvg";
@@ -93,7 +93,7 @@ const ProfileComponent = () => {
       </div>
       <div className=" flex ml-4 mr-4 gap-2 text-white">
         <div className=" bg-slate-500 rounded-lg p-1 w-full text-center">
-          <p>Edit Profil</p>
+          <Link to="/update-profile">Edit Profil</Link>
         </div>
         <div className=" bg-slate-500 rounded-lg p-1 w-full text-center">
           <p>Bagikan Profil</p>

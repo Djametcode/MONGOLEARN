@@ -8,6 +8,7 @@ import App from "./App";
 import Profile from "./component/profile";
 import RegistOnly from "./component/registonly";
 import CommentJsx from "./component/comment";
+import UpdateProfile from "./component/updateProfile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/comment",
     element: <CommentJsx />,
+  },
+  {
+    path: "/update-profile",
+    element: <UpdateProfile />,
   },
 ]);
 

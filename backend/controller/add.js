@@ -90,10 +90,22 @@ const UpdateData = async (req, res) => {
   }
 };
 
+const updateProfile = async (req, res) => {
+  try {
+    const { Id } = req.params;
+    const data = await DataScheme.findById({ _id: Id });
+    console.log(data);
+    res.status(200).json({ data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   addData,
   getAllData,
   getDataById,
   UpdateData,
   deleteDAtaById,
+  updateProfile,
 };

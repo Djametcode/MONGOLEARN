@@ -1,5 +1,6 @@
 const UserModel = require("../model/users");
 const jwt = require("jsonwebtoken");
+const cloudinary = require("../utlis/cloudinary");
 
 const register = async (req, res) => {
   try {
@@ -9,6 +10,7 @@ const register = async (req, res) => {
       user: { name: user.username },
       token,
       msg: "Registrasi berhasil",
+      avatar: user.avatar,
     });
   } catch (error) {
     console.log(error);
@@ -47,12 +49,10 @@ const login = async (req, res) => {
 
 const getAlluser = async (req, res) => {
   const user = await UserModel.find({});
-  res
-    .status(200)
-    .json({
-      list: { jumlah: user.length },
-      username: user.map((item) => item.username),
-    });
+  res.status(200).json({
+    list: { jumlah: user.length },
+    username: user.map((item) => item.username),
+  });
 };
 const getUserById = async (req, res) => {
   try {
@@ -81,4 +81,38 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { login, register, getAlluser, deleteUser, getUserById };
+const updateAvatar = async (req, res) => {
+  try {
+    const { Id } = req.params;
+
+    const file = req.files.avatar;
+
+    const result = await cloudinary.uploader.upload(file.tempFilePath, {
+      resource_type: "auto",
+      public_id: `${Date.now()}`,
+      width: 100,
+      folder: "Testing",
+    });
+
+    req.body.avatar = result.secure_url;
+
+    const data = await UserModel.findOneAndUpdate(
+      { _id: Id },
+      { ...req.body },
+      { new: true }
+    );
+
+    return res.status(200).json({ msg: "success", data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = {
+  login,
+  register,
+  getAlluser,
+  deleteUser,
+  getUserById,
+  updateAvatar,
+};

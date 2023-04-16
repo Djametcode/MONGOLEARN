@@ -5,6 +5,7 @@ const cors = require("cors");
 const auth = require("./middleware/authentication");
 // const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
+const fileUpload = require("express-fileupload");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,11 +20,7 @@ app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 app.use(express.json());
 
-// app.use(
-//   fileUpload({
-//     useTempFiles: true,
-//   })
-// );
+app.use(fileUpload({ useTempFiles: true }));
 
 app.use("/api/v3/u", universalRouter);
 app.use("/api/v3/user", auth, dataRouter);
