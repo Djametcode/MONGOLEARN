@@ -23,7 +23,7 @@ const ProfilePicture = () => {
   }, []);
   return (
     <div>
-      <img className=" rounded-full" src={avatar} alt="" />
+      <img className=" w-10 h-10 rounded-full" src={avatar} alt="" />
     </div>
   );
 };
