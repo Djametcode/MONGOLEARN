@@ -86,25 +86,26 @@ const updateAvatar = async (req, res) => {
   try {
     const { Id } = req.params;
 
-    const file = req.files.file;
-    console.log(file);
+    const { avatar } = req.body;
 
-    const result = await cloudinary.uploader.upload(file.tempFilePath, {
-      resource_type: "auto",
-      public_id: `${Date.now()}`,
-      width: 100,
-      folder: "Testing",
-    });
+    if (avatar === "") {
+      req.body.avatar = "";
+    } else {
+      const result = await cloudinary.uploader.upload(avatar, {
+        resource_type: "auto",
+        public_id: `${Date.now()}`,
+        width: 100,
+        folder: "Testing",
+      });
 
-    req.body.avatar = result.secure_url;
-
-    const data = await UserModel.findOneAndUpdate(
-      { _id: Id },
-      { ...req.body },
-      { new: true }
-    );
-
-    return res.status(200).json({ msg: "success", data });
+      req.body.avatar = result.secure_url;
+      const data = await UserModel.findOneAndUpdate(
+        { _id: Id },
+        { avatar },
+        { new: true }
+      );
+      return res.status(200).json({ msg: "success", data });
+    }
   } catch (error) {
     console.log(error);
   }

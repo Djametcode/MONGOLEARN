@@ -4,23 +4,24 @@ import { Link } from "react-router-dom";
 import FormData from "form-data";
 
 const UpdateProfile = () => {
-  const [avatar, setAvatar] = useState(null);
-  const [username, setUsername] = useState();
+  const [avatar, setAvatar] = useState();
   console.log(avatar);
-
+  const imgref = useRef();
   const token = localStorage.getItem("token");
+
   const config = {
     headers: {
       authorization: `Bearer ${token}`,
-      "Content-Type": "multipart/form-data",
     },
   };
+
+  const data = {
+    avatar: avatar,
+  };
+  console.log(data);
   const id = localStorage.getItem("_id");
-  const updateData = async (e) => {
+  const updateData = async () => {
     event.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    formData.append("file", avatar, "file");
-    const data = Object.fromEntries(formData);
     try {
       await axios.patch(
         `http://localhost:3000/api/v3/auth/user/update-avatar/${id}`,
@@ -31,19 +32,19 @@ const UpdateProfile = () => {
       console.log(error);
     }
   };
-  // const handleChange = () => {
-  //   const file = imgref.current.files[0];
-  //   console.log(file);
-  //   transform(file);
-  // };
+  const handleChange = () => {
+    const file = imgref.current.files[0];
+    console.log(file);
+    transform(file);
+  };
 
-  // const transform = (file) => {
-  //   const reader = new FileReader();
-  //   reader.onloadend = () => {
-  //     reader.readAsDataURL(file);
-  //     setAvatar(reader.result);
-  //   };
-  // };
+  const transform = (files) => {
+    let reader = new FileReader();
+    reader.readAsDataURL(files);
+    reader.onloadend = () => {
+      setAvatar(reader.result);
+    };
+  };
 
   return (
     <div className=" bg-teal-700 p-3">
@@ -60,7 +61,6 @@ const UpdateProfile = () => {
           className=" p-2 focus:outline-none"
           type="text"
           placeholder="username"
-          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           className=" p-2 focus:outline-none"
@@ -72,11 +72,7 @@ const UpdateProfile = () => {
           type="text"
           placeholder="password"
         />
-        <input
-          type="file"
-          name="file"
-          onChange={(e) => setAvatar(e.target.files[0])}
-        />
+        <input type="file" ref={imgref} onChange={handleChange} />
         <input type="submit" />
       </form>
       <div className=" flex justify-center font-quick">
