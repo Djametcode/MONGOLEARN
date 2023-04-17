@@ -8,6 +8,7 @@ const {
   UpdateData,
   updateProfile,
 } = require("../controller/add");
+const upload = require("../utlis/multer");
 
 router.post("/", addData);
 router.get("/", getAllData);

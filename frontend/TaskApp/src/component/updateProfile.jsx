@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import FormData from "form-data";
 
 const UpdateProfile = () => {
-  const [avatar, setAvatar] = useState();
-  console.log(avatar);
+  const [avatars, setAvatar] = useState("");
   const imgref = useRef();
   const token = localStorage.getItem("token");
 
@@ -16,7 +15,7 @@ const UpdateProfile = () => {
   };
 
   const data = {
-    avatar: avatar,
+    avatar: avatars,
   };
   console.log(data);
   const id = localStorage.getItem("_id");
@@ -24,7 +23,7 @@ const UpdateProfile = () => {
     event.preventDefault();
     try {
       await axios.patch(
-        `https://grumpy-worm-stockings.cyclic.app/api/v3/auth/user/update-avatar/${id}`,
+        `http://localhost:3000/api/v3/auth/user/update-avatar/${id}`,
         config,
         data
       );
@@ -33,17 +32,16 @@ const UpdateProfile = () => {
     }
   };
   const handleChange = () => {
-    const file = imgref.current.files[0];
-    console.log(file);
-    transform(file);
+    const data = imgref.current.files[0];
+    transform(data);
   };
 
   const transform = (files) => {
     let reader = new FileReader();
-    reader.readAsDataURL(files);
     reader.onloadend = () => {
       setAvatar(reader.result);
     };
+    reader.readAsDataURL(files);
   };
 
   return (
@@ -53,10 +51,7 @@ const UpdateProfile = () => {
           Kembali ke beranda
         </Link>
       </div>
-      <form
-        onSubmit={updateData}
-        className=" flex flex-col justify-center gap-1 font-quick"
-      >
+      <form className=" flex flex-col justify-center gap-1 font-quick">
         <input
           className=" p-2 focus:outline-none"
           type="text"
@@ -72,11 +67,15 @@ const UpdateProfile = () => {
           type="text"
           placeholder="password"
         />
-        <input type="file" ref={imgref} onChange={handleChange} />
-        <input type="submit" />
+        <input
+          type="file"
+          accept="image/*"
+          ref={imgref}
+          onChange={handleChange}
+        />
       </form>
       <div className=" flex justify-center font-quick">
-        <button type="submit" className=" rounded-lg p-1 bg-slate-500">
+        <button onClick={updateData} className=" rounded-lg p-1 bg-slate-500">
           Update
         </button>
       </div>

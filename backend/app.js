@@ -3,7 +3,7 @@ const express = require("express");
 const connectDB = require("./db/connect");
 const cors = require("cors");
 const auth = require("./middleware/authentication");
-// const fileUpload = require("express-fileupload");
+const fileupload = require("express-fileupload");
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -18,6 +18,7 @@ app.use(cors());
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 app.use(express.json());
+app.use(fileupload({ useTempFiles: true }));
 
 // app.use(fileUpload({ useTempFiles: true }));
 
