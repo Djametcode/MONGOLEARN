@@ -1,7 +1,6 @@
 const UserModel = require("../model/users");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("../utlis/cloudinary");
-const upload = require("../utlis/multer");
 
 const register = async (req, res) => {
   try {
