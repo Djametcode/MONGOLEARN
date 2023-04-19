@@ -10,7 +10,7 @@ import ProfilePicture from "./profilePicture";
 
 const ImagePost = ({ data }) => {
   console.log(data);
-  return <img className=" w-48 h-48" src={data.secure_url} alt="" />;
+  return <img className=" w-screen h-96" src={data.secure_url} alt="" />;
 };
 
 const ProfileComponent = () => {
@@ -125,7 +125,7 @@ const ProfileComponent = () => {
           <TagsSVG />
         </div>
       </div>
-      <div className=" grid grid-cols-3 w-screen">
+      <div className=" flex flex-wrap justify-start w-screen h-screen bg-slate-700">
         {post.map((item) => (
           <ImagePost data={item.image} />
         ))}
