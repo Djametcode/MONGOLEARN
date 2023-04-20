@@ -33,9 +33,7 @@ const Header = () => {
   return (
     <div style={{ backgroundColor: `${bg}` }} class="navbar">
       <div class="flex-1 font-quick">
-        <a class="btn btn-ghost normal-case text-xl text-black">
-          Posting Aja Dulu
-        </a>
+        <div className=" bg-logo w-32 h-12 bg-center mix-blend-multiply bg-cover"></div>
       </div>
       <div class="flex-none">
         <div class="dropdown dropdown-end">

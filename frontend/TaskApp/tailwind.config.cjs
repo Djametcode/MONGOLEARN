@@ -11,6 +11,7 @@ module.exports = {
         user: "url('./images/user.png')",
         wave: "url('./images/wave-haikei.png')",
         gradient: "url('./images/blurry-gradient-haikei.png')",
+        logo: "url('./images/4.png')",
       },
     },
   },

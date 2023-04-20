@@ -36,9 +36,7 @@ const Wrapper = () => {
       <div className=" bg-slate-200 font-quick sm:hidden">
         <div className=" flex sticky top-0 justify-end h-16 pl-4 pr-4 bg-slate-400">
           <div className=" flex flex-col justify-center">
-            <h1 className=" font-quick bg-cover text-black text-3xl text-center">
-              Posting Aja Dulu
-            </h1>
+            <div className=" bg-logo w-32 h-12 bg-cover mix-blend-multiply bg-center"></div>
           </div>
         </div>
         <div className="">
