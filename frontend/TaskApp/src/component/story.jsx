@@ -10,12 +10,12 @@ const Story = () => {
   const getAllUser = async () => {
     try {
       const response = await axios.get(
-        "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/user"
+        "http://localhost:3000/api/v3/auth/user"
       );
       const item = response.data;
-      console.log(item);
-      const { username } = item;
-      setUser(username);
+      const { filterdImage } = item;
+      console.log(filterdImage);
+      setUser(filterdImage);
     } catch (error) {
       console.log(error);
     }
@@ -25,26 +25,21 @@ const Story = () => {
     getAllUser();
   }, []);
   return (
-    <div>
-      <div className=" flex overflow-scroll gap-2 p-3">
-        {users.map((item, index) => (
-          <>
-            <div className=" font-quick">
-              <div className=" bg-slate-200 rounded-full">
-                <ProfileStory />
-              </div>
-              <div className=" flex justify-center">
-                <p className=" text-center w-full h-7 overflow-hidden">
-                  {item}
-                </p>
-              </div>
-              <div>
-                <hr className=" h-1 text-black" />
-              </div>
-            </div>
-          </>
-        ))}
-      </div>
+    <div className=" flex justify-start p-2 gap-2 overflow-scroll">
+      {users.map((item) => (
+        <div className="">
+          <div className=" w-14 h-14 flex justify-center">
+            <img
+              className=" rounded-full object-cover"
+              src={item.image}
+              alt=""
+            />
+          </div>
+          <div className=" flex justify-center font-quick">
+            <p className=" text-base overflow-scroll ">{item.username}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

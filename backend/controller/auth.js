@@ -50,10 +50,24 @@ const login = async (req, res) => {
 
 const getAlluser = async (req, res) => {
   const user = await UserModel.find({});
+  const filtered = user.map((item) => {
+    return {
+      username: item.username,
+      image: item.avatar,
+    };
+  });
+  const filterdImage = filtered.map((item) =>
+    item.image !== ""
+      ? item
+      : {
+          username: item.username,
+          image:
+            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+        }
+  );
   res.status(200).json({
     list: { jumlah: user.length },
-    username: user.map((item) => item.username),
-    image: user.map((item) => item.avatar),
+    filterdImage,
   });
 };
 const getUserById = async (req, res) => {
