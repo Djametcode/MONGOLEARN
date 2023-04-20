@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FormData from "form-data";
 
 const UpdateProfile = () => {
   const [avatars, setAvatar] = useState(null);
   const token = localStorage.getItem("token");
-
+  const navigate = useNavigate;
   const config = {
     headers: {
       accept: "*/*",
@@ -31,6 +31,7 @@ const UpdateProfile = () => {
       );
       const data = response.data;
       console.log(data);
+      navigate("/profile");
     } catch (error) {
       console.log(error);
     }
@@ -53,7 +54,7 @@ const UpdateProfile = () => {
   return (
     <div className=" bg-teal-700 p-3">
       <div className=" font-quick pb-3">
-        <Link className=" underline underline-offset-4" to="/">
+        <Link className=" underline underline-offset-4" to="/profile">
           Kembali ke beranda
         </Link>
       </div>
