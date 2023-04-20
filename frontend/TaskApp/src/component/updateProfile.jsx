@@ -29,6 +29,7 @@ const UpdateProfile = () => {
       );
       const data = response.data;
       console.log(data);
+      setAvatar("");
     } catch (error) {
       console.log(error);
     }
