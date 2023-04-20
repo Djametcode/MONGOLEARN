@@ -15,25 +15,34 @@ const Input = () => {
   const secretMsgRef = useRef();
   const imgref = useRef();
 
-  const data = {
+  const data1 = {
     username: username,
     address: address,
     secret: secretmsg,
     image: img,
   };
-  console.log(data);
+
+  const data = new FormData();
+  data.append("username", username);
+  data.append("address", address);
+  data.append("secret", secretmsg);
+  data.append("file", img);
+
+  const result = Object.fromEntries(data);
+  console.log(result);
 
   const token = localStorage.getItem("token");
   const config = {
     headers: {
       authorization: `Bearer ${token}`,
+      enctype: "multipart/form-data",
     },
   };
   const handleSubmit = async () => {
     try {
-      await axios.post(
+      await axios.postForm(
         "https://grumpy-worm-stockings.cyclic.app/api/v3/user",
-        data,
+        result,
         config
       );
       getAllData();
@@ -50,7 +59,8 @@ const Input = () => {
 
   const handleImage = () => {
     let file = imgref.current.files[0];
-    transformFiles(file);
+    // transformFiles(file);
+    setImg(file);
   };
   const handleChange = () => {
     setUsername(usernameref.current.value);
@@ -62,13 +72,13 @@ const Input = () => {
     // transformFiles(files);
   };
 
-  const transformFiles = (files) => {
-    let reader = new FileReader();
-    reader.onloadend = () => {
-      setImg(reader.result);
-    };
-    reader.readAsDataURL(files);
-  };
+  // const transformFiles = (files) => {
+  //   let reader = new FileReader();
+  //   reader.onloadend = () => {
+  //     setImg(reader.result);
+  //   };
+  //   reader.readAsDataURL(files);
+  // };
   return (
     <div>
       <form

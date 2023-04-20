@@ -5,24 +5,23 @@ const addData = async (req, res) => {
   try {
     req.body.createdBy = req.UserModel.username;
 
-    const { image } = req.body;
-
-    if (image === "") {
-      req.body.image = "";
-    } else {
-      const result = await cloudinary.uploader.upload(image, {
-        public_id: `${Date.now()}`,
-        resource_type: "auto",
-        folder: "Testing",
-        width: 300,
-        crop: "scale",
-      });
-
-      req.body.image = {
-        public_id: result.public_id,
-        secure_url: result.secure_url,
-      };
+    if (!req.file) {
+      return res.status(501).json({ msg: "No file attached please add file" });
     }
+
+    let file = req.file;
+    const result = await cloudinary.uploader.upload(file.path, {
+      public_id: `${Date.now()}`,
+      resource_type: "auto",
+      folder: "Testing",
+      width: 300,
+      crop: "scale",
+    });
+
+    req.body.image = {
+      public_id: result.public_id,
+      secure_url: result.secure_url,
+    };
 
     const data = await DataScheme.create({
       ...req.body,
