@@ -9,7 +9,7 @@ const UpdateProfile = () => {
   const config = {
     headers: {
       authorization: `Bearer ${token}`,
-      "Content-Type": "multipart/form-data",
+      enctype: "multipart/form-data",
     },
   };
 
