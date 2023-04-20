@@ -20,7 +20,7 @@ const storage2 = new CloudinaryStorage({
   },
 });
 
-const upload = multer({ storage, limits: { fileSize: 1000000 } }).single(
+const upload = multer({ storage, limits: { fileSize: 100000000 } }).single(
   "file"
 );
 
