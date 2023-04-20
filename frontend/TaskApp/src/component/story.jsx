@@ -13,6 +13,7 @@ const Story = () => {
         "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/user"
       );
       const item = response.data;
+      console.log(item);
       const { username } = item;
       setUser(username);
     } catch (error) {

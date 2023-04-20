@@ -53,6 +53,7 @@ const getAlluser = async (req, res) => {
   res.status(200).json({
     list: { jumlah: user.length },
     username: user.map((item) => item.username),
+    image: user.map((item) => item.avatar),
   });
 };
 const getUserById = async (req, res) => {
