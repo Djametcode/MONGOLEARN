@@ -22,7 +22,7 @@ const UpdateProfile = () => {
   const updateData = async () => {
     event.preventDefault();
     try {
-      const response = await axios.patch(
+      const response = await axios.patchForm(
         `https://grumpy-worm-stockings.cyclic.app/api/v3/auth/user/update-avatar/${id}`,
         result,
         config
