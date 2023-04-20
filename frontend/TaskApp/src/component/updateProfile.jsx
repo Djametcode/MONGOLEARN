@@ -4,48 +4,50 @@ import { Link } from "react-router-dom";
 import FormData from "form-data";
 
 const UpdateProfile = () => {
-  const [avatars, setAvatar] = useState("");
-  const imgref = useRef();
+  const [avatars, setAvatar] = useState(null);
   const token = localStorage.getItem("token");
 
   const config = {
     headers: {
-      ContentType: "multipart/form-data",
+      accept: "*/*",
       authorization: `Bearer ${token}`,
+      enctype: "multipart/form-data",
     },
   };
 
-  const data = {
-    avatar: avatars,
-  };
-  const result = JSON.parse(data);
+  const data = new FormData();
+  data.append("file", avatars);
+  const result = Object.fromEntries(data);
   console.log(result);
-  console.log(data);
+
   const id = localStorage.getItem("_id");
   const updateData = async () => {
     event.preventDefault();
     try {
-      await axios.patch(
+      const response = await axios.patchForm(
         `http://localhost:3000/api/v3/auth/user/update-avatar/${id}`,
-        config,
-        result
+        result,
+        config
       );
+      const data = response.data;
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
-  const handleChange = () => {
-    const data = imgref.current.files[0];
+  const handleChange = (e) => {
+    const data = e.target.files[0];
+    // console.log(data);
     // transform(data);
     setAvatar(data);
   };
 
   // const transform = (files) => {
-  //   let reader = new FileReader();
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(files);
   //   reader.onloadend = () => {
   //     setAvatar(reader.result);
   //   };
-  //   reader.readAsDataURL(files);
   // };
 
   return (
@@ -74,13 +76,7 @@ const UpdateProfile = () => {
           type="text"
           placeholder="password"
         />
-        <input
-          type="file"
-          accept="image/*"
-          ref={imgref}
-          onChange={handleChange}
-          name="avatar"
-        />
+        <input type="file" onChange={handleChange} />
         <div className=" flex justify-center font-quick">
           <button
             type="submit"

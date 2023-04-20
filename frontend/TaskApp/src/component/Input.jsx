@@ -71,7 +71,10 @@ const Input = () => {
   };
   return (
     <div>
-      <form className=" bg-slate-600/50 h-full p-7 m-2 rounded-xl flex flex-col gap-2 font-quick">
+      <form
+        encType="multipart/form-data"
+        className=" bg-slate-600/50 h-full p-7 m-2 rounded-xl flex flex-col gap-2 font-quick"
+      >
         <input
           className=" p-2 focus:outline-none rounded-lg focus:bg-slate-600 focus:text-white/20"
           type="text"

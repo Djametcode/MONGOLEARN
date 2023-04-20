@@ -1,6 +1,7 @@
 const UserModel = require("../model/users");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("../utlis/cloudinary");
+const path = require("path");
 
 const register = async (req, res) => {
   try {
@@ -84,8 +85,12 @@ const deleteUser = async (req, res) => {
 const updateAvatar = async (req, res) => {
   try {
     const { Id } = req.params;
-    const file = req.files.avatar;
-    const result = await cloudinary.uploader.upload(file.tempFilePath, {
+    if (!req.file) {
+      return res.status(404).json({ msg: "no file attached" });
+    }
+
+    const path = req.file.path;
+    const result = await cloudinary.uploader.upload(path, {
       resource_type: "auto",
       public_id: `${Date.now()}`,
       width: 100,
