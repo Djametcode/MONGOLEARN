@@ -23,8 +23,8 @@ const List = ({ data, refresh }) => {
 
   const formatdate = date.split("T")[0];
   return (
-    <div className=" bg-slate-100 flex flex-col text-sm">
-      <div className=" flex justify-start bg-slate-200">
+    <div className=" mb-6 flex flex-col text-sm ml-2 mr-2 mt-2">
+      <div className=" flex justify-start bg-slate-100 rounded-t-2xl">
         <div className=" scale-75">
           <ProfileStory />
         </div>
@@ -32,8 +32,12 @@ const List = ({ data, refresh }) => {
           <p className=" w-56 text-black">{username} </p>
         </div>
       </div>
-      <div className=" bg-slate-100">
-        <img className=" w-screen" src={image.secure_url} alt="" />
+      <div className=" rounded-b-2xl">
+        <img
+          className=" w-screen h-72 object-cover"
+          src={image.secure_url}
+          alt=""
+        />
       </div>
       <FooterBeranda
         data={data}
@@ -41,9 +45,6 @@ const List = ({ data, refresh }) => {
         refresh={refresh}
         comments={comment}
       />
-      {/* <div>
-        <p className=" text-black">{secret}</p>
-      </div> */}
     </div>
   );
 };

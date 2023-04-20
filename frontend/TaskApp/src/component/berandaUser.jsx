@@ -10,7 +10,7 @@ const BerandaUser = () => {
       <div className=" sticky top-0 z-20">
         <Header />
       </div>
-      <div className=" bg-slate-100">
+      <div className=" bg-slate-100 m-2 rounded-2xl">
         <Story />
       </div>
       <ForYouPage />
