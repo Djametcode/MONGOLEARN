@@ -6,12 +6,10 @@ import FormData from "form-data";
 const UpdateProfile = () => {
   const [avatars, setAvatar] = useState(null);
   const token = localStorage.getItem("token");
-  const navigate = useNavigate;
   const config = {
     headers: {
-      accept: "*/*",
       authorization: `Bearer ${token}`,
-      enctype: "multipart/form-data",
+      "Content-Type": "multipart/form-data",
     },
   };
 
@@ -31,15 +29,12 @@ const UpdateProfile = () => {
       );
       const data = response.data;
       console.log(data);
-      navigate("/profile");
     } catch (error) {
       console.log(error);
     }
   };
   const handleChange = (e) => {
     const data = e.target.files[0];
-    // console.log(data);
-    // transform(data);
     setAvatar(data);
   };
 
