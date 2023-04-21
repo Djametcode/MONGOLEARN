@@ -44,10 +44,8 @@ const FooterBeranda = ({ data, id, refresh, comments }) => {
   //   like: likeData,
   // };
   const addlike = async () => {
-    let isCheck = checkRef.current.checked;
-    isCheck
-      ? setLike(-1 + likes) && setLikeIcon(0)
-      : setLike(1 + like) && setLikeIcon(1);
+    setLikeIcon(1);
+    setLike(like + 1);
     // try {
     //   const response = await axios.post(
     //     `http://localhost:3000/api/v3/u/like/${_id}`,
@@ -61,21 +59,24 @@ const FooterBeranda = ({ data, id, refresh, comments }) => {
   };
   const commentHandle = () => {
     toggleComment(true);
-    console.log(id);
   };
+
+  const handleChange = (e) => {};
   return (
     <>
       <div className=" bg-slate-100 rounded-b-2xl flex flex-col justify-center h-10">
         <div className=" relative flex justify-evenly p-2">
           <div onClick={addlike} className=" cursor-pointer flex gap-1">
-            <input
+            {icon[likeIcon].icons}
+            {/* <input
               className="hidden"
               ref={checkRef}
               type="checkbox"
               name="like"
               id="like"
+              onChange={handleChange}
             />
-            <label htmlFor="like">{icon[likeIcon].icons}</label>
+            <label htmlFor="like">{icon[likeIcon].icons}</label> */}
             <div className=" flex flex-col justify-center font-quick text-black">
               <p>{likes}</p>
             </div>
