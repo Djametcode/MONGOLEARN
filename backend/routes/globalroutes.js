@@ -10,7 +10,7 @@ const {
 
 router.get("/list", getAllSecretMessage);
 router.get("/comment", getComment);
-router.post("/list/:Id", giveLike);
+router.post("/like/:Id", giveLike);
 router.post("/comment/:Id", givecomment);
 router.get("/comment/:Id", getCommentById);
 

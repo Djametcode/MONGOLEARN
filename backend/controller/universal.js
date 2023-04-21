@@ -10,8 +10,7 @@ const getAllSecretMessage = async (req, res) => {
 const giveLike = async (req, res) => {
   try {
     const { Id } = req.params;
-    const { like } = req.body;
-    const data = await comment.findOneAndUpdate(
+    const data = await DataScheme.findOneAndUpdate(
       { _id: Id },
       { ...req.body },
       {
