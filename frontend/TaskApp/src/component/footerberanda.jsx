@@ -46,7 +46,7 @@ const FooterBeranda = ({ data, id, refresh, comments }) => {
   const addlike = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/v3/u/like/${_id}`,
+        `https://grumpy-worm-stockings.cyclic.app/api/v3/u/like/${_id}`,
         givelike
       );
       const data = await response.data;
