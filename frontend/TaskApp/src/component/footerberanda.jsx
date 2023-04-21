@@ -40,22 +40,22 @@ const FooterBeranda = ({ data, id, refresh, comments }) => {
     },
   ];
   const [comment, toggleComment] = useState(false);
-  // const givelike = {
-  //   like: likeData,
-  // };
+  const givelike = {
+    like: like + 1,
+  };
   const addlike = async () => {
-    setLikeIcon(1);
-    setLike(like + 1);
-    // try {
-    //   const response = await axios.post(
-    //     `http://localhost:3000/api/v3/u/like/${_id}`,
-    //     givelike
-    //   );
-    //   const data = await response.data;
-    //   console.log(data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/api/v3/u/like/${_id}`,
+        givelike
+      );
+      const data = await response.data;
+      setLikeIcon(1);
+      setLike(like + 1);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const commentHandle = () => {
     toggleComment(true);

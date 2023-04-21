@@ -18,7 +18,7 @@ const giveLike = async (req, res) => {
         runValidators: false,
       }
     );
-    res.status(200).json({ data: { like: data.like } });
+    res.status(200).json({ msg: "success", data: { like: data.like } });
   } catch (error) {
     console.log(error);
   }
