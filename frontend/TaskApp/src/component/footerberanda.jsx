@@ -52,6 +52,7 @@ const FooterBeranda = ({ data, id, refresh, comments }) => {
       const data = await response.data;
       setLikeIcon(1);
       setLike(like + 1);
+      alert("memberi like");
       console.log(data);
     } catch (error) {
       console.log(error);
