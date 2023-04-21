@@ -1,30 +1,63 @@
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CommentJsx from "./comment";
 
 export const footerContext = createContext(null);
 
 const FooterBeranda = ({ data, id, refresh, comments }) => {
-  const navigate = useNavigate();
+  const checkRef = useRef();
   const { like, _id } = data;
   const [likes, setLike] = useState(like);
-  const [comment, toggleComment] = useState(false);
-  const givelike = {
-    like: like + 1,
-  };
-  const addlike = async () => {
-    try {
-      const response = await axios.post(
-        `https://grumpy-worm-stockings.cyclic.app/api/v3/u/like/${id}`,
-        givelike
-      );
-      const data = response.data;
+  const [likeIcon, setLikeIcon] = useState(0);
 
-      await refresh();
-    } catch (error) {
-      console.log(error);
-    }
+  const icon = [
+    {
+      icons: (
+        <svg
+          fill="black"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          className=" w-7 h-7"
+        >
+          <path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z" />
+        </svg>
+      ),
+    },
+    {
+      icons: (
+        <svg
+          fill="red"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          className=" w-7 h-7"
+        >
+          <path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z" />
+        </svg>
+      ),
+    },
+  ];
+  const [comment, toggleComment] = useState(false);
+  // const givelike = {
+  //   like: likeData,
+  // };
+  const addlike = async () => {
+    let isCheck = checkRef.current.checked;
+    isCheck
+      ? setLike(-1 + likes) && setLikeIcon(0)
+      : setLike(1 + like) && setLikeIcon(1);
+    // try {
+    //   const response = await axios.post(
+    //     `http://localhost:3000/api/v3/u/like/${_id}`,
+    //     givelike
+    //   );
+    //   const data = await response.data;
+    //   console.log(data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
   const commentHandle = () => {
     toggleComment(true);
@@ -35,15 +68,14 @@ const FooterBeranda = ({ data, id, refresh, comments }) => {
       <div className=" bg-slate-100 rounded-b-2xl flex flex-col justify-center h-10">
         <div className=" relative flex justify-evenly p-2">
           <div onClick={addlike} className=" cursor-pointer flex gap-1">
-            <svg
-              style={{ color: "black" }}
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              className=" w-7 h-7"
-            >
-              <path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z" />
-            </svg>
+            <input
+              className="hidden"
+              ref={checkRef}
+              type="checkbox"
+              name="like"
+              id="like"
+            />
+            <label htmlFor="like">{icon[likeIcon].icons}</label>
             <div className=" flex flex-col justify-center font-quick text-black">
               <p>{likes}</p>
             </div>

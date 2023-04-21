@@ -10,14 +10,6 @@ const Extend = ({ data, refresh }) => {
   return <div className=" text-white font-quick">{results}</div>;
 };
 
-// const Images = ({ data }) => {
-//   const [img, setImg] = useState(data.secure_url);
-//   return (
-//     <div>
-//       <img src={img} alt="" />
-//     </div>
-//   );
-// };
 const List = ({ data, refresh }) => {
   const { username, address, secret, date, like, _id, image, comment } = data;
 
