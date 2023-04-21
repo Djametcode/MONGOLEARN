@@ -62,10 +62,21 @@ const getCommentById = async (req, res) => {
   }
   return res.status(200).json({ data: data.comments });
 };
+
+const getAvatarByPost = async (req, res) => {
+  const { name } = req.params;
+  const data = await UserModel.findOne({ username: name });
+  if (!data) {
+    return res.status(404).json({ msg: "User not found" });
+  }
+
+  return res.status(200).json({ avatar: data.avatar });
+};
 module.exports = {
   getAllSecretMessage,
   giveLike,
   givecomment,
   getComment,
   getCommentById,
+  getAvatarByPost,
 };

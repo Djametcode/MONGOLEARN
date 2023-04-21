@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import FooterBeranda from "./footerberanda";
 import ProfileStory from "./profileStory";
 
+const ProfilePicture = () => {};
+
 const Extend = ({ data, refresh }) => {
   const results = data.map((item, index) => (
     <List key={data._id} data={item} refresh={refresh} />
@@ -11,15 +13,25 @@ const Extend = ({ data, refresh }) => {
 };
 
 const List = ({ data, refresh }) => {
-  const { username, address, secret, date, like, _id, image, comment } = data;
-  console.log(data);
+  const {
+    username,
+    address,
+    secret,
+    date,
+    like,
+    _id,
+    image,
+    comment,
+    createdBy,
+  } = data;
+  console.log(createdBy);
 
   const formatdate = date.split("T")[0];
   return (
     <div className=" mb-6 flex flex-col text-sm ml-2 mr-2 mt-2">
       <div className=" flex justify-start bg-slate-100 rounded-t-2xl">
         <div className=" scale-75">
-          <ProfileStory />
+          <ProfilePicture />
         </div>
         <div className=" flex flex-col justify-center">
           <p className=" w-56 text-black">{username} </p>
