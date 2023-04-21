@@ -8,7 +8,6 @@ export const footerContext = createContext(null);
 const FooterBeranda = ({ data, id, refresh, comments }) => {
   const navigate = useNavigate();
   const { like, _id } = data;
-  //   console.log(like, _id);
   const [likes, setLike] = useState(like);
   const [comment, toggleComment] = useState(false);
   const givelike = {
@@ -16,11 +15,12 @@ const FooterBeranda = ({ data, id, refresh, comments }) => {
   };
   const addlike = async () => {
     try {
-      await axios.post(
+      const response = await axios.post(
         `https://grumpy-worm-stockings.cyclic.app/api/v3/u/like/${id}`,
         givelike
       );
-      await setLike(like + 1);
+      const data = response.data;
+
       await refresh();
     } catch (error) {
       console.log(error);
