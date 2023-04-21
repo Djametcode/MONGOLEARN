@@ -12,6 +12,7 @@ const Extend = ({ data, refresh }) => {
 
 const List = ({ data, refresh }) => {
   const { username, address, secret, date, like, _id, image, comment } = data;
+  console.log(data);
 
   const formatdate = date.split("T")[0];
   return (
