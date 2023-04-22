@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import FooterBeranda from "./footerberanda";
-import ProfileStory from "./profileStory";
-
-const ProfilePicture = () => {};
+import ProfilePicture from "./ProfilPicture";
 
 const Extend = ({ data, refresh }) => {
   const results = data.map((item, index) => (
@@ -30,9 +28,7 @@ const List = ({ data, refresh }) => {
   return (
     <div className=" mb-6 flex flex-col text-sm ml-2 mr-2 mt-2">
       <div className=" flex justify-start bg-slate-100 rounded-t-2xl">
-        <div className=" scale-75">
-          <ProfilePicture />
-        </div>
+        <div className=" scale-75"></div>
         <div className=" flex flex-col justify-center">
           <p className=" w-56 text-black">{username} </p>
         </div>
