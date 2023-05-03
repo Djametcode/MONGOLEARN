@@ -15,7 +15,7 @@ export default function Pesan() {
     const getAllChat = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v3/user/chat/${id}`,
+          `https://grumpy-worm-stockings.cyclic.app/api/v3/user/chat/${id}`,
           config
         );
         const item = await response.data;

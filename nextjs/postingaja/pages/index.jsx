@@ -17,7 +17,7 @@ export default function LoginPage() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v3/auth/login",
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/login",
         data
       );
       const result = await response.data;
