@@ -48,6 +48,12 @@ const Schema = new mongoose.Schema({
       },
     },
   ],
+  chat: [
+    {
+      chats: String,
+      createdBy: String,
+    },
+  ],
 });
 
 module.exports = mongoose.model("Schemas", Schema);

@@ -1,5 +1,7 @@
 const DataScheme = require("../model/Learn");
+const chatSchema = require("../model/chat");
 const cloudinary = require("../utlis/cloudinary");
+const UserModel = require("../model/users");
 
 const addData = async (req, res) => {
   try {
@@ -100,6 +102,37 @@ const updateProfile = async (req, res) => {
   }
 };
 
+const newChat = async (req, res) => {
+  try {
+    const { Id } = req.params;
+    const data = await UserModel.findOneAndUpdate(
+      { _id: Id },
+      {
+        $push: {
+          chat: {
+            text: req.body.text,
+            createdBy: req.UserModel.username,
+          },
+        },
+      }
+    );
+
+    return res.status(200).json({ msg: "Berhasil chattt", data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getChatUser = async (req, res) => {
+  try {
+    const { Id } = req.params;
+    const data = await UserModel.find({ _id: Id });
+    return res.status(200).json({ data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   addData,
   getAllData,
@@ -107,4 +140,6 @@ module.exports = {
   UpdateData,
   deleteDAtaById,
   updateProfile,
+  newChat,
+  getChatUser,
 };

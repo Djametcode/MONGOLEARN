@@ -1,4 +1,5 @@
 import ForYouPage from "@/components/foryoupage";
+import Layout from "@/components/layout";
 
 export default function Home() {
   return (
@@ -31,3 +32,7 @@ export default function Home() {
     </div>
   );
 }
+
+Home.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

@@ -1,7 +1,14 @@
+import { useRouter } from "next/router";
 import avatar from "./image/user.png";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Layout({ children }) {
+  const router = useRouter();
+  const Logout = () => {
+    localStorage.clear();
+    router.push("/");
+  };
   return (
     <div className=" flex font-quick relative bg-slate-200 h-screen">
       <div className=" flex flex-col ">
@@ -48,7 +55,10 @@ export default function Layout({ children }) {
               <p className=" text-sm">Beranda</p>
             </div>
           </div>
-          <div className=" flex gap-6 justify-start cursor-pointer">
+          <Link
+            href="/pesan"
+            className=" flex gap-6 justify-start cursor-pointer"
+          >
             <div>
               <svg
                 className=" w-6"
@@ -69,7 +79,7 @@ export default function Layout({ children }) {
             <div className=" flex flex-col justify-center">
               <p className=" text-sm">Pesan</p>
             </div>
-          </div>
+          </Link>
           <div className=" flex gap-6 justify-start">
             <div>
               <svg
@@ -127,7 +137,12 @@ export default function Layout({ children }) {
               />
               <div className=" text-xs">
                 <p>Tofik Hidayat</p>
-                <p className=" text-slate-500">Logout</p>
+                <p
+                  onClick={Logout}
+                  className=" text-xs cursor-pointer text-slate-500"
+                >
+                  Logout
+                </p>
               </div>
             </div>
           </div>

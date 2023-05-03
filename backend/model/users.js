@@ -24,6 +24,16 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  chat: [
+    {
+      text: {
+        type: String,
+      },
+      createdBy: {
+        type: String,
+      },
+    },
+  ],
 });
 
 UserSchema.pre("save", async function () {

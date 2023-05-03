@@ -1,6 +1,32 @@
-import Image from "next/image";
+import Layout from "@/components/layout";
+import axios from "axios";
+import { useEffect } from "react";
 
 export default function Pesan() {
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const id = localStorage.getItem("id");
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const getAllChat = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/api/v3/user/chat/${id}`,
+          config
+        );
+        const item = await response.data;
+        console.log(item);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getAllChat();
+  }, []);
   return (
     <>
       <div className=" flex flex-col">
@@ -196,3 +222,7 @@ export default function Pesan() {
     </>
   );
 }
+
+Pesan.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
