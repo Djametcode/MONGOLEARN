@@ -11,7 +11,7 @@ export default function Layout({ children }) {
   };
   return (
     <div className=" flex font-quick relative bg-slate-200 h-screen">
-      <div className=" flex flex-col ">
+      <div className=" flex flex-col max-sm:hidden">
         <div className=" flex flex-col justify-center h-20">
           <div className=" flex justify-start pl-5 ">
             <svg
