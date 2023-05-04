@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import avatar from "./image/user.png";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -9,6 +10,27 @@ export default function Layout({ children }) {
     localStorage.clear();
     router.push("/");
   };
+  const [background, setBackground] = useState();
+  const [color, setColor] = useState();
+  const [pesanBg, setPesanBg] = useState();
+  const [pesanClr, setPesanClr] = useState();
+  const [callBg, setCallBg] = useState();
+  const [settingBg, setSettingBg] = useState();
+
+  useEffect(() => {
+    if (router.pathname === "/landing") {
+      setBackground("blue");
+      setColor("white");
+      setPesanBg("");
+      setPesanClr("");
+    }
+    if (router.pathname === "/pesan") {
+      setBackground("");
+      setColor("black");
+      setPesanBg("blue");
+      setPesanClr("white");
+    }
+  });
   return (
     <div className=" flex font-quick relative bg-slate-200 h-screen">
       <div className=" flex flex-col max-md:hidden">
@@ -32,8 +54,12 @@ export default function Layout({ children }) {
             <h1 className=" text-2xl">ChatBox</h1>
           </div>
         </div>
-        <div className=" p-6 flex flex-col gap-6 w-60 h-full">
-          <div className=" flex gap-6 justify-start cursor-pointer">
+        <div className=" p-3 flex flex-col gap-3 w-60 h-full">
+          <Link
+            href="/landing"
+            style={{ backgroundColor: `${background}`, color: `${color}` }}
+            className="rounded-xl p-2 flex gap-6 justify-start cursor-pointer"
+          >
             <div>
               <svg
                 className=" w-6"
@@ -54,10 +80,11 @@ export default function Layout({ children }) {
             <div className=" flex flex-col justify-center">
               <p className=" text-sm">Beranda</p>
             </div>
-          </div>
+          </Link>
           <Link
             href="/pesan"
-            className=" flex gap-6 justify-start cursor-pointer"
+            className=" rounded-xl p-2 flex gap-6 justify-start cursor-pointer"
+            style={{ backgroundColor: `${pesanBg}`, color: `${pesanClr}` }}
           >
             <div>
               <svg
@@ -80,7 +107,7 @@ export default function Layout({ children }) {
               <p className=" text-sm">Pesan</p>
             </div>
           </Link>
-          <div className=" flex gap-6 justify-start">
+          <div className=" rounded-xl p-2 flex gap-6 justify-start">
             <div>
               <svg
                 className=" w-6"
@@ -102,7 +129,7 @@ export default function Layout({ children }) {
               <p className=" text-sm">Panggilan</p>
             </div>
           </div>
-          <div className=" flex gap-6 justify-start">
+          <div className=" rounded-xl p-2 flex gap-6 justify-start">
             <div>
               <svg
                 className=" w-6"
