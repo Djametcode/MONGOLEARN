@@ -4,4 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("/components/image/bg.svg");
+::root {
+  color-scheme: dark;
+}
