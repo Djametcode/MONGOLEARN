@@ -65,7 +65,7 @@ export default function Home() {
                   Akun
                 </Link>
               </div>
-              <div className=" absolute bottom-3 bg-red-700 p-2 text-sm rounded-xl text-white">
+              <div className=" absolute bottom-7 bg-red-700 p-2 text-sm rounded-xl text-white">
                 <button onClick={logOut}>LogOut</button>
               </div>
             </div>

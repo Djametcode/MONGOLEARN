@@ -58,7 +58,7 @@ export default function ForYouPage() {
             onClick={function refere() {
               route.push("/postForm");
             }}
-            className=" md:hidden absolute bottom-2 right-2"
+            className=" md:hidden absolute bottom-7 right-2"
           >
             <CreatePost toggle={togglePost} getPost={getAllFyp} />
           </div>
