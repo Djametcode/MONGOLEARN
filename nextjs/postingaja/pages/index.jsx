@@ -2,12 +2,13 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [image, setImage] = useState();
 
   const data = {
     email: email,
@@ -35,18 +36,23 @@ export default function LoginPage() {
       console.log(error);
     }
   };
+  useEffect(() => {
+    const image = "/components/image/bg.svg";
+    setImage(image);
+  });
   return (
     <div className=" bg-slate-300 w-screen h-screen flex flex-col gap-5 justify-center font-quick">
       <div className=" flex justify-center">
         <div className=" absolute top-28">
           <h2 className=" text-4xl">Posting Aja Dulu</h2>
-          <p className=" text-center underline underline-offset-4">
-            Karya anak bangsa
-          </p>
         </div>
       </div>
       <div className=" flex justify-center">
-        <form className=" flex flex-col bg-slate-100 shadow-lg h-72 pl-24 pr-24 justify-center gap-3 rounded-xl">
+        <form
+          // style={{ backgroundImage: "url('/bg.svg')" }}
+          id="form"
+          className=" bg-heikei flex bg-cover flex-col bg-heike shadow-lg h-80 pl-24 pr-24 justify-center gap-3 rounded-xl"
+        >
           <input
             className=" p-2  rounded-lg focus:outline-none"
             type="text"
@@ -64,7 +70,7 @@ export default function LoginPage() {
               Login
             </button>
           </div>
-          <div className=" flex text-sm gap-2">
+          <div className=" text-white flex text-sm gap-2">
             <p className="">Belum punya akun?</p>
             <Link href="/regist">Buat Akun</Link>
           </div>
