@@ -76,6 +76,12 @@ export default function Regist() {
           </div>
         </form>
       </div>
+      <div className=" flex justify-center">
+        <div className=" absolute bottom-5 flex gap-3 text-white">
+          <p>&copy; copyright 2023</p>
+          <p>Djamet coder</p>
+        </div>
+      </div>
     </div>
   );
 }
