@@ -26,11 +26,15 @@ export default function PostForm() {
       formData.append("file", file);
       const result = Object.fromEntries(formData);
 
-      await axios.postForm("http://localhost:3000/api/v3/user", result, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.postForm(
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/user",
+        result,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       closePost();
     } catch (error) {
       console.log(error);
