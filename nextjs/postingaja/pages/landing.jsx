@@ -60,7 +60,7 @@ export default function Home() {
               <div>
                 <Link
                   className=" bg-cyan-300 p-2 rounded-lg text-white"
-                  href="/landing"
+                  href="/profile"
                 >
                   Akun
                 </Link>
