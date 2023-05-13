@@ -22,7 +22,7 @@ export default function PostForm() {
       const formData = new FormData();
       formData.append("username", username);
       formData.append("address", address);
-      formData.append("secretMessage", secret);
+      formData.append("secret", secret);
       formData.append("file", file);
       const result = Object.fromEntries(formData);
 
