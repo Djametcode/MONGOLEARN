@@ -1,26 +1,38 @@
-const UserModel = require("../model/users");
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const chatSchema = new Schema({
-  user1: {
+  participant: [
+    {
+      user: {
+        type: String,
+        default: mongoose.Schema.Types.ObjectId,
+        ref: "UserModel",
+      },
+    },
+  ],
+  createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "UserModel",
     required: true,
   },
-  user2: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "UserModel",
-    required: true,
-  },
-  message: {
-    type: String,
-    required: true,
-  },
-  timestamp: {
-    type: Date,
-    default: Date.now(),
-  },
+  message: [
+    {
+      text: {
+        type: String,
+        required: true,
+      },
+      sender: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "UserModel",
+      },
+      timestamp: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+  ],
 });
 
 module.exports = mongoose.model("Chat", chatSchema);

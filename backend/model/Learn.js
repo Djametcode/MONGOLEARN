@@ -19,7 +19,7 @@ const Schema = new mongoose.Schema({
     default: "Gak ada secret message",
   },
   createdBy: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "UserModel",
     required: [true],
   },

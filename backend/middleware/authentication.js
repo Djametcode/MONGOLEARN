@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const auth = async (req, res, next) => {
   const authHeader = req.headers.authorization;
+  console.log(authHeader);
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     res.status(501).json({ msg: "User tidak punya izin" });

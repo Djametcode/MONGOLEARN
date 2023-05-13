@@ -32,7 +32,7 @@ export default function Layout({ children }) {
     }
   });
   return (
-    <div className=" flex font-quick relative bg-slate-200 h-screen">
+    <div className=" shadow-lg flex font-quick relative bg-slate-200 h-screen">
       <div className=" flex flex-col max-md:hidden">
         <div className=" flex flex-col justify-center h-20">
           <div className=" flex justify-start pl-5 ">
@@ -175,7 +175,7 @@ export default function Layout({ children }) {
           </div>
         </div>
       </div>
-      <div className=" w-screen overflow-hidden overflow-y-auto border border-l border-r border-slate-300">
+      <div className=" w-screen overflow-hidden overflow-y-auto border max-sm:border-none border-l border-r border-slate-300">
         {children}
       </div>
     </div>

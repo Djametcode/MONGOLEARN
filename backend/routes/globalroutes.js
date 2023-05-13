@@ -7,6 +7,7 @@ const {
   getComment,
   getCommentById,
   getAvatarByPost,
+  getAllUser,
 } = require("../controller/universal");
 
 router.get("/list", getAllSecretMessage);
@@ -15,5 +16,6 @@ router.post("/like/:Id", giveLike);
 router.post("/comment/:Id", givecomment);
 router.get("/comment/:Id", getCommentById);
 router.get("/user/avatar/:name", getAvatarByPost);
+router.get("/all-users", getAllUser);
 
 module.exports = router;

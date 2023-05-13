@@ -1,11 +1,11 @@
 const DataScheme = require("../model/Learn");
-const chatSchema = require("../model/chat");
+const Chat = require("../model/chat");
 const cloudinary = require("../utlis/cloudinary");
 const UserModel = require("../model/users");
 
 const addData = async (req, res) => {
   try {
-    req.body.createdBy = req.UserModel.username;
+    req.body.createdBy = req.UserModel.userId;
 
     if (!req.file) {
       return res.status(501).json({ msg: "No file attached please add file" });
@@ -102,32 +102,65 @@ const updateProfile = async (req, res) => {
   }
 };
 
-const newChat = async (req, res) => {
-  try {
-    const { Id } = req.params;
-    const data = await UserModel.findOneAndUpdate(
-      { _id: Id },
-      {
-        $push: {
-          chat: {
-            text: req.body.text,
-            createdBy: req.UserModel.username,
-          },
-        },
-      }
-    );
-
-    return res.status(200).json({ msg: "Berhasil chattt", data });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const getChatUser = async (req, res) => {
   try {
     const { Id } = req.params;
     const data = await UserModel.find({ _id: Id });
     return res.status(200).json({ data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const createNewChat = async (req, res) => {
+  const { participant } = req.body;
+  const createdBy = req.UserModel.userId;
+  const newChat = new Chat({
+    participant,
+    createdBy,
+    message: [],
+  });
+
+  try {
+    const savedChat = await newChat.save();
+    return res.status(200).json({ savedChat });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const sendChat = async (req, res) => {
+  const { Id } = req.params;
+  const { text } = req.body;
+  const sender = req.UserModel.userId;
+  try {
+    const chat = await Chat.findById(Id);
+    if (!chat) {
+      return res.status(404).json({ msg: "Chat not found" });
+    }
+
+    const newMessage = {
+      text,
+      sender,
+    };
+
+    chat.message.push(newMessage);
+    await chat.save();
+
+    return res.status(200).json({ chat });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getChat = async (req, res) => {
+  const { Id } = req.params;
+  try {
+    const chat = await Chat.findOne({ _id: Id })
+      .populate("participant")
+      .populate("message.sender");
+
+    return res.status(200).json({ chat });
   } catch (error) {
     console.log(error);
   }
@@ -140,6 +173,8 @@ module.exports = {
   UpdateData,
   deleteDAtaById,
   updateProfile,
-  newChat,
   getChatUser,
+  createNewChat,
+  getChat,
+  sendChat,
 };

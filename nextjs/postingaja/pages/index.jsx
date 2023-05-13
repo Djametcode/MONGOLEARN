@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -17,7 +18,7 @@ export default function LoginPage() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/login",
+        "http://localhost:3000/api/v3/auth/login",
         data
       );
       const result = await response.data;
@@ -26,8 +27,8 @@ export default function LoginPage() {
         token,
       } = result;
 
-      localStorage.setItem("id", id_user);
-      localStorage.setItem("token", token);
+      Cookies.set("id", id_user);
+      Cookies.set("token", token);
       router.push("/landing");
     } catch (error) {
       console.log(error);

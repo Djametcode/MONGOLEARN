@@ -3,7 +3,7 @@ const comment = require("../model/comment");
 const UserModel = require("../model/users");
 
 const getAllSecretMessage = async (req, res) => {
-  const data = await DataScheme.find({}).sort("-date");
+  const data = await DataScheme.find({}).sort("-date").populate("createdBy");
   res.status(200).json({ data });
 };
 
@@ -72,6 +72,26 @@ const getAvatarByPost = async (req, res) => {
 
   return res.status(200).json({ avatar: data.avatar });
 };
+
+const getAllUser = async (req, res) => {
+  try {
+    const user = await UserModel.find({});
+    const userData = user.map((item) => ({
+      data: {
+        id: item._id,
+        username: item.username,
+        avatar:
+          item.avatar === ""
+            ? "https://as2.ftcdn.net/v2/jpg/01/18/03/35/1000_F_118033506_uMrhnrjBWBxVE9sYGTgBht8S5liVnIeY.jpg"
+            : item.avatar,
+      },
+    }));
+    return res.status(200).json({ userData });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getAllSecretMessage,
   giveLike,
@@ -79,4 +99,5 @@ module.exports = {
   getComment,
   getCommentById,
   getAvatarByPost,
+  getAllUser,
 };

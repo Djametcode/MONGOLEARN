@@ -7,8 +7,9 @@ const {
   deleteDAtaById,
   UpdateData,
   updateProfile,
-  newChat,
   getChatUser,
+  createNewChat,
+  sendChat,
 } = require("../controller/add");
 const upload = require("../utlis/multer");
 
@@ -18,7 +19,8 @@ router.get("/:Id", getDataById);
 router.delete("/:Id", deleteDAtaById);
 router.patch("/:Id", UpdateData);
 router.patch("/update-profile/:Id", updateProfile);
-router.post("/send-chat/:Id", newChat);
+router.post("/create-chat", createNewChat);
 router.get("/chat/:Id", getChatUser);
+router.post("/send-chat/:Id", sendChat);
 
 module.exports = router;
