@@ -3,9 +3,11 @@ import Layout from "@/components/layout";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function Home() {
+  const route = useRouter();
   const [nav, setNav] = useState(false);
   const toggleNav = () => {
     setNav(true);
@@ -13,12 +15,18 @@ export default function Home() {
   const closeNav = () => {
     setNav(false);
   };
+
+  const logOut = () => {
+    Cookies.remove("id");
+    Cookies.remove("token");
+    route.push("/");
+  };
   return (
     <div>
       <div className=" bg-slate-300 flex flex-col justify-center max-sm:h-16 sticky top-0">
         <div className=" flex justify-between pl-11 pr-11">
           {nav && (
-            <div className=" md:hidden flex flex-col gap-5 text-lg p-5 pt-12 absolute top-0 left-0 z-30 h-screen w-80 shadow-lg rounded-tr-2xl rounded-br-2xl transition-all bg-slate-100">
+            <div className=" md:hidden flex flex-col gap-5 text-lg p-5 pt-12 absolute top-0 left-0 z-40 h-screen w-80 shadow-lg rounded-tr-2xl rounded-br-2xl transition-all bg-slate-100">
               <div
                 onClick={closeNav}
                 className=" cursor-pointer absolute top-3 right-3"
@@ -35,7 +43,7 @@ export default function Home() {
               </div>
               <div>
                 <Link
-                  className=" bg-lime-500 p-2 rounded-lg text-white"
+                  className=" bg-cyan-300 p-2 rounded-lg text-white"
                   href="/landing"
                 >
                   Beranda
@@ -43,7 +51,7 @@ export default function Home() {
               </div>
               <div>
                 <Link
-                  className=" bg-lime-500 p-2 rounded-lg text-white"
+                  className=" bg-cyan-300 p-2 rounded-lg text-white"
                   href="/landing"
                 >
                   Chat
@@ -51,11 +59,14 @@ export default function Home() {
               </div>
               <div>
                 <Link
-                  className=" bg-lime-500 p-2 rounded-lg text-white"
+                  className=" bg-cyan-300 p-2 rounded-lg text-white"
                   href="/landing"
                 >
                   Akun
                 </Link>
+              </div>
+              <div className=" absolute bottom-3 bg-red-700 p-2 text-sm rounded-xl text-white">
+                <button onClick={logOut}>LogOut</button>
               </div>
             </div>
           )}

@@ -1,36 +1,35 @@
 import axios from "axios";
-import Cookies from "js-cookie";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-export default function LoginPage() {
+export default function Regist() {
+  const [username, setUsername] = useState();
   const router = useRouter();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   const data = {
+    username: username,
     email: email,
     password: password,
   };
   console.log(data);
 
-  const login = async () => {
+  const [text, setText] = useState();
+  const [toggle, setToggle] = useState(false);
+
+  const registAccount = async () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/login",
+        "http://localhost:3000/api/v3/auth/register",
         data
       );
-      const result = await response.data;
-      const {
-        user: { id_user },
-        token,
-      } = result;
-
-      Cookies.set("id", id_user);
-      Cookies.set("token", token);
-      router.push("/landing");
+      const result = response.data;
+      console.log(result);
+      const { msg } = result;
+      await setText(msg);
+      await setToggle(true);
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +45,13 @@ export default function LoginPage() {
         </div>
       </div>
       <div className=" flex justify-center">
-        <form className=" flex flex-col bg-slate-100 shadow-lg h-72 pl-24 pr-24 justify-center gap-3 rounded-xl">
+        <form className=" flex flex-col bg-slate-200 shadow-lg h-72 pl-24 pr-24 justify-center gap-2 rounded-xl">
+          <input
+            type="text"
+            placeholder="Username"
+            className=" p-2 w-60 rounded-lg focus:outline-none"
+            onChange={(e) => setUsername(e.target.value)}
+          />
           <input
             className=" p-2  rounded-lg focus:outline-none"
             type="text"
@@ -59,14 +64,16 @@ export default function LoginPage() {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div className=" flex justify-center">
-            <button onClick={login} className=" bg-white p-1 rounded-xl">
-              Login
-            </button>
+          <div className=" flex justify-center text-green-500 text-sm">
+            {toggle && <p>{text}</p>}
           </div>
-          <div className=" flex text-sm gap-2">
-            <p className="">Belum punya akun?</p>
-            <Link href="/regist">Buat Akun</Link>
+          <div className=" flex justify-center">
+            <button
+              onClick={registAccount}
+              className=" bg-white p-2 rounded-xl"
+            >
+              Daftar
+            </button>
           </div>
         </form>
       </div>
