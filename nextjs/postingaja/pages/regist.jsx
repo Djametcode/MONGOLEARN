@@ -29,7 +29,9 @@ export default function Regist() {
       const { msg } = result;
       await setText(msg);
       await setToggle(true);
-      await router.push("/");
+      setInterval(() => {
+        router.push("/");
+      }, 3000);
     } catch (error) {
       console.log(error);
     }
