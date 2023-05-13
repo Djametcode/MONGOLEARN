@@ -10,7 +10,9 @@ export default function ForYouPage() {
   const [datas, setData] = useState([]);
   const getAllFyp = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/v3/u/list");
+      const response = await axios.get(
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/u/list"
+      );
       const result = response.data;
       const { data } = result;
       console.log(data);
