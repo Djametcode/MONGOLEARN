@@ -22,14 +22,14 @@ export default function Regist() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v3/auth/register",
+        "https://grumpy-worm-stockings.cyclic.app/api/v3/auth/register",
         data
       );
       const result = response.data;
-      console.log(result);
       const { msg } = result;
       await setText(msg);
       await setToggle(true);
+      await router.push("/");
     } catch (error) {
       console.log(error);
     }
