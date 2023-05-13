@@ -41,17 +41,17 @@ export default function LoginPage() {
     setImage(image);
   });
   return (
-    <div className=" bg-slate-300 w-screen h-screen flex flex-col gap-5 justify-center font-quick">
+    <div className=" bg-slate-800 w-screen h-screen flex flex-col gap-5 justify-center font-quick">
       <div className=" flex justify-center">
         <div className=" absolute top-28">
-          <h2 className=" text-4xl">Posting Aja Dulu</h2>
+          <h2 className=" text-4xl text-white">Posting Aja Dulu</h2>
         </div>
       </div>
       <div className=" flex justify-center">
         <form
           // style={{ backgroundImage: "url('/bg.svg')" }}
           id="form"
-          className=" bg-heikei flex bg-cover flex-col bg-heike shadow-lg h-80 pl-24 pr-24 justify-center gap-3 rounded-xl"
+          className=" bg-heikei flex bg-cover flex-col bg-heike shadow-lg p-12 max-sm:w-[350px] max-sm:h-80 justify-center gap-3 rounded-xl"
         >
           <input
             className=" p-2  rounded-lg focus:outline-none"
@@ -70,7 +70,7 @@ export default function LoginPage() {
               Login
             </button>
           </div>
-          <div className=" text-white flex text-sm gap-2">
+          <div className=" text-white flex justify-center text-sm gap-2">
             <p className="">Belum punya akun?</p>
             <Link href="/regist">Buat Akun</Link>
           </div>

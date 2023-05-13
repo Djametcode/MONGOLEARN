@@ -37,21 +37,18 @@ export default function Regist() {
     }
   };
   return (
-    <div className=" bg-slate-300 w-screen h-screen flex flex-col gap-5 justify-center font-quick">
+    <div className=" bg-slate-800 w-screen h-screen flex flex-col gap-5 justify-center font-quick">
       <div className=" flex justify-center">
         <div className=" absolute top-28">
-          <h2 className=" text-4xl">Posting Aja Dulu</h2>
-          <p className=" text-center underline underline-offset-4">
-            Karya anak bangsa
-          </p>
+          <h2 className=" text-4xl text-white">Posting Aja Dulu</h2>
         </div>
       </div>
       <div className=" flex justify-center">
-        <form className=" flex flex-col bg-slate-200 shadow-lg h-72 pl-24 pr-24 justify-center gap-2 rounded-xl">
+        <form className=" flex flex-col p-12 max-sm:w-[350px] max-sm:h-80 bg-heikei bg-cover shadow-lg justify-center gap-2 rounded-xl">
           <input
             type="text"
             placeholder="Username"
-            className=" p-2 w-60 rounded-lg focus:outline-none"
+            className=" p-2 rounded-lg focus:outline-none"
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
