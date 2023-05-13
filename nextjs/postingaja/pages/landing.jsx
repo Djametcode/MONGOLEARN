@@ -23,10 +23,10 @@ export default function Home() {
   };
   return (
     <div>
-      <div className=" bg-slate-300 flex flex-col justify-center max-sm:h-16 sticky top-0">
-        <div className=" flex justify-between pl-11 pr-11">
+      <div className=" bg-heikei2 text-white flex flex-col justify-center max-sm:h-16 sticky top-0">
+        <div className=" flex justify-center pl-11 pr-11">
           {nav && (
-            <div className=" md:hidden flex flex-col gap-5 text-lg p-5 pt-12 absolute top-0 left-0 z-40 h-screen w-80 shadow-lg rounded-tr-2xl rounded-br-2xl transition-all bg-slate-100">
+            <div className=" md:hidden flex flex-col gap-5 text-lg p-5 pt-12 absolute top-0 left-0 z-40 h-screen w-80 shadow-lg transition-all bg-heikei2">
               <div
                 onClick={closeNav}
                 className=" cursor-pointer absolute top-3 right-3"
@@ -43,7 +43,7 @@ export default function Home() {
               </div>
               <div>
                 <Link
-                  className=" bg-cyan-300 p-2 rounded-lg text-white"
+                  className=" underline underline-offset-4 p-2 rounded-lg text-white"
                   href="/landing"
                 >
                   Beranda
@@ -51,7 +51,7 @@ export default function Home() {
               </div>
               <div>
                 <Link
-                  className=" bg-cyan-300 p-2 rounded-lg text-white"
+                  className=" underline underline-offset-4 p-2 rounded-lg text-white"
                   href="/landing"
                 >
                   Chat
@@ -59,20 +59,20 @@ export default function Home() {
               </div>
               <div>
                 <Link
-                  className=" bg-cyan-300 p-2 rounded-lg text-white"
+                  className=" underline underline-offset-4 p-2 rounded-lg text-white"
                   href="/profile"
                 >
                   Akun
                 </Link>
               </div>
-              <div className=" shadow-none absolute bottom-14 bg-red-700 p-2 text-sm rounded-xl text-white">
+              <div className=" shadow-none absolute bottom-20 bg-red-700 p-2 text-sm rounded-xl text-white">
                 <button onClick={logOut}>LogOut</button>
               </div>
             </div>
           )}
           <div
             onClick={toggleNav}
-            className=" cursor-pointer md:hidden flex flex-col justify-center -translate-x-7"
+            className=" absolute left-6 top-4 cursor-pointer md:hidden flex flex-col justify-center"
           >
             <svg
               fill="currentColor"
@@ -90,23 +90,6 @@ export default function Home() {
           </div>
           <div className=" flex flex-col justify-center h-20">
             <h1 className=" text-2xl font-extrabold">Beranda</h1>
-          </div>
-          <div className=" flex flex-col justify-center max-sm:translate-x-7">
-            <div className=" bg-slate-400/50 rounded-full">
-              <svg
-                className=" w-10 p-2 rounded-full"
-                fill="grey"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  clipRule="evenodd"
-                  fillRule="evenodd"
-                  d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                />
-              </svg>
-            </div>
           </div>
         </div>
       </div>

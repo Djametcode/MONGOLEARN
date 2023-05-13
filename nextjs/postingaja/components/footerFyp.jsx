@@ -2,26 +2,65 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
-export default function FooterFyp({ text, like }) {
+export default function FooterFyp({ text, like, id }) {
+  const [likes, setLike] = useState(like);
+  const [dummyLike, setDummy] = useState(like);
+  const [icon, setIcon] = useState(0);
+  const data = {
+    like: likes + 1,
+  };
+  const icons = [
+    <svg
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      className=" w-7 h-7"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+      />
+    </svg>,
+    <svg
+      fill="red"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      className=" w-7 h-7"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+      />
+    </svg>,
+  ];
+  const addLike = async () => {
+    try {
+      await console.log(id);
+      const response = await axios.post(
+        `https://grumpy-worm-stockings.cyclic.app/api/v3/u/like/${id}`,
+        data
+      );
+      const result = await response.data;
+      setDummy(like + 1);
+      setIcon(1);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className=" flex flex-col gap-2">
       <div className=" flex gap-3 md:pt-5">
-        <div>
-          <svg
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.5}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            className=" w-7 h-7"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-            />
-          </svg>
+        <div onClick={addLike} className=" cursor-pointer">
+          {icons[icon]}
         </div>
         <div>
           <svg
@@ -59,7 +98,7 @@ export default function FooterFyp({ text, like }) {
         </div>
       </div>
       <div className=" text-sm pl-1">
-        <p>{like} suka</p>
+        <p>{dummyLike} suka</p>
         <p>{text}</p>
       </div>
       <div></div>

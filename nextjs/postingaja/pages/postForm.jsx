@@ -42,7 +42,7 @@ export default function PostForm() {
   };
   return (
     <div className=" h-screen flex flex-col justify-center m-5 font-quick">
-      <div className=" transition-all md:hidden flex justify-center h-96 bg-slate-100 rounded-xl shadow-xl p-10">
+      <div className=" transition-all md:hidden flex justify-center h-96 bg-heikei bg-cover rounded-xl shadow-xl p-10">
         <div
           onClick={closePost}
           className=" cursor-pointer absolute top-3 right-3"
@@ -77,7 +77,7 @@ export default function PostForm() {
             onChange={(e) => setSecret(e.target.value)}
           />
           <input
-            className=" focus:outline-none p-2 placeholder:text-black rounded-xl shadow-sm"
+            className=" text-white focus:outline-none p-2 rounded-xl shadow-sm"
             type="file"
             name="file"
             onChange={(e) => setFile(e.target.files[0])}

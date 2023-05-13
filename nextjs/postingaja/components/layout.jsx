@@ -3,6 +3,7 @@ import avatar from "./image/user.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Navbar from "./navbar";
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -175,8 +176,11 @@ export default function Layout({ children }) {
           </div>
         </div>
       </div>
-      <div className=" w-screen overflow-hidden overflow-y-auto border max-sm:border-none border-l border-r border-slate-300">
+      <div className=" pb-20 w-screen overflow-hidden overflow-y-auto border max-sm:border-none border-l border-r border-slate-300">
         {children}
+      </div>
+      <div className=" bg-heikei2 text-white w-screen p-3 absolute bottom-3 flex flex-col justify-center">
+        <Navbar />
       </div>
     </div>
   );

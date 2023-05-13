@@ -9,6 +9,7 @@ const {
   getAvatarByPost,
   getAllUser,
 } = require("../controller/universal");
+const { getUserById } = require("../controller/auth");
 
 router.get("/list", getAllSecretMessage);
 router.get("/comment", getComment);

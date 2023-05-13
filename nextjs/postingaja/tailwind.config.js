@@ -14,6 +14,7 @@ module.exports = {
       backgroundImage: {
         avatar: "url('/image/user.png')",
         heikei: "url('/bg.svg')",
+        heikei2: "url('/bg2.svg')",
       },
     },
   },

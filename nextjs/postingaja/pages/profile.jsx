@@ -36,9 +36,9 @@ export default function Profile() {
   };
   return (
     <>
-      <div className=" fixed w-screen pl-6 flex justify-center bg-cyan-500 h-16 font-quick">
+      <div className=" fixed w-screen pl-6 flex justify-center bg-heikei2 h-16 font-quick">
         {nav && (
-          <div className=" md:hidden flex flex-col gap-5 text-lg p-5 pt-12 absolute top-0 left-0 z-40 h-screen w-80 shadow-lg rounded-tr-2xl rounded-br-2xl transition-all bg-slate-100">
+          <div className=" md:hidden flex flex-col gap-5 text-lg p-5 pt-12 absolute top-0 left-0 z-40 h-screen w-80 shadow-lg transition-all bg-heikei2">
             <div
               onClick={closeNav}
               className=" cursor-pointer absolute top-3 right-3"
@@ -104,7 +104,7 @@ export default function Profile() {
           <h1 className=" text-xl">Profile</h1>
         </div>
       </div>
-      <div className=" p-6 pt-20 flex flex-col gap-4 bg-slate-200 h-screen md:hidden font-quick">
+      <div className=" p-6 pt-20 flex flex-col gap-4 bg-heikei2 h-screen md:hidden font-quick">
         <div className=" flex gap-5">
           <div>
             <img

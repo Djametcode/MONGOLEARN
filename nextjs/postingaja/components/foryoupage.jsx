@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 export default function ForYouPage() {
   const route = useRouter();
   const [datas, setData] = useState([]);
+  console.log(datas);
   const getAllFyp = async () => {
     try {
       const response = await axios.get(
@@ -45,22 +46,14 @@ export default function ForYouPage() {
                 </div>
               </div>
               <img
-                className=" max-sm:rounded-2xl max-sm:h-72 max-sm:w-screen max-sm:p-4 max-sm:pl-0 max-sm:pr-0 w-[700px] h-[400px] object-cover overflow-y-scroll"
+                className=" max-sm:rounded-2xl max-sm:h-86 max-sm:w-screen max-sm:p-4 max-sm:pl-0 max-sm:pr-0 w-[700px] h-[400px] object-cover overflow-y-scroll"
                 src={item.image.secure_url}
                 alt=""
               />
               <div className=" pl-4 pb-4">
-                <FooterFyp text={item.secret} like={item.like} />
+                <FooterFyp text={item.secret} like={item.like} id={item._id} />
               </div>
             </div>
-          </div>
-          <div
-            onClick={function refere() {
-              route.push("/postForm");
-            }}
-            className=" md:hidden absolute bottom-14 right-2"
-          >
-            <CreatePost toggle={togglePost} getPost={getAllFyp} />
           </div>
         </div>
       ))}
