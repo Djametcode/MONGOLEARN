@@ -7,12 +7,12 @@ export default function Navbar() {
   const id = Cookies.get("id");
   const token = Cookies.get("token");
   const route = useRouter();
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
 
   const getCurrentUser = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v3/auth/user/${id}`,
+        `https://grumpy-worm-stockings.cyclic.app/api/v3/auth/user/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -20,7 +20,6 @@ export default function Navbar() {
         }
       );
       const result = await response.data;
-      console.log(result);
       setUser(result.user.avatar);
     } catch (error) {
       console.log(error);
@@ -93,7 +92,6 @@ export default function Navbar() {
           className=" w-8 h-8 rounded-full object-cover"
           src={user}
           alt="user"
-          srcset=""
         />
       </div>
     </div>
