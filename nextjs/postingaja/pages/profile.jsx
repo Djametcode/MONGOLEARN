@@ -125,7 +125,12 @@ export default function Profile() {
             </div>
           </div>
           <div className=" gap-3 flex text-sm">
-            <p className=" cursor-pointer bg-heikei3 text-white border border-slate-200/60 p-1 rounded-xl w-full text-center">
+            <p
+              onClick={function refer() {
+                route.push("/change-profile");
+              }}
+              className=" cursor-pointer bg-heikei3 text-white border border-slate-200/60 p-1 rounded-xl w-full text-center"
+            >
               Edit Profil
             </p>
             <p className=" cursor-pointer bg-slate-100 bg-heikei3 text-white p-1 border border-slate-200/60 rounded-xl w-full text-center">
