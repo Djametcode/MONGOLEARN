@@ -57,6 +57,7 @@ export default function ForYouPage() {
                     like={item.like}
                     id={item._id}
                     comment={item.comments}
+                    date={item.date}
                   />
                 </div>
               </div>

@@ -2,13 +2,34 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
-export default function FooterFyp({ text, like, id, comment }) {
+export default function FooterFyp({ text, like, id, comment, date }) {
   const [likes, setLike] = useState(like);
   const [dummyLike, setDummy] = useState(like);
   const [icon, setIcon] = useState(0);
   const data = {
     like: likes + 1,
   };
+  function getTimeAgo(dates) {
+    const datex = new Date(dates);
+    const now = new Date();
+
+    const seconds = Math.floor((now - datex) / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) {
+      return days + " hari" + (days > 1 ? "" : "") + " yang lalu";
+    } else if (hours > 0) {
+      return hours + " jam" + (hours > 1 ? "" : "") + " yang lalu";
+    } else if (minutes > 0) {
+      return minutes + " menit" + (minutes > 1 ? "" : "") + " yang lalu";
+    } else {
+      return seconds + " detik" + (seconds > 1 ? "" : "") + " yang lalu";
+    }
+  }
+
+  const timeAgo = getTimeAgo(date);
   const icons = [
     <svg
       fill="none"
@@ -101,8 +122,9 @@ export default function FooterFyp({ text, like, id, comment }) {
         <p>{dummyLike} suka</p>
         <p>{text}</p>
         <p className=" text-xs text-stone-700/80">
-          {comment.length} komentar ..
+          {comment.length} komentar ....
         </p>
+        <p className=" text-xs pt-3 text-stone-700/80">{timeAgo}</p>
       </div>
       <div></div>
     </div>
