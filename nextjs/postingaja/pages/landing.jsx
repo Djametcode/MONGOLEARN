@@ -23,10 +23,10 @@ export default function Home() {
   };
   return (
     <div>
-      <div className=" bg-heikei2 text-white flex flex-col justify-center max-sm:h-16 sticky top-0">
+      <div className=" bg-heikei3 text-white flex flex-col justify-center max-sm:h-16 sticky top-0">
         <div className=" flex justify-center pl-11 pr-11">
           {nav && (
-            <div className=" md:hidden flex flex-col gap-5 text-lg p-5 pt-12 absolute top-0 left-0 z-40 h-screen w-80 shadow-lg transition-all bg-heikei2">
+            <div className=" md:hidden flex flex-col gap-5 text-lg p-5 pt-12 absolute top-0 left-0 z-40 h-screen w-80 shadow-lg transition-all bg-heikei3">
               <div
                 onClick={closeNav}
                 className=" cursor-pointer absolute top-3 right-3"
@@ -65,7 +65,7 @@ export default function Home() {
                   Akun
                 </Link>
               </div>
-              <div className=" shadow-none absolute bottom-20 bg-red-700 p-2 text-sm rounded-xl text-white">
+              <div className=" shadow-none absolute bottom-20 bg-slate-100 p-2 text-sm rounded-xl text-black">
                 <button onClick={logOut}>LogOut</button>
               </div>
             </div>

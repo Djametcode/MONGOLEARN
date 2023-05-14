@@ -41,14 +41,14 @@ export default function PostForm() {
     }
   };
   return (
-    <div className=" h-screen flex flex-col justify-center m-5 font-quick">
+    <div className=" h-screen flex flex-col justify-center bg-heikei3 p-5 font-quick">
       <div className=" transition-all md:hidden flex justify-center h-96 bg-heikei bg-cover rounded-xl shadow-xl p-10">
         <div
           onClick={closePost}
           className=" cursor-pointer absolute top-3 right-3"
         >
           <svg
-            fill="black"
+            fill="white"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"

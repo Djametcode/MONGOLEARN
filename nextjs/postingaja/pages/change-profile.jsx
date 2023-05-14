@@ -38,7 +38,7 @@ export default function ChangeProfile() {
     }
   };
   return (
-    <div className=" h-screen flex flex-col justify-center m-5 font-quick">
+    <div className=" h-full flex flex-col justify-center m-5 font-quick">
       <div className=" transition-all md:hidden flex justify-center h-96 bg-slate-200 rounded-xl shadow-xl p-10">
         <div
           onClick={closePost}

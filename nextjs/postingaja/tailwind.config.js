@@ -15,6 +15,7 @@ module.exports = {
         avatar: "url('/image/user.png')",
         heikei: "url('/bg.svg')",
         heikei2: "url('/bg2.svg')",
+        heikei3: "url('/bg3.svg')",
       },
     },
   },

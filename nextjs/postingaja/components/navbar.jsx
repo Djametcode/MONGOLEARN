@@ -1,12 +1,13 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const id = Cookies.get("id");
   const token = Cookies.get("token");
   const route = useRouter();
+  const [user, setUser] = useState();
 
   const getCurrentUser = async () => {
     try {
@@ -19,6 +20,8 @@ export default function Navbar() {
         }
       );
       const result = await response.data;
+      console.log(result);
+      setUser(result.user.avatar);
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +31,7 @@ export default function Navbar() {
   });
   return (
     <div className=" flex justify-around">
-      <div className="">
+      <div>
         <svg
           fill="currentColor"
           viewBox="0 0 24 24"
@@ -79,6 +82,19 @@ export default function Navbar() {
             d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.125 4.5a4.125 4.125 0 102.338 7.524l2.007 2.006a.75.75 0 101.06-1.06l-2.006-2.007a4.125 4.125 0 00-3.399-6.463z"
           />
         </svg>
+      </div>
+      <div
+        onClick={function refer() {
+          route.push("/profile");
+        }}
+        className=" cursor-pointer"
+      >
+        <img
+          className=" w-8 h-8 rounded-full object-cover"
+          src={user}
+          alt="user"
+          srcset=""
+        />
       </div>
     </div>
   );
