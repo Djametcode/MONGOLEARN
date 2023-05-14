@@ -74,7 +74,7 @@ export default function Profile() {
           </div>
         </div>
       )}
-      <div className=" fixed w-screen pl-6 flex justify-center bg-heikei3 shadow-2xl text-white h-16 font-quick">
+      <div className=" fixed w-screen pl-6 z-20 flex justify-center bg-heikei3 shadow-2xl text-white h-16 font-quick">
         <div
           onClick={toggleNav}
           className=" cursor-pointer absolute left-4 top-4 flex flex-col justify-center"
