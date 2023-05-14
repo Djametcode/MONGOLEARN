@@ -16,7 +16,7 @@ export default function Profile() {
         `https://grumpy-worm-stockings.cyclic.app/api/v3/auth/user/${id}`
       );
       const result = await response.data;
-      setUser(result.user.avatar);
+      setUser(result.user);
     } catch (error) {
       console.log(error);
     }
@@ -97,12 +97,12 @@ export default function Profile() {
           <h1 className=" text-xl">Profile</h1>
         </div>
       </div>
-      <div className=" p-6 pt-20 flex flex-col gap-4 md:hidden font-quick">
+      <div className=" bg-heikei3 h-full p-6 pt-20 flex flex-col gap-4 md:hidden font-quick">
         <div className=" flex flex-col gap-2 pb-5 border-slate-300/40 border-b">
           <div>
             <img
               className=" object-cover w-16 h-16 rounded-full"
-              src={user}
+              src={user.avatar}
               alt="user"
             />
           </div>
