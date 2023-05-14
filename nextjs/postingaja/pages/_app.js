@@ -11,6 +11,8 @@ export default function App({ Component, pageProps }) {
     const token = Cookies.get("token");
     if (!token) {
       router.push("/");
+    } else {
+      router.push("landing");
     }
     const config = {
       headers: {

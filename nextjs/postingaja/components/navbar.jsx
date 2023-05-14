@@ -30,7 +30,12 @@ export default function Navbar() {
   });
   return (
     <div className=" flex justify-around">
-      <div>
+      <div
+        onClick={function refer() {
+          route.push("/landing");
+        }}
+        className=" cursor-pointer"
+      >
         <svg
           fill="currentColor"
           viewBox="0 0 24 24"

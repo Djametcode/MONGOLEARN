@@ -179,7 +179,7 @@ export default function Layout({ children }) {
       <div className=" pb-20 bg-heikei3 h-full w-screen overflow-hidden overflow-y-auto border max-sm:border-none border-l border-r border-slate-300">
         {children}
       </div>
-      <div className=" bg-heikei3 z-30 text-white w-screen p-7 absolute bottom-0 flex flex-col justify-center">
+      <div className=" bg-heikei3 z-30 text-white w-screen p-5 absolute bottom-0 flex flex-col justify-center">
         <Navbar />
       </div>
     </div>
