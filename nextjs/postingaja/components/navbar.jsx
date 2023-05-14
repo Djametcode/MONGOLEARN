@@ -71,7 +71,12 @@ export default function Navbar() {
           />
         </svg>
       </div>
-      <div>
+      <div
+        onClick={function refer() {
+          route.push("/search");
+        }}
+        className=" cursor-pointer"
+      >
         <svg
           fill="currentColor"
           viewBox="0 0 24 24"

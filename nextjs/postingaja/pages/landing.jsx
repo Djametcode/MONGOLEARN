@@ -42,30 +42,21 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <Link
-                  className=" underline underline-offset-4 p-2 rounded-lg text-white"
-                  href="/landing"
-                >
+                <Link className=" p-2 rounded-lg text-white" href="/landing">
                   Beranda
                 </Link>
               </div>
               <div>
-                <Link
-                  className=" underline underline-offset-4 p-2 rounded-lg text-white"
-                  href="/landing"
-                >
+                <Link className=" p-2 rounded-lg text-white" href="/landing">
                   Chat
                 </Link>
               </div>
               <div>
-                <Link
-                  className=" underline underline-offset-4 p-2 rounded-lg text-white"
-                  href="/profile"
-                >
+                <Link className=" p-2 rounded-lg text-white" href="/profile">
                   Akun
                 </Link>
               </div>
-              <div className=" shadow-none absolute bottom-20 bg-slate-100 p-2 text-sm rounded-xl text-black">
+              <div className=" bg-red-700 p-2 text-sm rounded-xl text-white">
                 <button onClick={logOut}>LogOut</button>
               </div>
             </div>
