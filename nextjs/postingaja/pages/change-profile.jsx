@@ -38,14 +38,14 @@ export default function ChangeProfile() {
     }
   };
   return (
-    <div className=" h-full flex flex-col justify-center m-5 font-quick">
-      <div className=" transition-all md:hidden flex justify-center h-96 bg-slate-200 rounded-xl shadow-xl p-10">
+    <div className=" flex flex-col justify-center h-screen p-5 font-quick bg-heikei3">
+      <div className=" transition-all md:hidden flex flex-col bg-heikei bg-cover justify-center rounded-xl shadow-xl p-10">
         <div
           onClick={closePost}
           className=" cursor-pointer absolute top-3 right-3"
         >
           <svg
-            fill="black"
+            fill="white"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -55,7 +55,7 @@ export default function ChangeProfile() {
           </svg>
         </div>
         <form className=" flex flex-col gap-2 justify-center">
-          <input
+          {/* <input
             className=" focus:outline-none p-2 placeholder:text-black rounded-xl shadow-sm"
             type="text"
             placeholder="Nama"
@@ -72,9 +72,9 @@ export default function ChangeProfile() {
             type="text"
             placeholder="Pesan"
             onChange={(e) => setSecret(e.target.value)}
-          />
+          /> */}
           <input
-            className=" focus:outline-none p-2 placeholder:text-black rounded-xl shadow-sm"
+            className=" text-white focus:outline-none p-2 placeholder:text-black rounded-xl shadow-sm"
             type="file"
             name="file"
             onChange={(e) => setFile(e.target.files[0])}

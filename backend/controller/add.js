@@ -166,6 +166,19 @@ const getChat = async (req, res) => {
   }
 };
 
+const getUserPost = async (req, res) => {
+  try {
+    const data = await DataScheme.find({});
+    if (!data) {
+      return res.status(200).json({ msg: "Pengguna belum posting apapun" });
+    }
+
+    return res.status(200).json({ data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   addData,
   getAllData,
@@ -177,4 +190,5 @@ module.exports = {
   createNewChat,
   getChat,
   sendChat,
+  getUserPost,
 };

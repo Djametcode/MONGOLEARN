@@ -10,6 +10,7 @@ const {
   getChatUser,
   createNewChat,
   sendChat,
+  getUserPost,
 } = require("../controller/add");
 const upload = require("../utlis/multer");
 
@@ -22,5 +23,6 @@ router.patch("/update-profile/:Id", updateProfile);
 router.post("/create-chat", createNewChat);
 router.get("/chat/:Id", getChatUser);
 router.post("/send-chat/:Id", sendChat);
+router.get("/user-post", getUserPost);
 
 module.exports = router;
