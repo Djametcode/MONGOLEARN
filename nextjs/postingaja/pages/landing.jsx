@@ -23,7 +23,7 @@ export default function Home() {
   };
   return (
     <div>
-      <div className=" bg-heikei3 text-white flex flex-col justify-center max-sm:h-16 sticky top-0">
+      <div className=" bg-heikei3 text-white flex flex-col justify-center max-sm:h-16 fixed top-0 w-full">
         <div className=" flex justify-center pl-11 pr-11">
           {nav && (
             <div className=" md:hidden flex flex-col gap-5 text-lg p-5 pt-12 absolute top-0 left-0 z-40 h-screen w-80 shadow-lg transition-all bg-heikei3">
