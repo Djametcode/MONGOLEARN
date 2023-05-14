@@ -16,6 +16,7 @@ export default function Profile() {
         `https://grumpy-worm-stockings.cyclic.app/api/v3/auth/user/${id}`
       );
       const result = await response.data;
+      console.log(result);
       setUser(result.user);
     } catch (error) {
       console.log(error);
@@ -39,7 +40,7 @@ export default function Profile() {
   return (
     <>
       {nav && (
-        <div className=" md:hidden flex flex-col gap-5 text-lg p-5 pt-12 absolute top-0 left-0 z-30 h-screen w-80 shadow-2xl transition-all bg-heikei3">
+        <div className=" md:hidden flex flex-col gap-5 text-lg p-5 absolute top-0 left-0 z-30 h-screen w-80 shadow-2xl transition-all bg-heikei3">
           <div
             onClick={closeNav}
             className=" cursor-pointer absolute top-3 right-3"
