@@ -30,7 +30,7 @@ export default function ForYouPage() {
   return (
     <>
       {datas.map((item) => (
-        <div className=" flex justify-center pt-16">
+        <div className=" flex justify-center">
           <div className=" bg-slate-200 p-4 w-screen flex justify-center">
             <div className=" bg-slate-50 shadow-xl flex flex-col rounded-xl">
               <div className=" md:pb-4 pt-3 pl-4 flex gap-2 text-lg font-extrabold">
@@ -51,7 +51,12 @@ export default function ForYouPage() {
                 alt=""
               />
               <div className=" pl-4 pb-4">
-                <FooterFyp text={item.secret} like={item.like} id={item._id} />
+                <FooterFyp
+                  text={item.secret}
+                  like={item.like}
+                  id={item._id}
+                  comment={item.comments}
+                />
               </div>
             </div>
           </div>

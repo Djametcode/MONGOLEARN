@@ -177,7 +177,7 @@ export default function Layout({ children }) {
             </div>
           </div>
         </div>
-        <div className=" h-full w-screen overflow-hidden overflow-y-auto border max-sm:border-none border-l border-r border-slate-300">
+        <div className=" h-full pt-16 w-screen overflow-hidden overflow-y-auto border max-sm:border-none border-l border-r border-slate-300">
           {children}
         </div>
       </div>

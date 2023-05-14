@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
-export default function FooterFyp({ text, like, id }) {
+export default function FooterFyp({ text, like, id, comment }) {
   const [likes, setLike] = useState(like);
   const [dummyLike, setDummy] = useState(like);
   const [icon, setIcon] = useState(0);
@@ -100,6 +100,9 @@ export default function FooterFyp({ text, like, id }) {
       <div className=" text-sm pl-1">
         <p>{dummyLike} suka</p>
         <p>{text}</p>
+        <p className=" text-xs text-stone-700/80">
+          {comment.length} komentar ..
+        </p>
       </div>
       <div></div>
     </div>
